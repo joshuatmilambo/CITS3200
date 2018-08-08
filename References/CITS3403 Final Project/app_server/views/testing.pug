@@ -1,0 +1,46 @@
+extends layout
+
+block style
+  style.
+    .testing {
+    padding: 110px;
+    text-align: center;
+    background-color: white;
+    position:relative;
+    height: 100%;
+    }
+    h1, h2 {
+    margin: 0;
+    }
+    h1 {
+    font-size: 30px;
+    }
+    h2 {
+    font-weight: normal;
+    }
+    .main{
+      padding:0;
+    }
+    em {
+        color: rgb(148, 0, 0);
+    }
+
+block content
+  // Testing
+  section.testing
+    h1 Testing 
+    p Task planner is a web app driven by, submitting forms regarding to users details, user's skillsets, creating and allocating tasks. It is extremely important to ensure
+        |  that the data goes under the correct collections in the correct format, maintaining the integrity of the database and not adversley affecting the ability to
+        |  connect and retrieve data from the database.
+    p Therefore, we created multiple unit testing cases based on, connecting to relative collections, testing the ability to insert and retrieve data from collections, testing
+        |  the validation of inserting bad format of data and lastly to determine the ability to delete a testing document.
+    p Although, it takes around 2000ms for the first test case to finish, test cases afterwards ran extremely fast in an average of 200ms. We had 9 test cases for 3 different
+        |  collections, user details, skillsets (used for the matching algorithm) and tasks. It passes all 9 test cases.
+    p
+        em Note that the testing file is dependant on Mongoose and Chai. It also requires Mocha which must be installed globally.
+        br
+        em To run the testing file, users need Node.js and a local copy of the website source. Users run the test by entering the command 'npm test' in the Node.js console, when in
+            |  the local website directory.
+    h1 Output
+    br
+    img(src='/images/Testing.jpg' alt='Test Results')

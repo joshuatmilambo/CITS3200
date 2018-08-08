@@ -1,0 +1,79 @@
+extends layout
+
+block style
+  style.
+    .center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    }
+    .about>h1 {
+    font-size: 35px;
+    }
+    .about>p {
+    font-weight: normal;
+    font-size: 20px;
+    }
+    button {
+    width: 400px;
+    font-size: 25px;
+    font-weight: bold;
+    height: auto;
+    }
+    .actionContainer {
+    background-color: rgba(35, 35, 35, .6);
+    padding-bottom: 15px;
+    box-shadow: 0 0 10px 10px rgba(35, 35, 35, .6);
+    }
+    ol {
+      text-align: left;
+    }
+    ol li {
+      font-size: 20px;
+      margin: 10px;
+    }
+
+block content
+  // Open Theme
+  .openBack
+    section.open
+      .center
+        h1 Task Planner
+        h2 Get organised.
+  // About
+  section.about
+    h1 What Is Task Planner?
+    p
+      | Task Planner is a tool hand crafted to assist users outsource, supervise and prioritise tasks.
+      br
+      em Collaboration has never been simpler!
+    h1 How Does Task Planner Work?
+    p
+      | When a user creates a task, it contains the skills required for that particular task. For example, Accounting, Design or Programming.
+    p
+      | Task Planner will then assign the task to users that have the skills required to complete the task, and who aren&apos;t too overloaded.
+    h2 The Query
+    ol
+      li Firstly, we sort our skill sets collection by the number of tasks a user currently has assigned, lowest to highest.
+      li Then, we find all users with at least one matching skill required for the task
+      li If users have more than one mathcing skill, their user name will be returned multiple times. Grouping results by user name allows the algorithm to determine who are the best 
+        | candidates for your task
+      li Finally, we sort the candidates by number of matches in descending order. Thus the user with the highest matching skills but also the lowest task allocation gets
+        | assigned your task
+    p
+      em
+        | This ensures your task is completed to the best quality. 
+        br
+        | No rushed jobs, or project mishaps.
+  // Call To Action
+  section.callToAction(style='text-align: center')
+    .actionContainer
+      h1 Start Planning Your Tasks!
+      button#actionBtn.callToActionBtn(type='button') Register Now
+
+block scripts
+  script.
+        document.getElementById("actionBtn").onclick = function () {
+        location.href = "register"
+        }

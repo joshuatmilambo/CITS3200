@@ -1,0 +1,135 @@
+extends layout
+
+block style
+  style.
+    .form-container {
+    width: 40%;
+    min-width: 600px;
+    }
+    .skill1 {
+    grid-area: skill1;
+    }
+    .skill2 {
+    grid-area: skill2;
+    }
+    .skill3 {
+    grid-area: skill3;
+    }
+    .skill4 {
+    grid-area: skill4;
+    }
+    .skill5 {
+    grid-area: skill5;
+    }
+    .skill6 {
+    grid-area: skill6;
+    }
+    .skill4, .skill5, .skill6 {
+    margin-top: 15px;
+    }
+    .grid-container {
+    display: grid;
+    grid-template-areas: 'skill1 skill2 skill3' 'skill4 skill5 skill6';
+    grid-gap: 2px;
+    text-align: center;
+    }
+    label {
+    display: block;
+    }
+    .formError {
+    float: none;
+    text-align: center;
+    display: block;
+    }
+
+block content
+    // Skills Form
+    form.form-container(action='/skills',method = 'post', onsubmit='return formSkill()')
+        h1(style='text-align: center') SKILLS
+        .container
+            .grid-container
+                .skill1
+                    label(for='skill1')
+                        strong
+                            | Skill 1
+                            span *
+                    select#skill1(name = 'skills')
+                        option(value='N/A') N/A
+                        option(value='Accounting') Accounting
+                        option(value='Design') Design
+                        option(value='Leadership') Leadership
+                        option(value='Mathematics') Mathematics
+                        option(value='Programming') Programming
+                        option(value='Public Relations') Public Relations
+                    small#skill1Error.formError Please Select a Skill
+                .skill2
+                    label(for='skill2')
+                        strong
+                            | Skill 2
+                            span *
+                    select#skill2(name = 'skills')
+                        option(value='N/A') N/A
+                        option(value='Accounting') Accounting
+                        option(value='Design') Design
+                        option(value='Leadership') Leadership
+                        option(value='Mathematics') Mathematics
+                        option(value='Programming') Programming
+                        option(value='Public Relations') Public Relations
+                    small#skill2Error.formError Please Select a Skill
+                .skill3
+                    label(for='skill3')
+                        strong
+                            | Skill 3
+                            span *
+                    select#skill3(name = 'skills')
+                        option(value='N/A') N/A
+                        option(value='Accounting') Accounting
+                        option(value='Design') Design
+                        option(value='Leadership') Leadership
+                        option(value='Mathematics') Mathematics
+                        option(value='Programming') Programming
+                        option(value='Public Relations') Public Relations
+                    small#skill3Error.formError Please Select a Skill
+                .skill4
+                    label(for='skill4')
+                        strong Skill 4
+                    select#skill4(name = 'skills')
+                        option(value='N/A') N/A
+                        option(value='Accounting') Accounting
+                        option(value='Design') Design
+                        option(value='Leadership') Leadership
+                        option(value='Mathematics') Mathematics
+                        option(value='Programming') Programming
+                        option(value='Public Relations') Public Relations
+                .skill5
+                    label(for='skill5')
+                        strong Skill 5
+                    select#skill5(name = 'skills')
+                        option(value='N/A') N/A
+                        option(value='Accounting') Accounting
+                        option(value='Design') Design
+                        option(value='Leadership') Leadership
+                        option(value='Mathematics') Mathematics
+                        option(value='Programming') Programming
+                        option(value='Public Relations') Public Relations
+                .skill6
+                    label(for='skill6')
+                        strong Skill 6
+                    select#skill6(name = 'skills')
+                        option(value='N/A') N/A
+                        option(value='Accounting') Accounting
+                        option(value='Design') Design
+                        option(value='Leadership') Leadership
+                        option(value='Mathematics') Mathematics
+                        option(value='Programming') Programming
+                        option(value='Public Relations') Public Relations
+            .btncontainer(style='margin-top: 35px')
+            button(type='submit') Next Step
+            button#cancel.cnclBtn(type='button') Back
+
+block scripts
+    script(src='/javascripts/formValidation.js')
+    script.
+        document.getElementById("cancel").onclick = function () {
+        location.href = "register"
+        }

@@ -1,0 +1,36 @@
+extends layout 
+
+block style
+  style.
+    button {
+    width: 150px;
+    }
+    .form-container {
+    width: 30%;
+    min-width: 450px;
+    }
+    #uname,
+    #psw {
+    margin-bottom: 25px;
+    }
+
+block content
+  // Login Form
+  form.form-container(action='/login', method = 'post')
+    h1(style='text-align: center; margin: 0;') LOGIN
+    .container
+      label(for='uname')
+        strong Username
+      input#uname(type='text', placeholder='Enter Username',name = 'username', required='')
+      label(for='psw')
+        strong Password
+      input#psw(type='password', placeholder='Enter Password',name = 'password', required='')
+      .btncontainer
+        button(type='submit', style='float: none') Login
+        button#cancel.cnclBtn(type='button', style='float: right') Cancel
+
+block scripts
+  script.
+    document.getElementById("cancel").onclick = function () {
+    location.href = "/"
+    }

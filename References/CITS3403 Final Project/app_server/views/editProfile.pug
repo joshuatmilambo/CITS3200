@@ -1,0 +1,72 @@
+extends layout
+
+block style
+  style.
+    .form-container {
+    width: 50%;
+    min-width: 800px;
+    }
+    label {
+    display: block;
+    }
+    .blocked {
+        background-color: rgb(50, 50, 50) !important;
+        color: white !important;
+        cursor: default;
+    }
+
+block content
+  // New User Form
+  form.form-container(action='/edit-profile', onsubmit='return formApply()', method = 'post')
+    h1(style='text-align: center') EDIT USER
+    .container
+      .input(style='padding-right: 10px')
+        label(for='fname')
+          strong
+            | First Name
+            span *
+        input#fname(type='text', placeholder='Enter First Name',name = "fname", value=user.fname required='')
+        small.formError -
+      .input(style='float: right; padding-left: 10px')
+        label(for='lname')
+          strong
+            | Last Name
+            span *
+        input#lname(type='text', placeholder='Enter Last Name',name = "lname", value=user.lname, required='')
+        small.formError -
+      .input(style='padding-right: 10px')
+        label(for='uname')
+          strong
+            | Username
+            span *
+        input#uname.blocked(type='text', placeholder='Enter Desired Username',name = "uname", value=user.uname, readonly)
+        small.formError -
+      .input(style='float: right; padding-left: 10px')
+        label(for='email')
+          strong
+            | Email
+            span *
+        input#email(type='text', placeholder='Enter Email',name = "email", value=user.email, required='')
+        small#emailError.formError Please Enter a Valid Email Address
+      .input(style='padding-right: 10px;')
+        label(for='contactNum')
+          strong
+            | Contact Number
+            span *
+        input#contactNum(type='text', placeholder='Enter Contact Number (1122334455)',name = "contactNum", value=user.contactNum, required='')
+        small#contactNumError.formError Please Enter a Valid 10 Digit Phone Number
+      .btncontainer
+        button(type='submit') Save
+        button#cancel.cnclBtn(type='button') Cancel
+
+block scripts
+  script(src='/javascripts/formValidation.js')
+  script.
+    document.getElementById("cancel").onclick = function () {
+    location.href = "view-tasks"
+    }
+  script.
+    var blocked = document.getElementById('uname');
+    blocked.onfocus = function() {
+        blocked.blur();
+    }

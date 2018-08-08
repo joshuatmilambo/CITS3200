@@ -1,0 +1,61 @@
+doctype html
+html
+    head
+        // Title
+        title Task Planner
+
+        // Meta Tags
+        meta(charset='UTF-8')
+        meta(name='description', content='Manage and plan your tasks')
+        meta(name='author', content='Sam Fairs')
+        meta(name='viewport', content='width=device-width, initial-scale=1.0')
+        meta(name='keywords', content='Task, Planner, Planning, Management, Project')
+
+        // Styles and Fonts
+        link(rel='stylesheet', href='/stylesheets/style.css')
+        link(href='https://fonts.googleapis.com/css?family=Poppins:400,400i,700', rel='stylesheet')
+        block style
+    body
+        // Navbar
+        nav.navbar
+            .navTitle
+                a(href='/') Task Planner
+            ul.navMenu
+                if (user)
+                    li
+                        a(href='logout') Logout
+                    li
+                        a(href='edit-profile') Edit Profile
+                    li
+                        a(href='view-tasks') View Tasks
+                    li
+                        a(href='created-tasks') View Created Tasks
+                    li
+                        a(href='create-task') Create New Task      
+                else
+                    li
+                        a(href='login') Login
+                    li
+                        a(href='register') Register
+                li
+                    a(href='about') About
+                li
+                    a(href='testing') Testing
+                li
+                    a(href='references') References  
+        .main
+            // Content
+            block content
+
+    // Footer
+    footer.footer
+        small
+            | Current Time:
+            span#current
+            br
+            | Last Modified:
+            span#modified
+
+    // Scripts
+    script(src='/javascripts/footer.js')
+    block scripts

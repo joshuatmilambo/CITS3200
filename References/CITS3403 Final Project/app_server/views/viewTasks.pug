@@ -1,0 +1,166 @@
+extends layout
+
+block style
+    style.
+        .form-container {
+            width: 50%;
+            padding-bottom: 50px;
+        }
+
+        .accordion {
+            background-color: rgb(50, 50, 50);
+            color: white;
+            cursor: pointer;
+            width: 85%;
+            margin: 0 auto;
+            text-align: left;
+            border-bottom: 1px solid #e69b22;
+            outline: none;
+            border-radius: 0px;
+            transition: 0.4s;
+            display: block;
+        }
+
+        .accordion>p {
+            margin: 0;
+            padding: 15px 50px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .accordion p span {
+            float: right;
+        }
+
+        .accordion:hover {
+            filter: brightness(120%);
+        }
+        
+        .accordion p span::after {
+            content: '+';
+            color: white;
+            font-weight: normal;
+            font-size: 20px;
+            float: right;
+            margin-left: 5px;
+        }
+
+        .active p span::after {
+            content: "-";
+        }
+
+        .panel {
+            width: 85%;
+            text-align: left;
+            margin: 0 auto;
+            background-color: rgb(100, 100, 100);
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.2s ease-out;
+        }
+
+        .panel p {
+            padding: 0 50px;
+        }
+
+        .flex {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .complete {
+            width: 80%;
+            float: none !important;
+            margin: 0 0 20px 0;
+        }
+
+        .container {
+            overflow: auto;
+            text-align: center;
+            padding: 0 0 20px 0;
+        }
+
+        .container form {
+            display: inline;
+        }
+
+        .sort {
+            width: 125px;
+            height: 30px;
+            margin: 0 25px;
+            font-size: 12px !important;
+            font-weight: bold;
+            padding: 0;
+            float: none !important;
+        }
+
+        #disabled {
+            background-color: grey !important;
+            color: white !important;
+            cursor: default;
+        }
+
+        #disabled:hover {
+            filter: none;
+        }
+
+block content
+    div.form-container(style='text-align: center')
+        h1(style='margin-bottom: 20px') WELCOME #{user.fname.toUpperCase()} - VIEW TASKS
+        if(tasks.length)
+            .container
+                form(action='/sort' method='post')
+                    if(sortBy === 'auto')
+                        button#disabled.sort(disabled) Auto Sort
+                    else
+                        button.sort(name='sort' value='sortAuto' type='submit') Auto Sort
+                form(action='/sort' method='post')
+                    if(sortBy === 'date')
+                        button#disabled.sort(disabled) Sort By Date
+                    else
+                        button.sort(name='sort' value='sortDate' type='submit') Sort By Date
+                form(action='/sort' method='post')
+                    if(sortBy === 'name')
+                        button#disabled.sort(disabled) Sort By Name
+                    else
+                        button.sort(name='sort' value='sortName' type='submit') Sort By Name
+            each task, i in tasks
+                div.accordion 
+                    p #{task.title}
+                        if(task.complete)
+                            span(style='color: green') COMPLETE
+                        else
+                            span(style='color: red') INCOMPLETE
+                div.panel
+                    p.flex
+                        span 
+                            strong Title:
+                            |  #{task.title} 
+                        span 
+                            strong Priority:
+                            |  #{task.priority}
+                        span 
+                            strong Due:
+                            |  #{task.due}
+                    p
+                        strong Dependencies:
+                        br
+                        span.flex
+                            each dep in task.dependencies
+                                if(dep === 'N/A')
+                                    span #{dep}
+                                else
+                                    span(style='color: #cc0000')
+                                        strong #{dep}
+                    p
+                        strong Description: 
+                        br 
+                        | #{task.description}
+                    if(!task.complete && !dependencies[i])
+                        form(style='text-align: center' action='/view-tasks' method='post')
+                            button.complete(type='submit' name='taskTitle' value=task.title) Complete
+        else
+            p No Allocated Tasks
+            
+block scripts
+    script(src='/javascripts/accordion.js')

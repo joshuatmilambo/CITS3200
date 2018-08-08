@@ -1,0 +1,59 @@
+extends layout
+
+block style
+  style.
+    .difficulties {
+    padding: 110px;
+    text-align: center;
+    background-color: white;
+    position:relative;
+    height: 100%;
+    }
+    h1, h2 {
+    margin: 0;
+    }
+    h1 {
+    font-size: 30px;
+    }
+    h2 {
+    font-weight: normal;
+    }
+    .main{
+      padding:0;
+    }
+
+block content
+    // Difficulties
+    section.difficulties
+        h1 Architecture
+        p The arcitecure we implemented was a MEAN stack. This refers to the tools we used to create out web application, M for MongoDB, E for Express, A for AngularJS and N for NodeJS. We
+            |  decided to use a MEAN stack as this was required in the project specification and because of the vast resources and teaching content available. This made implementing application
+            |  specific features like, task allocation, task creation and task deletion easier to learn and understand.
+        p Another reason we chose to implement a MEAN stack is it's emphasis on JavaScript. Having coded in Java for majority of the our degrees meant we had plenty of prior experience. 
+            | Thanks to the syntatic similarity between JavaScript and Java, it was easy to adjust to the different language.
+        p Finally, we chose to implement a MEAN stack due to it's wide spread support. This allowed for easy deployment to a our chosen cloud hosting service, 
+            a(target='_blank' href='https://www.heroku.com/') Heroku
+            | , and our database hosting service, 
+            a(target='_blank' href='https://mlab.com/') mLab
+            | . With the use of git, deploying, maintaining and improving our web application was a simple, streamlined and efficient process.
+        h1 Design Choices
+        p We chose to implement a fairly minimalistic and familiar design for our web application. The application has a fixed navigation bar at the top of every page, with it's content
+            |  changing depending on whether the user is logged in. Users can access the home page of our web application from anywhere by clicking the name of the application in the
+            |  navigtion bar. These were implemented to allow user consistent, intuitive and easy navigation around our web application.
+        p We also chose to implement essentially a floating form on most pages requiring user input or interaction. This again was primarily for consistency but also tied in well to the
+            |  minimalistic theme. Getting the CSS right for this was tricky at first and some modifications had to be made to allow for the accordian elements implemented when viewing tasks.
+        p The colour scheme was chosen to add a sense of professionalism to the website. The grey, orange and white theme worked well together when creating a cohesive, user-friendly
+            |  and minimal web application.
+        h1 Difficulties
+        p As mentioned above, the first issue we ran into is when users had many tasks all expanded, the form would expand underneath the navigation bar and footer of the website. This issue
+            |  was also present when the browser was resized. To fix this we had to do some restructuring of the web page and to modify the CSS rules. By adding a container div to the form and
+            |  giving it large amount of padding, we were able to prevent the form from expanding beneath the navigation bar and footer.
+        p Another difficulty we encoutered was the fact that Mongoose commands run asynchronously. This meant that we would execute a functition to fetch or update information on the
+            |  MongoDB server and display the change on the reload of the page. The issue was sometimes the page would load faster than the update or fetch request, and the information
+            |  displayed would be outdated. To fix this, we implemented a 500ms wait on problem page reloads. This gave the update enough time to process before the new fetch request. This
+            |  also affected the way dependencies were handled, as the asynchronous command execution meant that dependencies weren't properly checked for. This was fixed by completely overhauling
+            |  our dependency check and dependency system.
+        p We also had issues implementing our sorting algorithm. Originally the due date of a task was stored as a string rather than a date object. This made comparing dates very difficult. 
+            | However, while implementing date objects made comparisons easier, it caused the formatting of the view tasks page to be incorrect. The due date field would print the whole date object which is not easy to read.
+            |  Another issue we faced with sorting was when tasks passed their due date, they would be displayed at the bottom of the list. This is because when sorting the tasks we compare them
+            |  against the current time. 
