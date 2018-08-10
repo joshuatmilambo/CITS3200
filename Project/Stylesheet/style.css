@@ -1,0 +1,92 @@
+/* Generic */
+
+html {
+    height: 100%;
+}
+
+html,
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    margin: 0px;
+    background-image: url("../Images/UWA_Logo_Background.jpg");
+    background-position: center;
+}
+
+.main {
+    padding: 10em 0 78px 0;
+}
+
+/*Navbar*/
+
+.navbar {
+    background-color: #3f1382;
+    width: 100%;
+    color: #fff;
+    padding: 0 40px;
+    position: fixed;
+    z-index: 1;
+    box-sizing: border-box;
+    border-bottom: 2px solid #b693ed;
+}
+
+.navbar>.navTitle {
+    float: left;
+    font-size: 34px;
+    font-weight: bold;
+    margin: 12px 0;
+}
+
+.navbar>.navMenu {
+    float: right;
+    padding: 10px 0;
+    margin: 0;
+}
+
+.navbar>.navMenu>li {
+    display: inline;
+    font-size: 17px;
+    list-style-type: none;
+    padding: 25px 0;
+    transition: all 0.1s;
+}
+
+.navbar>.navMenu>li:hover {
+    background-color: #fff;
+    color: #3f1382;
+}
+
+.navbar>.navTitle>a {
+    padding: 4px 0;
+}
+
+.navbar>.navTitle>a:hover {
+    filter: none;
+}
+
+.navbar a {
+    color: inherit;
+    text-decoration: none;
+    padding: 14px;
+    font-style: normal;
+}
+
+.navMenu>li>a {
+    display: inline-block;
+    text-align: center;
+}
+
+/* Footer */
+
+footer {
+    padding: 13px 0;
+    text-align: center;
+    width: 100%;
+    bottom: 0;
+    background-color: #3f1382;
+    color: #fff;
+    border-top: 2px solid #b693ed;
+    position: fixed
+}
