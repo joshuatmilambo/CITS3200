@@ -1,5 +1,7 @@
 Created by Sam Fairs (21929393) and Hei Wong (21862296)
 
+To see deployed web application visit: http://cits3403-task-planner.herokuapp.com/
+
 To run web application locally, install dependencies and run nodeom
 E.G.
 	npm install
