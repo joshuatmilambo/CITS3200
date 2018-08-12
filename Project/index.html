@@ -15,24 +15,27 @@
         <!--Links/References-->
         <link rel='stylesheet' href='Stylesheet/style.css'>
         <link href='https://fonts.googleapis.com/css?family=Poppins:400,400i,700' rel='stylesheet'>
+        
     </head>
-
-    <!--Navbar-->
-    <nav class='navbar'>
-        <div class='navTitle'>
-            <a href='/'>Exam Question Database</a>
-        </div>
-        <ul class='navMenu'>
-            <li><a href='login'>Login</a></li>
-            <li><a href='upload'>Upload Question</a></li>
-            <li><a href='search'>Search Questions</a></li>
-        </ul>
-    </nav>
 
     <!--Body of Page-->
     <body>
-        <div class='main'>
-        </div>
+        <!--Navbar-->
+        <nav class='navbar'>
+            <div class='navTitle'>
+                <a href='index.html'>Exam Question Database</a>
+            </div>
+            <ul class='navMenu'>
+                <li><a href='login'>Login</a></li>
+                <li><a href='upload.html'>Upload Question</a></li>
+            </ul>
+        </nav>
+        <form class='formContainer' id='search' action='results.html'>
+                <h1>SEARCH FOR QUESTIONS</h1>
+                <input type='text' placeholder="Light, Electricity, Gauss's Law" name='keywords' id='keywords'>
+                <button type='submit'>SEARCH</button>
+            </div>
+        </form>
     </body>
 
     <!--Footer-->
