@@ -28,11 +28,95 @@
             <ul class='navMenu'>
                 <li><a href='login'>Login</a></li>
                 <li><a href='upload.html'>Upload Question</a></li>
+                <li><a href='test.html'>View Test</a></li>
             </ul>
         </nav>
         <div class='main'>
-            <div class='formContainer'>
+            <div class='formContainer' id='question'>
                 <h1>SPEED OF LIGHT IN A MATERIAL</h1>
+                <iframe src='Images/Test.pdf'></iframe>
+                <div class='result'>
+                    <div class='split' style='text-align: left'>
+                        <button  id='addCart'>Add to Test</button>
+                    </div>
+                    <div class='split' style='text-align: right'>
+                        <button type='noLink' id='solution'>Video Solution</button>
+                    </div>
+                </div>
+                <div class='result'>
+                    <div class='split thirds'>
+                        <h2>Topic</h2>
+                        <p>Light</p>
+                    </div>
+                    <div class='split thirds'>
+                        <h2>Subtopic</h2>
+                        <p>Unknown</p>
+                    </div>
+                    <div class='split thirds'>
+                        <h2>Year Uploaded</h2>
+                        <p>2016</p>
+                    </div>
+                </div>
+                <div class='result one header'>
+                    <div class='split quaters'>
+                        <h2>Year Used</h2>
+                    </div>
+                    <div class='split quaters'>
+                        <h2>Semester</h2>
+                    </div>
+                    <div class='split quaters'>
+                        <h2>Unit</h2>
+                    </div>
+                    <div class='split quaters'>
+                        <h2>Performance</h2>
+                    </div>
+                </div>
+                <div class='result two'>
+                    <div class='split quaters'>
+                        <p>2018</p>
+                    </div>
+                    <div class='split quaters'>
+                        <p>1</p>
+                    </div>
+                    <div class='split quaters'>
+                        <p>PHYS1001</p>
+                    </div>
+                    <div class='split quaters'>
+                        <p>68%</p>
+                    </div>
+                </div>
+                <div class='result one'>
+                    <div class='split quaters'>
+                        <p>2017</p>
+                    </div>
+                    <div class='split quaters'>
+                        <p>2</p>
+                    </div>
+                    <div class='split quaters'>
+                        <p>PHYS1221</p>
+                    </div>
+                    <div class='split quaters'>
+                        <p>89%</p>
+                    </div>
+                </div>
+                <div class='result' style='text-align:right; display: block'>
+                    <button id='add'>Add Record</button>
+                </div>
+                <div class='result comment'>
+                    <h2>Comments</h2>
+                </div>
+                <div class='result two comment'>
+                    <p>Great question! Students found it easy to understand and answered correctly most of the time.</p>
+                </div>
+                <div class='result one comment'>
+                    <p>Some students struggled with this question...</p>
+                </div>
+                <form>
+                    <div class='result' id='postComment'>
+                        <input type='text' placeholder="Leave a comment" name='commentBox' id='commentBox'>
+                        <button type='submit' id='post'>Post</button>
+                    </div>
+                </form>
             </div>
         </div>
     </body>

@@ -114,6 +114,8 @@ footer {
     transform: translateX(-50%) translateY(-50%);
 }
 
+/* Results & Cart Page */
+
 #results {
     width: 800px;
 }
@@ -122,13 +124,15 @@ footer {
     width: 50%;
 }
 
-.split > h2 {
+.split > h2,
+.thirds > h2,
+.quaters > h2 {
     margin: 0;
     padding: 6px 0;
 }
 
 .result {
-    height: 51px;
+    min-height: 51px;
     width: 90%;
     margin: auto;
     display: flex;
@@ -160,6 +164,71 @@ footer {
 
 a:hover .result {
     border: 1px solid #3f1382;
+}
+
+/* Question Page */
+
+#question {
+    width: 80%;
+    min-width: 800px;
+}
+
+#question > iframe {
+    width: 90%;
+    height: 700px;
+}
+
+.thirds {
+    width: 33%;
+}
+
+.thirds > p {
+    padding: 0 0 25px 0;
+}
+
+.quaters {
+    width: 25%;
+}
+
+.comment {
+    text-align: left;
+}
+
+.comment > h2 {
+    margin: 12px 0 0 0;
+}
+
+
+.comment > p {
+    padding: 13px 20px;
+}
+
+#solution,
+#addCart {
+    width: 95%;
+    margin: 0;
+}
+
+#add, #post {
+    margin: 0;
+}
+
+#commentBox {
+    height: 46px;
+    margin-right: 20px;
+}
+
+#postComment {
+    padding-top: 10px
+}
+
+/* Your Test Page */
+a > p {
+    text-decoration: underline;
+}
+
+a:hover > p {
+    color: #424242;
 }
 
 /* Inputs and Buttons */
@@ -194,6 +263,7 @@ button {
     height: 46px;
 }
 
+button,
 button[type="submit"] {
     background-color: #3f1382;
     font-size: 16px;
@@ -203,6 +273,25 @@ button[type="submit"] {
     transition: all 0.3s;
 }
 
+button:hover,
 button[type="submit"]:hover {
     background-color: #4f2989;
+}
+
+button[type="noLink"] {
+    background-color: #b3b3b3;
+    cursor: default;
+}
+
+button[type="remove"] {
+    background-color: #9e0000;
+    width: 60px;
+    height: 40px;
+    padding: 0;
+    margin-top: 5px;
+    z-index: 100;
+}
+
+button[type="remove"]:hover {
+    background-color: #c01010
 }
