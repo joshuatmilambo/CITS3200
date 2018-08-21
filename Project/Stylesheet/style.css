@@ -38,7 +38,8 @@ body {
     float: left;
     font-size: 34px;
     font-weight: bold;
-    margin: 12px 0;
+    margin: 6px 0;
+    display: flex;
 }
 
 .navbar>.navMenu {
@@ -78,6 +79,10 @@ body {
 .navMenu>li>a {
     display: inline-block;
     text-align: center;
+}
+
+.navTitle>.navSearch {
+    margin-left: 25px;
 }
 
 /* Footer */
@@ -294,4 +299,27 @@ button[type="remove"] {
 
 button[type="remove"]:hover {
     background-color: #c01010
+}
+
+button[type="navSubmit"] {
+    background-color: #844ed6;
+    color: #fff;
+    padding: 3px 3px;
+    height: 46px;
+    width: 68px;
+    margin: 0;
+    position: relative;
+    top: 7px;
+    left: -20px;
+    border-radius: 10px;
+}
+
+button[type="navSubmit"]:hover {
+    background-color: #9971d4;
+}
+
+#navSearch {
+    width: 300px;
+    position: relative;
+    top: -8px;
 }
