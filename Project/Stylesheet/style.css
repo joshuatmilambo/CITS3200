@@ -126,7 +126,7 @@ footer {
 }
 
 .split {
-    width: 50%;
+    width: 25%;
 }
 
 .split > h2,
@@ -151,6 +151,7 @@ footer {
 .two {
     background-color: rgba(226, 211, 250, 0.8)
 }
+
 
 .result  p {
     margin: 0;
