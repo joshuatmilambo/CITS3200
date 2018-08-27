@@ -1,0 +1,115 @@
+doctype html
+html
+  head
+    // Title of Page
+    title Exam Question Database
+    // Meta Tags
+    meta(charset='UTF-8')
+    meta(name='description', content='Find existing exam questions easily')
+    meta(name='author', content='Sam Fairs, Chen Liu, Joshua Milambo, Lachlan Bunney, Michael Bleakley, Raymond Luk')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(name='keywords', content='Physics, Exam, Question, Database, Latex')
+    // Links/References
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(href='https://fonts.googleapis.com/css?family=Poppins:400,400i,700', rel='stylesheet')
+  // Body of Page
+  body
+    // Navbar
+    nav.navbar
+      .navTitle
+        a(href='/') Exam Question Database
+        form.navSearch(action='/result')
+          input#navSearch(type='text', placeholder="Light, Electricity, Gauss's Law", name='navSearch')
+          button(type='navSubmit')
+            img(width='40px', height='40px', src='Images/search_icon.png')
+      ul.navMenu
+        li
+          a(href='login') Login
+        li
+          a(href='/upload') Upload Question
+        li
+          a(href='/test') View Test
+    .main
+      #question.formContainer
+        h1 SPEED OF LIGHT IN A MATERIAL
+        iframe(src='Images/Test.pdf')
+        .result
+          .split(style='text-align: left')
+            button#addCart Add to Test
+          .split(style='text-align: right')
+            button#solution(type='noLink') Video Solution
+        .result
+          .split.thirds
+            h2 Topic
+            p Light
+          .split.thirds
+            h2 Subtopic
+            p Unknown
+          .split.thirds
+            h2 Year Uploaded
+            p 2016
+        //
+          <div class='result one header'>
+          <div class='split quaters'>
+          <h2>Year Used</h2>
+          </div>
+          <div class='split quaters'>
+          <h2>Semester</h2>
+          </div>
+          <div class='split quaters'>
+          <h2>Unit</h2>
+          </div>
+          <div class='split quaters'>
+          <h2>Performance</h2>
+          </div>
+          </div>
+          <div class='result two'>
+          <div class='split quaters'>
+          <p>2018</p>
+          </div>
+          <div class='split quaters'>
+          <p>1</p>
+          </div>
+          <div class='split quaters'>
+          <p>PHYS1001</p>
+          </div>
+          <div class='split quaters'>
+          <p>68%</p>
+          </div>
+          </div>
+          <div class='result one'>
+          <div class='split quaters'>
+          <p>2017</p>
+          </div>
+          <div class='split quaters'>
+          <p>2</p>
+          </div>
+          <div class='split quaters'>
+          <p>PHYS1221</p>
+          </div>
+          <div class='split quaters'>
+          <p>89%</p>
+          </div>
+          </div>
+          <div class='result' style='text-align:right; display: block'>
+          <button id='add'>Add Record</button>
+          </div>
+        a(href='/history')
+          button View History
+        .result.comment
+          h2 Comments
+        .result.two.comment
+          p
+            | Great question! Students found it easy to understand and answered correctly most of the time.
+        .result.one.comment
+          p Some students struggled with this question...
+        //
+          <form>
+          <div class='result' id='postComment'>
+          <input type='text' placeholder="Leave a comment" name='commentBox' id='commentBox'>
+          <button type='submit' id='post'>Post</button>
+          </div>
+          </form>
+    // Footer
+    footer.footer
+      p Example filler text for the footer of the page.

@@ -1,0 +1,335 @@
+/* Generic */
+
+html {
+    height: 100%;
+}
+
+html,
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+	text-align: center;
+    margin: 0px;
+    background-image: url("../Images/UWA_Logo_Background_opacity.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.main {
+    padding: 100px 0;
+}
+
+/*Navbar*/
+
+.navbar {
+    background-color: #3f1382;
+    width: 100%;
+    color: #fff;
+    padding: 0 40px;
+    position: fixed;
+    z-index: 1;
+    box-sizing: border-box;
+    border-bottom: 2px solid #b693ed;
+}
+
+.navbar>.navTitle {
+    float: left;
+    font-size: 34px;
+    font-weight: bold;
+    margin: 6px 0;
+    display: flex;
+}
+
+.navbar>.navMenu {
+    float: right;
+    padding: 10px 0;
+    margin: 0;
+}
+
+.navbar>.navMenu>li {
+    display: inline;
+    font-size: 17px;
+    list-style-type: none;
+    padding: 25px 0;
+    transition: all 0.1s;
+}
+
+.navbar>.navMenu>li:hover {
+    background-color: #fff;
+    color: #3f1382;
+}
+
+.navbar>.navTitle>a {
+    padding: 4px 0;
+}
+
+.navbar>.navTitle>a:hover {
+    filter: none;
+}
+
+.navbar a {
+    color: inherit;
+    text-decoration: none;
+    padding: 14px;
+    font-style: normal;
+}
+
+.navMenu>li>a {
+    display: inline-block;
+    text-align: center;
+}
+
+.navTitle>.navSearch {
+    margin-left: 25px;
+}
+
+/* Footer */
+
+footer {
+    padding: 13px 0;
+    text-align: center;
+    width: 100%;
+    bottom: 0;
+    background-color: #3f1382;
+    color: #fff;
+    border-top: 2px solid #b693ed;
+    position: fixed
+}
+
+/* Forms */
+
+.formContainer {
+    margin: auto;
+    background-color: rgba(255,255,255,0.8);
+    border-radius: 25px;
+    border: 2px solid #3f1382;
+    padding-bottom: 20px;
+}
+
+.formContainer h1 {
+    margin-bottom: 5px;
+}
+
+#search {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+/* Results & Cart Page */
+
+#results {
+    width: 800px;
+}
+
+.split {
+    width: 20%;
+}
+.split2 {
+    width: 40%;
+}
+.split3 {
+    width: 25%;
+}
+.split4 {
+    width: 50%;
+}
+
+.split > h2,
+.thirds > h2,
+.quaters > h2 {
+    margin: 0;
+    padding: 6px 0;
+}
+
+.result {
+    min-height: 51px;
+    width: 90%;
+    margin: auto;
+    display: flex;
+    border: 1px solid rgba(255,255,255,0);
+}
+
+.one {
+    background-color: rgba(255,255,255,0.8);
+}
+
+.two {
+    background-color: rgba(226, 211, 250, 0.8)
+}
+
+
+.result  p {
+    margin: 0;
+    padding: 13px 0;
+}
+
+.header {
+    border-bottom: 2px solid #3f1382;
+    border-top: 2px solid #3f1382;
+}
+
+.formContainer a {
+    text-decoration: none;
+    color: #000;
+}
+
+a:hover .result {
+    border: 1px solid #3f1382;
+}
+
+/* Question Page */
+
+#question {
+    width: 80%;
+    min-width: 800px;
+}
+
+#question > iframe {
+    width: 90%;
+    height: 700px;
+}
+
+.thirds {
+    width: 33%;
+}
+
+.thirds > p {
+    padding: 0 0 25px 0;
+}
+
+.quaters {
+    width: 25%;
+}
+
+.comment {
+    text-align: left;
+}
+
+.comment > h2 {
+    margin: 12px 0 0 0;
+}
+
+
+.comment > p {
+    padding: 13px 20px;
+}
+
+#solution,
+#addCart {
+    width: 95%;
+    margin: 0;
+}
+
+#add, #post {
+    margin: 0;
+}
+
+#commentBox {
+    height: 46px;
+    margin-right: 20px;
+}
+
+#postComment {
+    padding-top: 10px
+}
+
+/* Your Test Page */
+a > p {
+    text-decoration: underline;
+}
+
+a:hover > p {
+    color: #424242;
+}
+
+/* Inputs and Buttons */
+
+input,
+button,
+select,
+textarea {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+}
+
+input[type=text],
+input[type=password],
+input[type="date"],
+textarea {
+    width: 90%;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 10px;
+    background-color: #b3b3b3;
+    box-sizing: border-box;
+    color: #202020;
+}
+
+button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    width: 200px;
+    height: 46px;
+}
+
+button,
+button[type="submit"] {
+    background-color: #3f1382;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 10px;
+    color: #fff;
+    transition: all 0.3s;
+}
+
+button:hover,
+button[type="submit"]:hover {
+    background-color: #4f2989;
+}
+
+button[type="noLink"] {
+    background-color: #b3b3b3;
+    cursor: default;
+}
+
+button[type="remove"] {
+    background-color: #9e0000;
+    width: 60px;
+    height: 40px;
+    padding: 0;
+    margin-top: 5px;
+    z-index: 100;
+}
+
+button[type="remove"]:hover {
+    background-color: #c01010
+}
+
+button[type="navSubmit"] {
+    background-color: #844ed6;
+    color: #fff;
+    padding: 3px 3px;
+    height: 46px;
+    width: 68px;
+    margin: 0;
+    position: relative;
+    top: 7px;
+    left: -20px;
+    border-radius: 10px;
+}
+
+button[type="navSubmit"]:hover {
+    background-color: #9971d4;
+}
+
+#navSearch {
+    width: 300px;
+    position: relative;
+    top: -8px;
+}

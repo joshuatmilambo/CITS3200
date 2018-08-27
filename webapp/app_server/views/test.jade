@@ -1,0 +1,47 @@
+doctype html
+html
+  head
+    // Title of Page
+    title Exam Question Database
+    // Meta Tags
+    meta(charset='UTF-8')
+    meta(name='description', content='Find existing exam questions easily')
+    meta(name='author', content='Sam Fairs, Chen Liu, Joshua Milambo, Lachlan Bunney, Michael Bleakley, Raymond Luk')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(name='keywords', content='Physics, Exam, Question, Database, Latex')
+    // Links/References
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(href='https://fonts.googleapis.com/css?family=Poppins:400,400i,700', rel='stylesheet')
+  // Body of Page
+  body
+    // Navbar
+    nav.navbar
+      .navTitle
+        a(href='/') Exam Question Database
+        form.navSearch(action='/result')
+          input#navSearch(type='text', placeholder="Light, Electricity, Gauss's Law", name='navSearch')
+          button(type='navSubmit')
+            img(width='40px', height='40px', src='Images/search_icon.png')
+      ul.navMenu
+        li
+          a(href='login') Login
+        li
+          a(href='/upload') Upload Question
+
+    .main
+      #results.formContainer
+        h1 YOUR TEST
+        .result.one.header
+          .split
+            h2 TITLE
+          .split
+            h2 REMOVE
+        .result.two
+          .split
+            a(href='/question')
+              p Speed of Light in a Material
+          .split
+            button(type='remove', onclick="location.href='/test';") X
+    // Footer
+    footer.footer
+      p Example filler text for the footer of the page.
