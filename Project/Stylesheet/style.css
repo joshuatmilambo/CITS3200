@@ -126,6 +126,15 @@ footer {
 }
 
 .split {
+    width: 20%;
+}
+.split2 {
+    width: 40%;
+}
+.split3 {
+    width: 25%;
+}
+.split4 {
     width: 50%;
 }
 
@@ -151,6 +160,7 @@ footer {
 .two {
     background-color: rgba(226, 211, 250, 0.8)
 }
+
 
 .result  p {
     margin: 0;
