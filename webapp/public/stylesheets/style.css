@@ -125,6 +125,11 @@ footer {
     width: 800px;
 }
 
+#resultslower{
+    width: 800px;
+    margin-top: 20px;
+}
+
 .split {
     width: 20%;
 }
@@ -286,6 +291,10 @@ button[type="submit"] {
     margin-top: 10px;
     color: #fff;
     transition: all 0.3s;
+}
+
+button.download {
+    margin: auto;
 }
 
 button:hover,

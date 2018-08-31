@@ -9,5 +9,7 @@ router.get('/upload', ctrlMain.upload);
 router.get('/test', ctrlMain.test);
 router.get('/question', ctrlMain.question);
 router.get('/history', ctrlMain.history);
+router.get('/testhistory',ctrlMain.testhistory);
+router.get('/updateresult',ctrlMain.updateresult);
 
 module.exports = router;

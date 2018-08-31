@@ -1,0 +1,81 @@
+doctype html
+html
+  head
+    // Title of Page
+    title Exam Question Database
+    // Meta Tags
+    meta(charset='UTF-8')
+    meta(name='description', content='Find existing exam questions easily')
+    meta(name='author', content='Sam Fairs, Chen Liu, Joshua Milambo, Lachlan Bunney, Michael Bleakley, Raymond Luk')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(name='keywords', content='Physics, Exam, Question, Database, Latex')
+    // Links/References
+    link(rel='stylesheet', href='stylesheets/style.css')
+    link(href='https://fonts.googleapis.com/css?family=Poppins:400,400i,700', rel='stylesheet')
+  // Body of Page
+  body
+    // Navbar
+    nav.navbar
+      .navTitle
+        a(href='index.html') Exam Question Database
+        form.navSearch(action='results.html')
+          input#navSearch(type='text', placeholder="Light, Electricity, Gauss's Law", name='navSearch')
+          button(type='navSubmit')
+            img(width='40px', height='40px', src='Images/search_icon.png')
+      ul.navMenu
+        li
+          a(href='login') Login
+        li
+          a(href='upload.html') Upload Question
+    .main
+      #results.formContainer
+        h1 Update Result
+        .result.one.header
+          .split
+            h2 INSTITUTION
+          .split
+            h2 UNIT
+          .split
+            h2 ASSESSMENT
+          .split
+            h2 DATE
+          .split
+            h2 RESULT
+        .result.two
+          .split
+            p UWA
+          .split
+            p PHYS1001
+          .split
+            p Test 1
+          .split
+            p 03/03/2019
+          .split
+            input(type='text', value='')
+        .result.one
+          .split
+            p UWA
+          .split
+            p PHYS1001
+          .split
+            p Exam
+          .split
+            p 01/06/2018
+          .split
+            input(type='text', value='')
+        .result.two
+          .split
+            p UWA
+          .split
+            p PHYS1001
+          .split
+            p Test 2
+          .split
+            p 20/05/2017
+          .split
+            input(type='text', value='')
+        .result.one.header
+          button(type='submit', class='download', onclick='/') Update
+    // Footer
+    footer.footer
+      p Example filler text for the footer of the page.

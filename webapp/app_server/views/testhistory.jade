@@ -18,61 +18,47 @@ html
     nav.navbar
       .navTitle
         a(href='/') Exam Question Database
-        form.navSearch(action='/result')
+        form.navSearch(method='GET', action='/result')
           input#navSearch(type='text', placeholder="Light, Electricity, Gauss's Law", name='navSearch')
           button(type='navSubmit')
             img(width='40px', height='40px', src='Images/search_icon.png')
       ul.navMenu
         li
-          a(href='login') Login
+          a(href='login') Logout
         li
           a(href='/upload') Upload Question
-    // Main
     .main
-      // Test Qestions
       #results.formContainer
-        h1 Test Questions
+        h1 Test History
         .result.one.header
+          .split2
+            h2 Unit Name
           .split
-            h2 TITLE
+            h2 Test Name
           .split
-            h2 REMOVE
+            h2 Date
+          .split
+            h2 View Test
         .result.two
+          .split2
+            p CITS3200
           .split
-            a(href='/question')
-              p Speed of Light in a Material
+            p Final Exam
           .split
-            button(type='remove', onclick="location.href='/test';") X
-      // Test Detail
-      div(class='formContainer', id='resultslower')
-        h1 Test Detail
-        .result.one.header
-          .split4.left
-            h2 Institution:
-          .split4.right
-            h2
-              input(type='text', value='UWA')
-        .result.one.header
-          .split4.left
-            h2 Unit Name:
-          .split4.right
-            h2
-              input(type='text', value='')
-        .result.one.header
-          .split4.left
-            h2 Assement Name:
-          .split4.right
-            h2
-              input(type='text', value='')
-        .result.one.header
-          .split4.left
-            h2 Data:
-          .split4.right
-            h2 
-              input(type='text',value='')
-        .result.one.header
-          button(type='submit', class='download', onclick='/') Download
-        
+            p 30/08/2017
+          .split
+            a(href='/updateresult')
+              p Update Result
+        .result.one
+          .split2
+            p CITS3402
+          .split
+            p Final
+          .split
+            p 31/08/2017
+          .split
+            a(href='/updateresult')
+              p Update Result
     // Footer
     footer.footer
       p Example filler text for the footer of the page.

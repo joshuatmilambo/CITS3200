@@ -20,11 +20,13 @@ html
         a(href='/') Exam Question Database
       ul.navMenu
         li
-          a(href='/login') Login
+          a(href='/login') Logout
         li
           a(href='/upload') Upload Question
         li
           a(href='/test') View Test
+        li
+          a(href='/testhistory') Update Result
     form#search.formContainer(method='GET', action='/result')
       h1 SEARCH FOR QUESTIONS
       input#keywords(type='text', placeholder="Light, Electricity, Gauss's Law", name='keywords')

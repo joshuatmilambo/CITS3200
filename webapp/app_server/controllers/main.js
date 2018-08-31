@@ -27,3 +27,12 @@ module.exports.question = function(req,res){
 module.exports.history = function(req,res){
   res.render('history',{});
 }
+
+/* Get test history page */
+module.exports.testhistory = function(req,res){
+  res.render('testhistory',{});
+}
+
+module.exports.updateresult = function(req,res){
+  res.render('updateresult',{});
+}
