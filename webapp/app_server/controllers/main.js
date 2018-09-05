@@ -36,3 +36,7 @@ module.exports.testhistory = function(req,res){
 module.exports.updateresult = function(req,res){
   res.render('updateresult',{});
 }
+
+module.exports.login = function(req,res){
+  res.render('login',{});
+}
