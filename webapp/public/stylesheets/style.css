@@ -112,20 +112,6 @@ footer {
     margin-bottom: 5px;
 }
 
-.formGrid {
-  display: grid;
-  grid-template-columns: auto auto;
-  margin: 20px;
-  margin-bottom: 0;
-  background-color: rgba(255,255,255,0.8);
-  padding-bottom: 20px;
-}
-
-.gridItem {
-  vertical-align: middle;
-  margin: auto;
-}
-
 #search {
     position: absolute;
     top: 50%;
@@ -155,9 +141,6 @@ footer {
 }
 .split4 {
     width: 50%;
-}
-.split6{
-    width: 60%;
 }
 
 .split > h2,
@@ -290,11 +273,6 @@ textarea {
     box-sizing: border-box;
     color: #202020;
 }
-
-#login {
-  width: 60%;
-}
-
 
 button {
     padding: 12px 20px;

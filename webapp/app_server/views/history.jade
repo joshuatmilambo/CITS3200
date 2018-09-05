@@ -17,20 +17,16 @@ html
     // Navbar
     nav.navbar
       .navTitle
-        a(href='/index') Exam Question Database
-        form.navSearch(action='/results')
+        a(href='index.html') Exam Question Database
+        form.navSearch(action='results.html')
           input#navSearch(type='text', placeholder="Light, Electricity, Gauss's Law", name='navSearch')
           button(type='navSubmit')
             img(width='40px', height='40px', src='Images/search_icon.png')
       ul.navMenu
         li
-          a(href='/') Logout
+          a(href='login') Login
         li
-          a(href='/upload') Upload Question
-        li
-          a(href='/test') View Test
-        li
-          a(href='/testhistory') Update Result
+          a(href='upload.html') Upload Question
     .main
       #results.formContainer
         h1 QUESTION HISTORY
