@@ -34,19 +34,20 @@ html
         b Upload Question
         |  → To Upload History → Submit
       #results.formContainer
+      form(action='uploadfiles' method='post', enctype='multipart/form-data')
         h1 Upload A Question
         .result.one.header
           .split4.left
             h2 UPLOAD QUESTION .ZIP
           .split4.right
             h2
-              input(type='button', value='Upload Compressed Question Data', onclick='')
+              input(type='file', name='uploadzip' value='Upload Compressed Question Data', onclick='')
         .result.one.header
           .split4.left
             h2 UPLOAD QUESTION PREVIEW
           .split4.right
             h2
-              input(type='button', value='Upload Compiled Question', onclick='')
+              input(type='file', name='uploadpdf' value='Upload Compiled Question', onclick='')
         .result.one.header
           .split4.left
             h2 Notes:
@@ -75,7 +76,7 @@ html
                 option(value='Test') Test
                 option(value='Assignent') Assignment
         h2
-          input(type='button', value='→ To Upload History', onclick='')
+          input(type='submit', value='→ To Upload History', onclick='')
       p
         b Upload Question
         |  → To Upload History → Submit
