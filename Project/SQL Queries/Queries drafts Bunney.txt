@@ -1,0 +1,17 @@
+SQL Queries Based off specific app pages && Database design as discussed:
+
+Search Results::
+
+SELECT Brief_Description, updload_date, q_id FROM question WHERE key_words LIKE '%whatever_the_input_search_was%' OR WHERE Brief_Description LIKE "%whatever_the_input_search_was%"
+	->store the q_id to save for history/preview, display the Description and Upload 	sate on results page
+
+History Page:
+
+SELECT Institution, Unit, Assessment, Date, Correct_students, Total_students FROM History INNER JOIN Paper ON p_id WHERE q_id = 'the_question_in_question'
+	-> display row for row in history page
+
+Question Display Page:
+
+SELECT size, type, preview, notes, short description, upload_date FROM Question WHERE q_id='the_question_in_question'
+
+	-> display info in relevant places. Use preview text field to fetch preview file from 	file system, display notes and description. Short Description above the image and 		keywords, date uploaded, and notes below (as per the web-app design)
