@@ -11,5 +11,6 @@ router.get('/question', ctrlMain.question);
 router.get('/history', ctrlMain.history);
 router.get('/testhistory',ctrlMain.testhistory);
 router.get('/updateresult',ctrlMain.updateresult);
+router.get('/uploadhistory',ctrlMain.uploadhistory);
 
 module.exports = router;
