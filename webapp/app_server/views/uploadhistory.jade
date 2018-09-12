@@ -16,14 +16,14 @@ html
   body
     nav.navbar
       .navTitle
-        a(href='/') Exam Question Database
+        a(href='/index') Exam Question Database
         form.navSearch(action='/result')
           input#navSearch(type='text', placeholder="Light, Electricity, Gauss's Law", name='navSearch')
           button(type='navSubmit')
             img(width='40px', height='40px', src='Images/search_icon.png')
       ul.navMenu
         li
-          a(href='login') Login
+          a(href='/') Login
         li
           a(href='/upload') Upload Question
         li

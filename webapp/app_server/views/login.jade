@@ -17,20 +17,17 @@ html
     // Navbar
     nav.navbar
       .navTitle
-        a(href='/index') Exam Question Database
-      ul.navMenu
-        li
-          a(href='/') Logout
-        li
-          a(href='/upload') Upload Question
-        li
-          a(href='/test') View Test
-        li
-          a(href='/testhistory') Update Result
-    form#search.formContainer(method='GET', action='/result')
-      h1 SEARCH FOR QUESTIONS
-      input#keywords(type='text', placeholder="Light, Electricity, Gauss's Law", name='keywords')
-      button(type="submit") SEARCH
+        a(href='/') Exam Question Database
+    form#search.formContainer(method='GET', action='/index')
+      h1 Login To Your Account
+      .formGrid
+        .gridItem Username:
+        .gridItem
+          input(type="text")
+        .gridItem Password:
+        .gridItem 
+          input(type="text")
+      button(type="submit") Login
     // Footer
     footer.footer
       p Example filler text for the footer of the page.

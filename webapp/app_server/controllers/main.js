@@ -37,6 +37,11 @@ module.exports.updateresult = function(req,res){
   res.render('updateresult',{});
 }
 
+module.exports.login = function(req,res){
+  res.render('login',{});
+}
+
+
 module.exports.uploadhistory = function(req,res){
   res.render('uploadhistory',{});
 }
