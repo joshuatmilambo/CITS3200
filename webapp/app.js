@@ -22,6 +22,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
+// on start up request current qid from SQL database --> GLOBAL
+qid = 0; // SQL request would go here
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

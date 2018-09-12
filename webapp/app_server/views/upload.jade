@@ -36,49 +36,49 @@ html
         b Upload Question
         |  → To Upload History → Submit
       #results.formContainer
+      form(action='uploadfiles' method='post', enctype='multipart/form-data')
         h1 Upload A Question
         .result.one.header
           .split4.left
             h2 UPLOAD QUESTION .ZIP
           .split4.right
             h2
-              input(type='button', value='Upload Compressed Question Data', onclick='')
+              input(type='file', name='uploadzip' value='Upload Compressed Question Data', onclick='')
         .result.one.header
           .split4.left
             h2 UPLOAD QUESTION PREVIEW
           .split4.right
             h2
-              input(type='button', value='Upload Compiled Question', onclick='')
+              input(type='file', name='uploadpdf' value='Upload Compiled Question', onclick='')
         .result.one.header
           .split4.left
-            h2 Notes:
+            h2 NOTES
           .split4.right
             h2
-              input(type='text', value='')
+              input(type='text', name='notes', placeholder='Question Notes')
         .result.one.header
           .split4.left
             h2 BRIEF DESCRIPTION
           .split4.right
             h2
-              input(type='text', value='')
+              input(type='text', name='description', placeholder='Brief Question Description')
         .result.one.header
           .split4.left
             h2 KEYWORDS
           .split4.right
             h2
-              input(type='text', value='')
+              input(type='text', name='keywords', placeholder='Light, Electricity, Resistance')
         .result.one.header
           .split4.left
             h2 QUESTION TYPE
           .split4.right
             h2
-              select
+              select(name='type')
                 option(value='Exam') Exam
                 option(value='Test') Test
                 option(value='Assignent') Assignment
         h2
-          a(href='/uploadhistory') 
-            input(type='button', value='→ To Upload History', onclick='')
+          input(type='submit', value='→ To Upload History', onclick='')
       p
         b Upload Question
         |  → To Upload History → Submit
