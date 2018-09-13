@@ -4,14 +4,17 @@ html
     script.
       i = 0;
 
-      function newpaper() {
-      document.getElementById("oldpapers").style.display = "none";
-      document.getElementById("paperinfo").style.display = "";
+      function changepaper(selectvalue) {
+        if(selectvalue.value == "newtest"){
+          document.getElementById("oldpapers").style.display = "none";
+          document.getElementById("paperinfo").style.display = "";
+        }
+        else if(selectvalue.value == 'oldpaper'){
+          document.getElementById("paperinfo").style.display = "none";
+          document.getElementById("oldpapers").style.display = "";
+        }
       }
-      function oldpaper(){
-      document.getElementById("paperinfo").style.display = "none";
-      document.getElementById("oldpapers").style.display = "";
-      }
+
       function addHistory() {
       
       }
@@ -70,10 +73,10 @@ html
           |                            
           .split4
             h2
-              select
-                option(value="oldpaper", onclick='oldpaper()') existing paper
+              select(onchange = 'changepaper(this);')
+                option(value="oldpaper") existing paper
                 |           
-                option(value="newtest", selected="", onclick="newpaper()") new paper
+                option(value="newtest", selected="") new paper
         |           
         form#oldpapers(style="display:none")
           .result.one.header

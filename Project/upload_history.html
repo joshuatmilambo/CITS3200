@@ -3,13 +3,16 @@
 <html>
     <head>
 	<script>
-function newpaper() {
-	document.getElementById("oldpapers").style.display = "none";
-    document.getElementById("paperinfo").style.display = ""; 
-}
-function oldpaper(){
-	document.getElementById("paperinfo").style.display = "none"; 
-	document.getElementById("oldpapers").style.display = ""; 
+function changepaper(papertype) {
+	val = papertype.value;
+	if(val == "newtest"){
+		document.getElementById("oldpapers").style.display = "none";
+		document.getElementById("paperinfo").style.display = ""; 
+	}
+	else if(val == 'oldpaper'){
+		document.getElementById("paperinfo").style.display = "none"; 
+		document.getElementById("oldpapers").style.display = ""; 
+	}
 }
 </script>
         <!--Title of Page-->
@@ -52,9 +55,9 @@ function oldpaper(){
 				<div class='split4'>
 				<h2>Select Past Paper/New Paper</h2>
 				</div>
-                           <div class='split4'> <h2><select>
-					<option value = "oldpaper" onclick = "oldpaper();">existing paper</option>
-					<option value = "newtest" selected onclick = "newpaper();">new paper</option>
+                           <div class='split4'> <h2><select onchange = "changepaper(this);">
+					<option value = "oldpaper">existing paper</option>
+					<option value = "newtest" selected >new paper</option>
 				</select></h2>
                         </div>
                     </div>
