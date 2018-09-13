@@ -2,6 +2,16 @@
 
 <html>
     <head>
+	<script>
+function newpaper() {
+	document.getElementById("oldpapers").style.display = "none";
+    document.getElementById("paperinfo").style.display = ""; 
+}
+function oldpaper(){
+	document.getElementById("paperinfo").style.display = "none"; 
+	document.getElementById("oldpapers").style.display = ""; 
+}
+</script>
         <!--Title of Page-->
         <title>Exam Question Database</title>
 
@@ -32,9 +42,8 @@
             <li><a href='test.html'>View Test</a></li>
         </ul>
     </nav>
-
+	<body >
     <!--Body of Page-->
-    <body>
         <div class='main'>
 				<p><a href='upload.html'>Upload Question</a> &rarr; <b>Question History</b> &rarr; Submit</p>
                 <div class='formContainer' id='results'>
@@ -43,14 +52,27 @@
 				<div class='split4'>
 				<h2>Select Past Paper/New Paper</h2>
 				</div>
-                           <div class='split4'> <h2><select></div>
-					<option value = "test2">test 2</option>
-					<option value = "test1">test 1</option>
-					<option value = "exam3">exam 3</option>
-					<option value = "newtest">new paper</option>
+                           <div class='split4'> <h2><select>
+					<option value = "oldpaper" onclick = "oldpaper();">existing paper</option>
+					<option value = "newtest" selected onclick = "newpaper();">new paper</option>
 				</select></h2>
                         </div>
                     </div>
+					<form id = "oldpapers" style = 'display:none'>
+					<div class='result one header'>
+                      
+					<div class='split4'>
+				<h2>Select Paper</h2>
+				</div>
+                           <div class='split4'> <h2><select>
+					<option value = "p1" selected>UWA PHYS1002 Test 2 28/08/17</option>
+					<option value = "p2" >UWA CITS3200 Assignment 1 22/08/18</option>
+				</select></h2>
+                        </div>
+					  
+                    </div>
+					</form>
+					<form id = 'paperinfo'>
 					<div class='result one header'>
                         <div class='split4'>
                             <h2>INSTITUTION</h2>
@@ -83,25 +105,8 @@
                             <h2><input type= "text" value = ""></h2>
                         </div>
                     </div>
-					<div class='result one header'>
-                        
-                    </div>
-					<div class='result one header'>
-                        <div class='split4'>
-                            <h2>CORRECT STUDENTS</h2>
-                        </div>
-						<div class='split4'>
-                            <h2><input type= "text" value = ""></h2>
-                        </div>
-                    </div>
-					<div class='result two header'>
-                        <div class='split4'>
-                            <h2>TOTAL STUDENTS</h2>
-                        </div>
-						<div class='split4'>
-                            <h2><input type= "text" value = ""></h2>
-                        </div>
-                    </div>
+					
+					</form>
 					
 					<h2><input type="button" value="+ ADD HISTORY" onclick="" /></h2>	
 					<h2><a href='upload_confirm'><input type="button" value="&rarr; To Confirmation" onclick="" /></a></h2>

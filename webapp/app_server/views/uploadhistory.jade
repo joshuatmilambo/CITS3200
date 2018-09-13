@@ -1,98 +1,139 @@
 doctype html
 html
   head
+    script.
+      i = 0;
+
+      function newpaper() {
+      document.getElementById("oldpapers").style.display = "none";
+      document.getElementById("paperinfo").style.display = "";
+      }
+      function oldpaper(){
+      document.getElementById("paperinfo").style.display = "none";
+      document.getElementById("oldpapers").style.display = "";
+      }
+      function addHistory() {
+      
+      }
     // Title of Page
     title Exam Question Database
     // Meta Tags
-    meta(charset='UTF-8')
-    meta(name='description', content='Find existing exam questions easily')
-    meta(name='author', content='Sam Fairs, Chen Liu, Joshua Milambo, Lachlan Bunney, Michael Bleakley, Raymond Luk')
-    meta(name='viewport', content='width=device-width, initial-scale=1.0')
-    meta(name='keywords', content='Physics, Exam, Question, Database, Latex')
+    meta(charset="UTF-8")
+    |         
+    meta(name="description", content="Find existing exam questions easily")
+    |         
+    meta(name="author", content="Sam Fairs, Chen Liu, Joshua Milambo, Lachlan Bunney, Michael Bleakley, Raymond Luk")
+    |         
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    |         
+    meta(name="keywords", content="Physics, Exam, Question, Database, Latex")
     // Links/References
-    link(rel='stylesheet', href='/stylesheets/style.css')
-    link(href='https://fonts.googleapis.com/css?family=Poppins:400,400i,700', rel='stylesheet')
+    link(rel="stylesheet", href="/stylesheets/style.css")
+    |         
+    link(href="https://fonts.googleapis.com/css?family=Poppins:400,400i,700", rel="stylesheet")
   // Navbar
+  nav.navbar
+    .navTitle
+      a(href="/index") Exam Question Database
+      |             
+      form.navSearch(action="/result")
+        input#navSearch(type="text", placeholder="Light, Electricity, Gauss's Law", name="navSearch")
+        |                 
+        button(type="navSubmit")
+          img(width="40px", height="40px", src="Images/search_icon.png")
+    |         
+    ul.navMenu
+      li
+        a(href="/") Login
+      |             
+      li
+        a(href="/upload") Upload Question
+      |             
+      li
+        a(href="/test") View Test
+  |   
   body
-    nav.navbar
-      .navTitle
-        a(href='/index') Exam Question Database
-        form.navSearch(action='/result')
-          input#navSearch(type='text', placeholder="Light, Electricity, Gauss's Law", name='navSearch')
-          button(type='navSubmit')
-            img(width='40px', height='40px', src='Images/search_icon.png')
-      ul.navMenu
-        li
-          a(href='/') Login
-        li
-          a(href='/upload') Upload Question
-        li
-          a(href='/test') View Test
     // Body of Page
     .main
       p
-        a(href='/upload') Upload Question
-        b  → Question History
-        |  → Submit
-      #results.formContainer
-        h1 Question History
-        .result.two.header
-          .split4
-            h2 Select Past Paper/New Paper
-          .split4
-            h2
-              select
-                option(value='test2') test 2
-                option(value='test1') test 1
-                option(value='exam3') exam 3
-                option(value='newtest') new paper
-        .result.one.header
-          .split4
-            h2 INSTITUTION
-          .split4
-            h2
-              input(type='text', value='')
-        .result.two.header
-          .split4
-            h2 UNIT
-          .split4
-            h2
-              input(type='text', value='')
-        .result.one.header
-          .split4
-            h2 ASSESSMENT
-          .split4
-            h2
-              input(type='text', value='')
-        .result.two.header
-          .split4
-            h2 DATE
-          .split4
-            h2
-              input(type='text', value='')
-        .result.one.header
-        .result.one.header
-          .split4
-            h2 CORRECT STUDENTS
-          .split4
-            h2
-              input(type='text', value='')
-        .result.two.header
-          .split4
-            h2 TOTAL STUDENTS
-          .split4
-            h2
-              input(type='text', value='')
-        h2
-          input(type='button', value='+ ADD HISTORY', onclick='')
-        h2
-          a(href='upload_confirm')
-            input(type='button', value='→ To Confirmation', onclick='')
-      p
-        a(href='/upload') Upload Question
+        a(href="/upload") Upload Question
         |  → 
         b Question History
         |  → Submit
-    // Footer
-    footer.footer
-      p Example filler text for the footer of the page.
+      |                 
+      #results.formContainer
+        h1 Question History
+        |         
+        .result.two.header
+          .split4
+            h2 Select Past Paper/New Paper
+          |                            
+          .split4
+            h2
+              select
+                option(value="oldpaper", onclick='oldpaper()') existing paper
+                |           
+                option(value="newtest", selected="", onclick="newpaper()") new paper
+        |           
+        form#oldpapers(style="display:none")
+          .result.one.header
+            .split4
+              h2 Select Paper
+            |                            
+            .split4
+              h2
+                select
+                  option(value="p1", selected="") UWA PHYS1002 Test 2 28/08/17
+                  |           
+                  option(value="p2") UWA CITS3200 Assignment 1 22/08/18
+        |           
+        form#paperinfo
+          .result.one.header
+            .split4
+              h2 INSTITUTION
+            |                         
+            .split4
+              h2
+                input(type="text", value="")
+          |           
+          .result.two.header
+            .split4
+              h2 UNIT
+            |                         
+            .split4
+              h2
+                input(type="text", value="")
+          |           
+          .result.one.header
+            .split4
+              h2 ASSESSMENT
+            |                         
+            .split4
+              h2
+                input(type="text", value="")
+          |           
+          .result.two.header
+            .split4
+              h2 DATE
+            |             
+            .split4
+              h2
+                input(type="text", value="")
+        |           
+        |           
+        h2
+          input(type="button", value="+ ADD HISTORY", onclick="addHistory")
+        |   
+        |           
+        h2
+          a(href="upload_confirm")
+            input(type="button", value="→ To Confirmation", onclick="")
+      |         
+      p
+        a(href="/upload") Upload Question
+        |  → 
+        b Question History
+        |  → Submit
+  // Footer
+  footer.footer
+    p Example filler text for the footer of the page.
