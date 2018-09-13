@@ -35,7 +35,7 @@ module.exports.upload = function(req, res) {
             var fileExt = fileType(buffer);
 
             //If filetype is allowed and corresponds to the input field --> rename and add file to array
-            if((field === 'uploadzip' && fileExt.ext === 'zip') || (field === 'uploadpdf' && fileExt.ext === 'pdf')) {
+            if((file !== null) && ((field === 'uploadzip' && fileExt.ext === 'zip') || (field === 'uploadpdf' && fileExt.ext === 'pdf'))) {
                 fs.renameSync(file.path, form.uploadDir + '/' + file.name);
                 files.push([field, file]);
             }
