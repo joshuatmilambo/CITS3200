@@ -11,7 +11,7 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
-CREATE DATABASE `CITS3200_2`;
+CREATE DATABASE `CITS3200`;
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -25,14 +25,6 @@ CREATE DATABASE `CITS3200_2`;
 
 -- --------------------------------------------------------
 
---
--- Table structure for table `Cart_Record`
---
-
-CREATE TABLE `Cart_Record` (
-  `cr_id` int(8) NOT NULL,
-  `exam_name` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -43,6 +35,7 @@ CREATE TABLE `Cart_Record` (
 CREATE TABLE `Paper` (
   `paper_id` int(8) NOT NULL,
   `user_id` int(8) NOT NULL,
+  `status` varchar(20) NOT NULL,
   `institution` varchar(100) NOT NULL,
   `unit` varchar(20) NOT NULL,
   `assessment` varchar(50) NOT NULL,
@@ -71,11 +64,11 @@ CREATE TABLE `Question` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Question_Cart`
+-- Table structure for table `Temp_Paper`
 --
 
-CREATE TABLE `Question_Cart` (
-  `cr_id` int(8) NOT NULL,
+CREATE TABLE `Temp_Paper` (
+  `paper_id` int(8) NOT NULL,
   `q_id` int(8) NOT NULL,
   `user_id` int(8) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -110,11 +103,7 @@ CREATE TABLE `User` (
 -- Indexes for dumped tables
 --
 
---
--- Indexes for table `Cart_Record`
---
-ALTER TABLE `Cart_Record`
-  ADD PRIMARY KEY (`cr_id`);
+
 
 --
 -- Indexes for table `Paper`
@@ -130,10 +119,10 @@ ALTER TABLE `Question`
   ADD PRIMARY KEY (`q_id`);
 
 --
--- Indexes for table `Question_Cart`
+-- Indexes for table `Temp_Paper`
 --
-ALTER TABLE `Question_Cart`
-  ADD KEY `fk_cart_record` (`cr_id`),
+ALTER TABLE `Temp_Paper`
+  ADD KEY `fk_temp_paper` (`paper_id`),
   ADD KEY `fk_cart_question` (`q_id`),
   ADD KEY `fk_cart_user` (`user_id`);
 
@@ -156,10 +145,6 @@ ALTER TABLE `User`
 --
 
 -- Add AUTO_INCREMENT
-
-ALTER TABLE `Cart_Record`
-  MODIFY `cr_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
-
 ALTER TABLE `Paper`
   MODIFY `paper_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
@@ -181,11 +166,11 @@ ALTER TABLE `Paper`
   ADD CONSTRAINT `fk_paper_user` FOREIGN KEY (`user_id`) REFERENCES `User` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `Question_Cart`
+-- Constraints for table `Temp_Paper`
 --
-ALTER TABLE `Question_Cart`
+ALTER TABLE `Temp_Paper`
+  ADD CONSTRAINT `fk_temp_paper` FOREIGN KEY (`paper_id`) REFERENCES `Paper` (`paper_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_cart_question` FOREIGN KEY (`q_id`) REFERENCES `Question` (`q_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `fk_cart_record` FOREIGN KEY (`cr_id`) REFERENCES `Cart_Record` (`cr_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_cart_user` FOREIGN KEY (`user_id`) REFERENCES `User` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
