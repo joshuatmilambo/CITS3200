@@ -5,14 +5,7 @@ var readChunk = require('read-chunk');
 var mysql = require('mysql');
 
 /*--------Raymond's modification starts--------------*/
-
-// attempt to connect to mysql server
-var connection = mysql.createConnection({
-	host : 'localhost',
-	user : 'root',
-	password : 'cits3200'
-});
-
+/*
 connection.connect(function(err) {
 	if (err) {
 		console.error('Error connecting: ' + err.stack);
@@ -20,16 +13,7 @@ connection.connect(function(err) {
 	}
 	console.log('Connected as id ' + connection.threadId);
 });
-
-//Get the last id from Question Table
-var last_id =0;
-function get_last_id(last_id){
-	connection.query('SELECT MAX(q_id) FROM Question',function(err,results){
-		if(err) throw err;
-		last_id = results[0]['MAX(q_id)'];
-	});
-}
-
+*/
 
 // insert questions
 function insert_question(){

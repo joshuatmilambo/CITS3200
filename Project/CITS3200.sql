@@ -11,7 +11,7 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
-CREATE DATABASE `CITS3200_2`;
+CREATE DATABASE `CITS3200`;
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -23,6 +23,8 @@ CREATE DATABASE `CITS3200_2`;
 -- Database: `CITS3200`
 --
 
+-- Select CITS3200 database
+USE CITS3200; 
 -- --------------------------------------------------------
 
 --
