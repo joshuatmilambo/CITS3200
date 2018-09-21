@@ -15,7 +15,6 @@ connection = mysql.createConnection({
   host : 'localhost', 
 	user : 'root',
   password : 'cits3200',
-  insecureAuth : 'true',
   database : 'CITS3200'
 });
 
@@ -31,29 +30,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-
-// on start up request current qid from SQL database --> GLOBAL
-//Get the last id from Question Table
-connection.connect(function(err) {
-  if (err) {
-		console.error('Error connecting: ' + err.stack);
-		return;
-	}
-	console.log('Connected as id ' + connection.threadId);
-});
-
-qid = -1;
-connection.query('SELECT MAX(q_id) FROM question',function(err,results){
-  if(err) throw err;
-  qid = results[0]['MAX(q_id)'];
-  if(qid === null) {
-    console.log("Initializing QID to 0");
-    qid = 0;
-  }
-  else {
-    console.log("Error initialising QID");
-  }
-});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
