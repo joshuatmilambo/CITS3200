@@ -3,11 +3,20 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var mysql = require('mysql');
 
 var indexRouter = require('./app_server/routes/index');
 var usersRouter = require('./app_server/routes/users');
 
 var app = express();
+
+// define globabl variable storing SQL connection details
+connection = mysql.createConnection({
+  host : 'localhost', 
+	user : 'root',
+  password : 'cits3200',
+  database : 'CITS3200'
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'app_server','views'));
@@ -21,9 +30,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-
-// on start up request current qid from SQL database --> GLOBAL
-qid = 0; // SQL request would go here
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

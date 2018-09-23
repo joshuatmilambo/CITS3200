@@ -23,6 +23,8 @@ CREATE DATABASE `CITS3200`;
 -- Database: `CITS3200`
 --
 
+-- Select CITS3200 database
+USE CITS3200; 
 -- --------------------------------------------------------
 
 
