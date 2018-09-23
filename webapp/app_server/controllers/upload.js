@@ -19,7 +19,7 @@ function insert_question(q_id, name, type, size, zip_path, preview_path, note, s
 
   var date = new Date().toLocaleDateString();
 
-  connection.query('INSERT INTO question VALUES (?,?,?,?,?,?,?,?,?,?)',[q_id,name,size,type,zip_path,preview_path,note,short_description,key_words,date],function(err,results){
+  connection.query('INSERT INTO Question VALUES (?,?,?,?,?,?,?,?,?,?)',[q_id,name,size,type,zip_path,preview_path,note,short_description,key_words,date],function(err,results){
 		if(err) throw err;
         console.log("Question inserted successfully");
 	});
@@ -70,7 +70,7 @@ function insert_user(){
 /* Upload Files */
 module.exports.upload = function(req, res) {
     //Get latest QID from server
-    connection.query('SELECT MAX(q_id) FROM question', function(err, results) {
+    connection.query('SELECT MAX(q_id) FROM Question', function(err, results) {
         if(err) throw err;
         var qid = results[0]['MAX(q_id)'];
         
@@ -83,7 +83,7 @@ module.exports.upload = function(req, res) {
         console.log('Qid: ' + qid);
 
         //Sets up dynamic upload directory based on Question ID
-        var dir = __dirname + '/../files/' + qid;
+        var dir = __dirname + '/files/' + qid;
         if(!fs.existsSync(dir))
             fs.mkdirSync(dir);
         else {

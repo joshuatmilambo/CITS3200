@@ -1,3 +1,3 @@
-use cits3200;
-delete from question;
-alter table question auto_increment=1;
+use CITS3200;
+delete from Question;
+alter table Question auto_increment=1;
