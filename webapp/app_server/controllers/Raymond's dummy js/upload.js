@@ -107,6 +107,17 @@ function insert_user(){
 
 }
 
+//Add questions to cart
+function add_to_cart(){
+	var paper_id = chosen_paper_id;
+	var q_id = chosen_question_id;
+	var user_id = temporary_user_id;
+	connection.query('INSERT INTO Temp_Paper VALUES (?,?,?)',[paper_id,q_id,user_id],function(err,results){
+		if(err) throw err;
+		console.log("Question is added to cart successfully");
+	});
+}
+
 /*--------Raymond's modification ends--------------*/
 
 
