@@ -23,7 +23,7 @@ function zipMaker(){
 	}
 	zip.generateAsync({type:"blob"})
 	zip.generateAsync({type:"blob"}).then(function(content) {
-    	saveAs(content, "test.zip"); //can be changed to allow
+    	saveAs(content, "test.zip"); //can be changed to allow more dynamic allocation/saving"
 	}
 }
 
