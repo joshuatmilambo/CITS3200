@@ -58,9 +58,9 @@ function search_results(matched_q_id){
 //Return question history
 function single_question_history(q_id){
 	var result =[];
-	connection.query('SELECT institution,unit,assessment,date,correct,total_student FROM Question_History JOIN Paper USING paper_id WHERE q_id=?',[q_id],function(err,results){
+	connection.query('SELECT institution,unit,assessment,date,correct,total_student,note FROM Question_History JOIN Paper USING paper_id WHERE q_id=?',[q_id],function(err,results){
 		if(err) throw err;
-		single_result.push(results[0]['institution'],results[0]['unit'],results[0]['assessment'],results[0]['date'],results[0]['correct'],results[0]['total_student']);
+		single_result.push(results[0]['institution'],results[0]['unit'],results[0]['assessment'],results[0]['date'],results[0]['correct'],results[0]['total_student'],results[0]['note']);
 	});
 	return (result);
 }
