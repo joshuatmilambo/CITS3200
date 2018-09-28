@@ -35,7 +35,6 @@ html
       p
         b Upload Question
         |  → To Upload History → Submit
-      #results.formContainer
       form(action='uploadfiles' method='post', enctype='multipart/form-data')
         h1 Upload A Question
         .result.one.header
@@ -78,7 +77,7 @@ html
                 option(value='Test') Test
                 option(value='Assignent') Assignment
         h2
-          input(type='submit', value='→ To Upload History', onclick='')
+          input(type='submit', value='→ To Upload History')
       p
         b Upload Question
         |  → To Upload History → Submit

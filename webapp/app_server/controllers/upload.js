@@ -2,17 +2,9 @@ var formidable = require('formidable');
 var fs = require('fs');
 var fileType = require('file-type');
 var readChunk = require('read-chunk');
+var JSZip = require("jszip");
 
 /*--------Raymond's modification starts--------------*/
-/*
-connection.connect(function(err) {
-	if (err) {
-		console.error('Error connecting: ' + err.stack);
-		return;
-	}
-	console.log('Connected as id ' + connection.threadId);
-});
-*/
 
 // insert questions
 function insert_question(q_id, name, type, size, zip_path, preview_path, note, short_description, key_words){
@@ -116,6 +108,14 @@ module.exports.upload = function(req, res) {
                 if((file !== null) && (field === 'uploadzip' && fileExt.ext === 'zip')) {
                     fs.renameSync(file.path, form.uploadDir + '/' + file.name);
                     files[0] = file;
+
+                    //IN PROGRESS
+                    fs.readFile(form.uploadDir + '/' + file.name, function(err, data) {
+                        if (err) throw err;
+
+                        var read = new JSZip();
+                        read.loadAsync(data, {createFolders: true});
+                    });
                 }
                 else if((file !== null) && (field === 'uploadpdf' && fileExt.ext === 'pdf')) {
                     fs.renameSync(file.path, form.uploadDir + '/' + file.name);
@@ -151,7 +151,7 @@ module.exports.upload = function(req, res) {
                     res.redirect('/uploadhistory');
                 }
                 else {
-                    console.log('Error Uploading - Not ENough Correct Files Given');
+                    console.log('Error Uploading - Not Enough Correct Files Given');
                     res.redirect('/upload');
                 }
             });
@@ -160,6 +160,3 @@ module.exports.upload = function(req, res) {
         form.parse(req);
     });
 };
-
-// connection.end();
-// don't use the connection.end() can prevent the error when using callback function in mysql functions
