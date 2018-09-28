@@ -48,7 +48,7 @@ html
           .split
             button(type='remove', onclick="location.href='/test';") X
       // Test Detail
-      div(class='formContainer', id='resultslower')
+      form(class='formContainer', id='resultslower' action='addtest' method='post')
         h1 Test Detail
         .result.one.header
           .split4.left
@@ -70,12 +70,12 @@ html
               input(type='text', value='')
         .result.one.header
           .split4.left
-            h2 Data:
+            h2 Date:
           .split4.right
             h2 
               input(type='text',value='')
         .result.one.header
-          button(type='submit', class='download', onclick='/') Download
+          button(type='submit', class='download') Download
         
     // Footer
     footer.footer
