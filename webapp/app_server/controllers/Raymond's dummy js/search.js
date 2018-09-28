@@ -84,6 +84,20 @@ function get_status(paper_id){
 	return (result_status);
 }
 
+//Get past papers
+function get_past_papers(){
+	connection.query('SELECT institution,unit,assessment,date FROM Paper WHERE status = "done"',function(err,results){
+		if(err) throw err;
+		var past_papers = [];
+		for (var i=0;i<results.length;i++){
+			var string = "";
+			string = results[i]['institution']+"|"+results[i]['unit']+"|"+results[i]['assessment']+"|"+results[i]['date'];
+			past_papers.push(string);
+		}
+		return (past_papers); // "foo()" starts here!
+	});
+}
+
 
 
 

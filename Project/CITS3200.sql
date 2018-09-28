@@ -41,7 +41,7 @@ CREATE TABLE `Paper` (
   `institution` varchar(100) NOT NULL,
   `unit` varchar(20) NOT NULL,
   `assessment` varchar(50) NOT NULL,
-  `date` date NOT NULL
+  `date` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
