@@ -142,6 +142,9 @@ footer {
 .split4 {
     width: 50%;
 }
+.split5{
+    width: 10%;
+}
 
 .split > h2,
 .thirds > h2,
