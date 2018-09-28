@@ -25,6 +25,7 @@ html
         i++;
         var formi = document.createElement("form");
         formi.setAttribute('id','paper' + i);
+        formi.setAttribute('method','post');
        	
 
         sppnp = document.createElement("div");
@@ -33,7 +34,7 @@ html
         sppnp_left = document.createElement("div");
         sppnp_left.setAttribute('class','split4');
         sppnp_lefttext = document.createElement("h2");
-        sppnp_lefttext.appendChild(document.createTextNode("Paper #" +(1 +i)));
+        sppnp_lefttext.appendChild(document.createTextNode("Paper #" +i));
         sppnp_left.appendChild(sppnp_lefttext);
         sppnp.appendChild(sppnp_left);
 
@@ -41,15 +42,16 @@ html
         sppnp_right.setAttribute('class','split4')
         sppnp_right_select = document.createElement("h2");
         sppnp_right_select_OP = document.createElement("select");
+        sppnp_right_select_OP.setAttribute('id',"oldnew");
         sppnp_right_select_OP.setAttribute('onchange','changepaper(this,this.parentNode.parentNode.parentNode.parentNode)');
         sppnp_right_select_OP1 = document.createElement("option");
         sppnp_right_select_OP1.setAttribute('value','oldpaper');
-        sppnp_right_select_OP1.appendChild(document.createTextNode("Past Paper"));
+        sppnp_right_select_OP1.appendChild(document.createTextNode("Past"));
         sppnp_right_select_OP.appendChild(sppnp_right_select_OP1);
         sppnp_right_select_OP2 = document.createElement("option");
         sppnp_right_select_OP2.setAttribute('value','newtest');
         sppnp_right_select_OP2.selected = "True";
-        sppnp_right_select_OP2.appendChild(document.createTextNode('New Paper'));
+        sppnp_right_select_OP2.appendChild(document.createTextNode('New'));
         sppnp_right_select_OP.appendChild(sppnp_right_select_OP2);
         sppnp_right_select.appendChild(sppnp_right_select_OP);
         sppnp_right.appendChild(sppnp_right_select);
@@ -66,7 +68,7 @@ html
         which_pap_left = document.createElement("div");
         which_pap_left.setAttribute('class','split4');
         which_pap_left_text = document.createElement("h2");
-        which_pap_left_text.appendChild(document.createTextNode('Select Paper'));
+        which_pap_left_text.appendChild(document.createTextNode('Select'));
         which_pap_left.appendChild(which_pap_left_text);
         which_pap.appendChild(which_pap_left);
         whichpapright = document.createElement("div");
@@ -166,16 +168,17 @@ html
 
 
 
-        var j = document.createElement("input");
+        var j = document.createElement("button");
         j.setAttribute('id','add');
-        j.setAttribute('type','button');
         j.setAttribute('value','Add History');
         j.setAttribute('onclick','addHistory()')
-        var k = document.createElement("input");
+        j.innerHTML =  'Add History';
+        var k = document.createElement("button");
         k.setAttribute('id','submit');
-        k.setAttribute('type','button');
+        k.setAttribute('type','submit');
         k.setAttribute('value','Submit');
         k.setAttribute('onclick','submitHistory()')
+        k.innerHTML = 'Submit';
         document.getElementById("history").appendChild(j);
         document.getElementById("history").appendChild(k);
     
@@ -217,78 +220,21 @@ html
       li
         a(href="/test") View Test
   |   
-  body
+  body(onload = 'addHistory()')
     // Body of Page
     .main
       p
         a(href="/upload") Upload Question
         |  → 
         b Question History
-        |  → Submit
+        |  → Submitted
       |                 
       #history.formContainer
-        h1 Question History
-        |      
-        form#paper0     
-          .result.two.header
-            .split4
-              h2  Paper #1
-            |                            
-            .split4
-              h2
-                select(onchange = 'changepaper(this,this.parentNode.parentNode.parentNode.parentNode);')
-                  option(value="oldpaper") Past Paper
-                  |           
-                  option(value="newtest", selected="") New Paper
-          |           
-          fieldset#oldpapers(style="display:none")
-            .result.one.header
-              .split4
-                h2 Select Paper
-              |                            
-              .split4
-                h2
-                  select
-                    
-          |           
-          fieldset#paperinfo(style='border:none')
-            .result.one.header
-              .split4
-                h2 Institution
-              |                         
-              .split4
-                h2
-                  input(type="text", id = 'Institution0')
-            |           
-            .result.two.header
-              .split4
-                h2 Unit
-              |                         
-              .split4
-                h2
-                  input(type="text", id = 'Unit0')
-            |           
-            .result.one.header
-              .split4
-                h2 Assessment
-              |                         
-              .split4
-                h2
-                  input(type="text", id = 'Assessment0')
-            |           
-            .result.two.header
-              .split4
-                h2 Date
-              |             
-              .split4
-                h2
-                  input(type="text", id = 'Date0')
-          |           
-        |           
-        h2
-          input(id = 'add' type="button", value="Add Paper", onclick="addHistory()")
         
-          input(id = 'submit' type="button", value="Submit", onclick="submitHistory()")
+        h2
+          button(id = 'add', value="Add Paper", onclick="addHistory()") 
+
+          button(id = 'submit' type="submit", value="Submit", onclick="submitHistory()")
         |   
         |           
         
@@ -297,7 +243,7 @@ html
         a(href="/upload") Upload Question
         |  → 
         b Question History
-        |  → Submit
+        |  → Submitted
   // Footer
   footer.footer
     p Example filler text for the footer of the page.
