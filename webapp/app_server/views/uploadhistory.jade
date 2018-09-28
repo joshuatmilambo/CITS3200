@@ -25,6 +25,7 @@ html
         i++;
         var formi = document.createElement("form");
         formi.setAttribute('id','paper' + i);
+        formi.setAttribute('method','post');
        	
 
         sppnp = document.createElement("div");
@@ -167,16 +168,17 @@ html
 
 
 
-        var j = document.createElement("input");
+        var j = document.createElement("button");
         j.setAttribute('id','add');
-        j.setAttribute('type','button');
         j.setAttribute('value','Add History');
         j.setAttribute('onclick','addHistory()')
-        var k = document.createElement("input");
+        j.innerHTML =  'Add History';
+        var k = document.createElement("button");
         k.setAttribute('id','submit');
-        k.setAttribute('type','button');
+        k.setAttribute('type','submit');
         k.setAttribute('value','Submit');
         k.setAttribute('onclick','submitHistory()')
+        k.innerHTML = 'Submit';
         document.getElementById("history").appendChild(j);
         document.getElementById("history").appendChild(k);
     
@@ -225,14 +227,14 @@ html
         a(href="/upload") Upload Question
         |  → 
         b Question History
-        |  → Submit
+        |  → Submitted
       |                 
       #history.formContainer
         
         h2
-          input(id = 'add' type="button", value="Add Paper", onclick="addHistory()")
-        
-          input(id = 'submit' type="button", value="Submit", onclick="submitHistory()")
+          button(id = 'add', value="Add Paper", onclick="addHistory()") 
+
+          button(id = 'submit' type="submit", value="Submit", onclick="submitHistory()")
         |   
         |           
         
@@ -241,7 +243,7 @@ html
         a(href="/upload") Upload Question
         |  → 
         b Question History
-        |  → Submit
+        |  → Submitted
   // Footer
   footer.footer
     p Example filler text for the footer of the page.
