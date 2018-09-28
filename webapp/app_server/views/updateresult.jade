@@ -1,4 +1,4 @@
-doctype html
+  doctype html
 html
   head
     // Title of Page
@@ -32,51 +32,59 @@ html
         li
           a(href='/testhistory') Update Result
     .main
-      #results.formContainer
+      
         h1 Update Result
         .result.one.header
+          .split6
+            h3 #
+          .split2
+            h3 Brief Description
           .split
-            h2 INSTITUTION
-          .split
-            h2 UNIT
-          .split
-            h2 ASSESSMENT
-          .split
-            h2 DATE
-          .split
-            h2 RESULT
+            h3 Preview
+          .split3
+            h3 Use Notes
+          .split5
+            h3 Correct
+          .split5
+            h3 Total
         .result.two
+          .split6
+            h2 1
+          .split2
+            h2 Electromagnetic force on charge
           .split
-            p UWA
-          .split
-            p PHYS1001
-          .split
-            p Test 1
-          .split
-            p 03/03/2019
-          .split
+            h2 Preview
+          .split3
+            input(type='text', value='')
+          .split5
+            input(type='text', value='')
+          .split5
             input(type='text', value='')
         .result.one
+          .split6
+            h2 2
+          .split2
+            h2 Friction ball rolling down hill
           .split
-            p UWA
-          .split
-            p PHYS1001
-          .split
-            p Exam
-          .split
-            p 01/06/2018
-          .split
+            h2 Preview
+          .split3
+            input(type='text', value='')
+          .split5
+            input(type='text', value='')
+          .split5
             input(type='text', value='')
         .result.two
+          .split6
+            h2 3
+          .split2
+            h2 B field of wire
           .split
-            p UWA
-          .split
-            p PHYS1001
-          .split
-            p Test 2
-          .split
-            p 20/05/2017
-          .split
+             Preview
+          .split3
+            input(type='text', value='')
+          .split5
+            input(type='text', value='')
+          .split5
             input(type='text', value='')
         .result.one.header
           button(type='submit', class='download', onclick='/') Update

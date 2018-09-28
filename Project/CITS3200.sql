@@ -41,7 +41,7 @@ CREATE TABLE `Paper` (
   `institution` varchar(100) NOT NULL,
   `unit` varchar(20) NOT NULL,
   `assessment` varchar(50) NOT NULL,
-  `date` date NOT NULL
+  `date` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
@@ -117,7 +117,8 @@ CREATE TABLE `Question_History` (
   `q_id` int(8) NOT NULL,
   `paper_id` int(8) NOT NULL,
   `correct` int(5) DEFAULT NULL,
-  `total_student` int(5) DEFAULT NULL
+  `total_student` int(5) DEFAULT NULL，
+  `note` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
