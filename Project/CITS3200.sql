@@ -23,6 +23,8 @@ CREATE DATABASE `CITS3200`;
 -- Database: `CITS3200`
 --
 
+-- Select CITS3200 database
+USE CITS3200;
 -- --------------------------------------------------------
 
 
@@ -41,6 +43,16 @@ CREATE TABLE `Paper` (
   `assessment` varchar(50) NOT NULL,
   `date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+INSERT INTO `Paper` VALUES
+(1,1,'done','UWA','PHYS1001','Exam','2018-09-01'),
+(2,1,'in process','UWA','PHYS1002','Test','2018-09-02'),
+(3,2,'in process','Curtin','PHYS1002','Test','2018-09-02'),
+(4,1,'done','UWA','PHYS1003','Assignment','2018-09-02'),
+(5,1,'in process','UWA','PHYS1001','Test','2018-09-03'),
+(6,3,'in process','ECU','PHYS1002','Exam','2018-09-04'),
+(7,1,'in process','Murdoch','PHYS1002','Test','2018-09-02');
 
 -- --------------------------------------------------------
 
@@ -61,6 +73,19 @@ CREATE TABLE `Question` (
   `update_date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+INSERT INTO `Question` VALUES
+(1,'light01',500,'zip','zip_path','preview_path','q1','q1','light electricity motion','2018-09-10'),
+(2,'electricity01',500,'zip','zip_path','preview_path','q2','q2','light electricity motion','2018-09-10'),
+(3,'light02',500,'zip','zip_path','preview_path','q3','q3','light electricity motion','2018-09-10'),
+(4,'light03',500,'zip','zip_path','preview_path','q4','q4','light electricity motion','2018-09-11'),
+(5,'motion01',500,'zip','zip_path','preview_path','q5','q5','light electricity motion','2018-09-12'),
+(6,'friction01',500,'zip','zip_path','preview_path','q6','q6','light electricity motion','2018-09-20');
+
+
+
+
+
+
 -- --------------------------------------------------------
 
 --
@@ -73,6 +98,14 @@ CREATE TABLE `Temp_Paper` (
   `user_id` int(8) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+
+INSERT INTO `Temp_Paper` VALUES
+(2,1,1),
+(2,2,1),
+(2,3,1),
+(6,1,2),
+(6,2,2),
+(6,3,2);
 -- --------------------------------------------------------
 
 --
@@ -87,6 +120,12 @@ CREATE TABLE `Question_History` (
   `total_student` int(5) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+
+INSERT INTO  `Question_History` VALUES
+(1,1,1,60,100),
+(2,2,1,40,100),
+(3,3,1,70,100),
+(4,3,4,60,99);
 -- --------------------------------------------------------
 
 --
@@ -99,6 +138,10 @@ CREATE TABLE `User` (
   `user_type` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+INSERT INTO `User` VALUES
+(1,'Raymond','student'),
+(2,'Sam','student'),
+(3,'Lachlan','student');
 --
 -- Indexes for dumped tables
 --
