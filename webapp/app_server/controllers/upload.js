@@ -108,14 +108,6 @@ module.exports.upload = function(req, res) {
                 if((file !== null) && (field === 'uploadzip' && fileExt.ext === 'zip')) {
                     fs.renameSync(file.path, form.uploadDir + '/' + file.name);
                     files[0] = file;
-
-                    //IN PROGRESS
-                    fs.readFile(form.uploadDir + '/' + file.name, function(err, data) {
-                        if (err) throw err;
-
-                        var read = new JSZip();
-                        read.loadAsync(data, {createFolders: true});
-                    });
                 }
                 else if((file !== null) && (field === 'uploadpdf' && fileExt.ext === 'pdf')) {
                     fs.renameSync(file.path, form.uploadDir + '/' + file.name);
@@ -146,7 +138,36 @@ module.exports.upload = function(req, res) {
                             type = i;
                         }
                     };
-                    insert_question(qid, files[0].name, fields[type][1], files[0].size, form.uploadDir + '/' + files[0].name, form.uploadDir + '/' + files[1].name,
+
+                    //READS UPLOADED ZIP FILE USING JSZIP
+                    fs.readFile(form.uploadDir + '/' + files[0].name, function(err, data) {
+                        if (err) throw err;
+
+                        var read = new JSZip();
+                        //LOAD DATA INTO JSZIP
+                        read.loadAsync(data)
+                        //AFTER, GET CONTENTS OF DATA
+                        .then(function(contents) {
+                            //FOR EVERY FILE IN THE ZIP
+                            Object.keys(contents.files).forEach(function(filename){
+                                //CHECK IF FILE NAME BEGINS WITH "figs/" --> MAKE DIRECTORY figs IF IT DOESN'T EXIST
+                                if(/^figs\//.test(filename) && !fs.existsSync(dir + '/figs')) {
+                                    fs.mkdirSync(dir + '/figs');
+                                }
+                                //PUT FILE INTO BUFFER...
+                                read.file(filename).async('nodebuffer')
+                                .then(function(content){
+                                    //WRITE FILE TO DIRECTORY   
+                                    var dest = dir + '/' + filename;
+                                    fs.writeFileSync(dest, content) 
+                                });
+                            });
+                        });
+                        //DELETE OLD ZIP FILE
+                        fs.unlinkSync(form.uploadDir + '/' + files[0].name);
+                    });
+
+                    insert_question(qid, (files[0].name).split(".")[0], fields[type][1], files[0].size, dir, form.uploadDir + '/' + files[1].name,
                         fields[notes][1], fields[description][1], fields[keywords][1]);
                     res.redirect('/uploadhistory');
                 }
