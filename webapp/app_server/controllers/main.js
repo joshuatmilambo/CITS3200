@@ -3,11 +3,6 @@ module.exports.index = function(req,res){
   res.render('index',{});
 };
 
-/* GET home page */
-module.exports.result = function(req,res){
-  res.render('result',{});
-}
-
 /* GET upload page */
 module.exports.upload = function(req,res){
   res.render('upload',{});
@@ -44,4 +39,15 @@ module.exports.login = function(req,res){
 
 module.exports.uploadhistory = function(req,res){
   res.render('uploadhistory',{});
+}
+
+
+/* FUNCTION USED TO ENFORCE QUERY TO EXECUTE ASYNCHRONOUSLY */
+module.exports.queryPromise = function(str, params) { 
+  return new Promise((resolve, reject) => {
+    connection.query(str, params, (err, result, fields) => {
+      if (err) throw(err); 
+      resolve(result);
+    })
+  })
 }

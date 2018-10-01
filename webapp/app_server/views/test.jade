@@ -18,8 +18,8 @@ html
     nav.navbar
       .navTitle
         a(href='/') Exam Question Database
-        form.navSearch(action='/result')
-          input#navSearch(type='text', placeholder="Light, Electricity, Gauss's Law", name='navSearch')
+        form.navSearch(method='get', action='result', enctype='multipart/form-data')
+          input#navSearch(type='text', placeholder="Light, Electricity, Gauss's Law", name='keywords')
           button(type='navSubmit')
             img(width='40px', height='40px', src='images/search_icon.png')
       ul.navMenu

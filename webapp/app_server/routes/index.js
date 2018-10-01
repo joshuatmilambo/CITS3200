@@ -2,10 +2,11 @@ var express = require('express');
 var router = express.Router();
 var ctrlMain = require('../controllers/main');
 var ctrlUpload = require('../controllers/upload');
+var ctrlSearch = require('../controllers/search');
 
 /* GET home page. */
 router.get('/', ctrlMain.login);
-router.get('/result', ctrlMain.result);
+router.get('/result', ctrlSearch.result);
 router.get('/upload', ctrlMain.upload);
 router.get('/test', ctrlMain.test);
 router.get('/question', ctrlMain.question);
