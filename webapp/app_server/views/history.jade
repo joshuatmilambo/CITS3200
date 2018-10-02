@@ -34,50 +34,27 @@ html
     .main
       #results.formContainer
         h1 QUESTION HISTORY
-        .result.one.header
-          .split
-            h2 INSTITUTION
-          .split
-            h2 UNIT
-          .split
-            h2 ASSESSMENT
-          .split
-            h2 DATE
-          .split
-            h2 CORRECT
-        .result.two
-          .split
-            p UWA
-          .split
-            p PHYS1001
-          .split
-            p Test 1
-          .split
-            p 03/03/2019
-          .split
-            p 347/700
-        .result.one
-          .split
-            p UWA
-          .split
-            p PHYS1001
-          .split
-            p Exam
-          .split
-            p 01/06/2018
-          .split
-            p 450/640
-        .result.two
-          .split
-            p UWA
-          .split
-            p PHYS1001
-          .split
-            p Test 2
-          .split
-            p 20/05/2017
-          .split
-            p 200/570
+        table
+            tbody
+                tr
+                    td
+                        h2 INSTITUTION
+                    td
+                        h2 UNIT
+                    td
+                        h2 ASSESSMENT
+                    td
+                        h2 DATE
+                    td
+                        h2 CORRECT
+
+                each result, i in results
+                    
+                    if((i+5)%5==0 && i > 0)
+                        tr
+                    td
+                        p= result
+                       
     // Footer
     footer.footer
       p #{results}
