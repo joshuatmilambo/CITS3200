@@ -7,181 +7,16 @@ html
 
       function changepaper(selectvalue,formparent) {
         if(selectvalue.value == "newtest"){
-          formparent.children[1].style.display = "none";
-          formparent.children[2].style.display = "";
+          formparent.elements[1].style.display = "none";
+          formparent.elements[3].style.display = "";
         }
         else if(selectvalue.value == 'oldpaper'){
-          formparent.children[2].style.display = "none";
-          formparent.children[1].style.display = "";
-          formparent.children[1].style.border = "none";
+          formparent.elements[3].style.display = "none";
+          formparent.elements[1].style.display = "";
         }
       }
 
       function addHistory() {
-        adder = document.getElementById('add');
-        adder.parentNode.removeChild(adder);
-        subber = document.getElementById('submit');
-        subber.parentNode.removeChild(subber);
-        i++;
-        var formi = document.createElement("form");
-        formi.setAttribute('id','paper' + i);
-        formi.setAttribute('method','post');
-       	
-
-        sppnp = document.createElement("div");
-        sppnp.setAttribute('class','result two header');
-      	
-        sppnp_left = document.createElement("div");
-        sppnp_left.setAttribute('class','split4');
-        sppnp_lefttext = document.createElement("h2");
-        sppnp_lefttext.appendChild(document.createTextNode("Paper #" +i));
-        sppnp_left.appendChild(sppnp_lefttext);
-        sppnp.appendChild(sppnp_left);
-
-        sppnp_right = document.createElement("div");
-        sppnp_right.setAttribute('class','split4')
-        sppnp_right_select = document.createElement("h2");
-        sppnp_right_select_OP = document.createElement("select");
-        sppnp_right_select_OP.setAttribute('id',"oldnew");
-        sppnp_right_select_OP.setAttribute('onchange','changepaper(this,this.parentNode.parentNode.parentNode.parentNode)');
-        sppnp_right_select_OP1 = document.createElement("option");
-        sppnp_right_select_OP1.setAttribute('value','oldpaper');
-        sppnp_right_select_OP1.appendChild(document.createTextNode("Past"));
-        sppnp_right_select_OP.appendChild(sppnp_right_select_OP1);
-        sppnp_right_select_OP2 = document.createElement("option");
-        sppnp_right_select_OP2.setAttribute('value','newtest');
-        sppnp_right_select_OP2.selected = "True";
-        sppnp_right_select_OP2.appendChild(document.createTextNode('New'));
-        sppnp_right_select_OP.appendChild(sppnp_right_select_OP2);
-        sppnp_right_select.appendChild(sppnp_right_select_OP);
-        sppnp_right.appendChild(sppnp_right_select);
-        sppnp.appendChild(sppnp_right);
-
-        formi.appendChild(sppnp);
-
-        old_pap = document.createElement("fieldset");
-        old_pap.setAttribute("id","oldpapers");
-        old_pap.style.display = "none";
-        old_pap.style.border = 'none';
-        which_pap = document.createElement("div");
-        which_pap.setAttribute('class','result one header');
-        which_pap_left = document.createElement("div");
-        which_pap_left.setAttribute('class','split4');
-        which_pap_left_text = document.createElement("h2");
-        which_pap_left_text.appendChild(document.createTextNode('Select'));
-        which_pap_left.appendChild(which_pap_left_text);
-        which_pap.appendChild(which_pap_left);
-        whichpapright = document.createElement("div");
-        whichpapright.setAttribute("class","split4");
-        whichpaprightselect = document.createElement("h2");
-        whichpaprightselectsel = document.createElement("select");
-        whichpaprightselect.appendChild(whichpaprightselectsel);
-        whichpapright.appendChild(whichpaprightselect);
-        which_pap.appendChild(whichpapright);
-        old_pap.append(which_pap);
-        formi.appendChild(old_pap);
-
-        new_pap = document.createElement("fieldset");
-        new_pap.setAttribute("id","paperinfo");
-        new_pap.style.border = "none";
-        pap_inst = document.createElement("div");
-        pap_inst.setAttribute('class','result one header');
-        inst_left = document.createElement("div");
-        inst_left.setAttribute('class','split4');
-        inst_left_text = document.createElement("h2");
-        inst_left_text.appendChild(document.createTextNode('Institution'));
-        inst_left.appendChild(inst_left_text);
-        pap_inst.appendChild(inst_left);
-        inst_right = document.createElement("div");
-        inst_right.setAttribute("class","split4");
-        inst_right_text = document.createElement("h2");
-        inst_right_fill = document.createElement("input");
-        inst_right_fill.setAttribute('type','text');
-        inst_right_fill.setAttribute('id','Institution' + i);
-        inst_right_text.appendChild(inst_right_fill);
-        inst_right.appendChild(inst_right_text);
-        pap_inst.appendChild(inst_right);
-        new_pap.append(pap_inst);
-
-        pap_Unit = document.createElement("div");
-        pap_Unit.setAttribute('class','result two header');
-        Unit_left = document.createElement("div");
-        Unit_left.setAttribute('class','split4');
-        Unit_left_text = document.createElement("h2");
-        Unit_left_text.appendChild(document.createTextNode('Unit'));
-        Unit_left.appendChild(Unit_left_text);
-        pap_Unit.appendChild(Unit_left);
-        Unit_right = document.createElement("div");
-        Unit_right.setAttribute("class","split4");
-        Unit_right_text = document.createElement("h2");
-        Unit_right_fill = document.createElement("input");
-        Unit_right_fill.setAttribute('type','text');
-        Unit_right_fill.setAttribute('id','Unit' + i);
-        Unit_right_text.appendChild(Unit_right_fill);
-        Unit_right.appendChild(Unit_right_text);
-        pap_Unit.appendChild(Unit_right);
-        new_pap.append(pap_Unit);
-
-        pap_Assessment = document.createElement("div");
-        pap_Assessment.setAttribute('class','result one header');
-        Assessment_left = document.createElement("div");
-        Assessment_left.setAttribute('class','split4');
-        Assessment_left_text = document.createElement("h2");
-        Assessment_left_text.appendChild(document.createTextNode('Assessment'));
-        Assessment_left.appendChild(Assessment_left_text);
-        pap_Assessment.appendChild(Assessment_left);
-        Assessment_right = document.createElement("div");
-        Assessment_right.setAttribute("class","split4");
-        Assessment_right_text = document.createElement("h2");
-        Assessment_right_fill = document.createElement("input");
-        Assessment_right_fill.setAttribute('type','text');
-        Assessment_right_fill.setAttribute('id','Assessment' + i);
-        Assessment_right_text.appendChild(Assessment_right_fill);
-        Assessment_right.appendChild(Assessment_right_text);
-        pap_Assessment.appendChild(Assessment_right);
-        new_pap.append(pap_Assessment);
-
-        pap_Date = document.createElement("div");
-        pap_Date.setAttribute('class','result two header');
-        Date_left = document.createElement("div");
-        Date_left.setAttribute('class','split4');
-        Date_left_text = document.createElement("h2");
-        Date_left_text.appendChild(document.createTextNode('Date'));
-        Date_left.appendChild(Date_left_text);
-        pap_Date.appendChild(Date_left);
-        Date_right = document.createElement("div");
-        Date_right.setAttribute("class","split4");
-        Date_right_text = document.createElement("h2");
-        Date_right_fill = document.createElement("input");
-        Date_right_fill.setAttribute('type','text');
-        Date_right_fill.setAttribute('id','Date' + i);
-        Date_right_text.appendChild(Date_right_fill);
-        Date_right.appendChild(Date_right_text);
-        pap_Date.appendChild(Date_right);
-        new_pap.append(pap_Date);
-
-        formi.append(new_pap);
-
-        document.getElementById("history").appendChild(formi);
-      	
-
-
-
-
-        var j = document.createElement("button");
-        j.setAttribute('id','add');
-        j.setAttribute('value','Add History');
-        j.setAttribute('onclick','addHistory()')
-        j.innerHTML =  'Add History';
-        var k = document.createElement("button");
-        k.setAttribute('id','submit');
-        k.setAttribute('type','submit');
-        k.setAttribute('value','Submit');
-        k.setAttribute('onclick','submitHistory()')
-        k.innerHTML = 'Submit';
-        document.getElementById("history").appendChild(j);
-        document.getElementById("history").appendChild(k);
-    
       }
     // Title of Page
     title Exam Question Database
@@ -220,7 +55,7 @@ html
       li
         a(href="/test") View Test
   |   
-  body(onload = 'addHistory()')
+  body
     // Body of Page
     .main
       p
@@ -231,10 +66,58 @@ html
       |                 
       #history.formContainer
         
+        - var form = 1;
+        - var formno = 1
+        while form <= formno;
+          
+          form(id = "paper" + form, method = 'post')
+            .result.two.header
+              .split4
+                h2 Paper # #{form}
+              .split4
+                h2
+                  select(id='oldnew', onchange="changepaper(this,this.parentNode.parentNode.parentNode.parentNode)")
+                    option(value='oldpaper') Past
+                    option(value='newpaper', selected='True') New
+            fieldset#oldpapers(style='display:none; border:none')
+              .result.one.header
+                .split4
+                  h2 Select
+                .split4
+                  h2
+                    select(onchange='selectPaper(this)')
+                      option(value='1') UWA PHYS1001 Test 1 20/03/18
+            fieldset#paperinfo(style='border:none')
+              .result.one.header
+                .split4
+                  h2 Institution
+                .split4
+                  h2
+                    input(type='text', id='institution'+ 1)
+              .result.one.header
+                .split4
+                  h2 Unit
+                .split4
+                  h2
+                    input(type='text', id='Unit'+ 1)
+              .result.one.header
+                .split4
+                  h2 Assessment
+                .split4
+                  h2
+                    input(type='text', id='Assessment'+ 1)
+              .result.one.header
+                .split4
+                  h2 Date
+                .split4
+                  h2
+                    input(type='text', id='Date'+ 1)
+            - form++;
+                    
         h2
-          button(id = 'add', value="Add Paper", onclick="addHistory()") 
+          button(id = 'add', value="Add Paper", onclick="addHistory()") Add Paper 
 
-          button(id = 'submit' type="submit", value="Submit", onclick="submitHistory()")
+          button(id = 'submit' type="submit", value="Submit", onclick="submitHistory()") Submit
         |   
         |           
         
