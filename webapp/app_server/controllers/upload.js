@@ -151,8 +151,9 @@ module.exports.upload = function(req, res) {
                             //FOR EVERY FILE IN THE ZIP
                             Object.keys(contents.files).forEach(function(filename){
                                 //CHECK IF FILE NAME BEGINS WITH "figs/" --> MAKE DIRECTORY figs IF IT DOESN'T EXIST
-                                if(/^figs\//.test(filename) && !fs.existsSync(dir + '/figs')) {
-                                    fs.mkdirSync(dir + '/figs');
+                                var folder = filename.split('/');
+                                if(/^fig/.test(folder[0]) && !fs.existsSync(dir + '/' + folder[0])) {
+                                    fs.mkdirSync(dir + '/' + folder[0]);
                                 }
                                 //PUT FILE INTO BUFFER...
                                 read.file(filename).async('nodebuffer')
