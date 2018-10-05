@@ -32,29 +32,45 @@ html
         li
           a(href='/testhistory') Update Result
     .main
-      #results.formContainer
-        h1 QUESTION HISTORY
-        table
-            tbody
-                tr
-                    td
-                        h2 INSTITUTION
-                    td
-                        h2 UNIT
-                    td
-                        h2 ASSESSMENT
-                    td
-                        h2 DATE
-                    td
-                        h2 CORRECT
+      <!--#results.formContainer-->
+      h1 QUESTION HISTORY
+        .result.two.header
+          //tbody 
+          .split
+            h2 INSTITUTION
+          .split
+            h2 UNIT
+          .split
+            h2 ASSESSMENT
+          .split
+            h2 DATE
+          .split
+             h2 CORRECT
+             -i= 0;
+             -len = results.length;
+         while i < len
+            .result.one.header
+              .split
+                h3= results[i]
+               - i++;
+              .split
+                h3= results[i]
+                - i++
+              .split
+                h3= results[i]
+                - i++
+              .split
+                h3= results[i]
+                - i++
+              .split
+                h3= results[i] + '/' + results[i+1]
+                - i = i + 2;
 
-                each result, i in results
-                    
-                    if((i+5)%5==0 && i > 0)
-                        tr
-                    td
-                        p= result
-                       
-    // Footer
+
+                  //if((i+5)%5==0 && i > 0)
+                  //    tr
+                  //.split
+                     //   h2  ${result}
+
     footer.footer
       p #{results}
