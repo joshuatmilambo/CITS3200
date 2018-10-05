@@ -32,6 +32,17 @@ module.exports.history = async function (req, res) {
     res.render('history', {results:results});
 }
 
+module.exports.updateresult = async function (req, res) {
+    var results = [['desc 1','www.google.com'],['desc 2','www.google.com']];
+    /*let testQuery = await ctrlMain.queryPromise('SELECT institution, unit, assessment, date, correct / total_student AS proportion FROM question_history q JOIN paper p WHERE q.paper_id = p.paper_id AND q_id = 3');
+    for (var i = 0; i < testQuery.length; i++) {
+        results.push(testQuery[i]['institution'], testQuery[i]['unit'], testQuery[i]['assessment'], testQuery[i]['date'], testQuery[i]['proportion']);
+    }*/
+    console.log(results);
+    res.render('updateresult', {results:results});
+}
+
+
 /* Get test history page */
 module.exports.testhistory = function(req,res){
   res.render('testhistory',{});
@@ -52,10 +63,10 @@ module.exports.uploadhistory = function(req,res){
 
 
 /* FUNCTION USED TO ENFORCE QUERY TO EXECUTE ASYNCHRONOUSLY */
-module.exports.queryPromise = function(str, params) { 
+module.exports.queryPromise = function(str, params) {
   return new Promise((resolve, reject) => {
     connection.query(str, params, (err, result, fields) => {
-      if (err) throw(err); 
+      if (err) throw(err);
       resolve(result);
     })
   })

@@ -157,7 +157,7 @@ footer {
 }
 
 .result {
-    min-height: 51px;
+    min-height: 30px;
     width: 90%;
     margin: auto;
     display: flex;
@@ -300,7 +300,11 @@ button[type="submit"] {
 }
 
 button.download {
-    margin: auto;
+    /* margin: auto; */
+    margin-top: : 4px;
+    margin-bottom: 6px;
+    margin-left: 50%;
+    -webkit-transform: translate(-60%, 0);
 }
 
 button:hover,
@@ -347,4 +351,13 @@ button[type="navSubmit"]:hover {
     width: 300px;
     position: relative;
     top: -8px;
+}
+
+/* Raymond's modification*/
+.entry_font{
+  font-size: 16px;
+  position:relative;
+  top:50%;
+  left:50%;
+  -webkit-transform: translate(-50%, -50%);
 }
