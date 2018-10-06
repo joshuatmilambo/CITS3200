@@ -14,8 +14,8 @@ var app = express();
 connection = mysql.createConnection({
   host : 'localhost', 
 	user : 'root',
-  password : '', //is actually cits3200 (changed it for my local computer)
-  database : 'test'  //is actually CITS3200 (changed it for my local computer)
+  password : 'cits3200', //is actually cits3200 (changed it for my local computer)
+  database : 'CITS3200'  //is actually CITS3200 (changed it for my local computer)
 });
 
 // view engine setup
