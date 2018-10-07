@@ -37,8 +37,15 @@ module.exports.testhistory = function(req,res){
   res.render('testhistory',{});
 }
 
-module.exports.updateresult = function(req,res){
-  res.render('updateresult',{});
+module.exports.updateresult = async function(req,res){
+  let testQuery = await ctrlMain.queryPromise('SELECT short_description,preview_path FROM Question JOIN Question_History USING (q_id) WHERE paper_id = ?',[paper_id]);
+  for (var i = 0; i < testQuery.length; i++) {
+    var single =[];
+    single.push(testQuery[i]['short_description'],testQuery[i]['preview_path']);
+    results.push(single);
+  }
+  console.log(results);
+  res.render('updateresult',{results:results});
 }
 
 module.exports.login = function(req,res){
@@ -52,10 +59,10 @@ module.exports.uploadhistory = function(req,res){
 
 
 /* FUNCTION USED TO ENFORCE QUERY TO EXECUTE ASYNCHRONOUSLY */
-module.exports.queryPromise = function(str, params) { 
+module.exports.queryPromise = function(str, params) {
   return new Promise((resolve, reject) => {
     connection.query(str, params, (err, result, fields) => {
-      if (err) throw(err); 
+      if (err) throw(err);
       resolve(result);
     })
   })

@@ -12,10 +12,10 @@ var app = express();
 
 // define globabl variable storing SQL connection details
 connection = mysql.createConnection({
-  host : 'localhost', 
+  host : 'localhost',
 	user : 'root',
   password : 'cits3200', //is actually cits3200 (changed it for my local computer)
-  database : 'CITS3200'  //is actually CITS3200 (changed it for my local computer)
+  database : 'CITS3200_4'  //is actually CITS3200 (changed it for my local computer)
 });
 
 // view engine setup

@@ -1,4 +1,4 @@
-  doctype html
+doctype html
 html
   head
     // Title of Page
@@ -35,7 +35,7 @@ html
       
         h1 Update Result
         .result.one.header
-          .split6
+          .split5
             h3 #
           .split2
             h3 Brief Description
@@ -47,45 +47,42 @@ html
             h3 Correct
           .split5
             h3 Total
-        .result.two
-          .split6
-            h2 1
-          .split2
-            h2 Electromagnetic force on charge
-          .split
-            h2 Preview
-          .split3
-            input(type='text', value='')
-          .split5
-            input(type='text', value='')
-          .split5
-            input(type='text', value='')
-        .result.one
-          .split6
-            h2 2
-          .split2
-            h2 Friction ball rolling down hill
-          .split
-            h2 Preview
-          .split3
-            input(type='text', value='')
-          .split5
-            input(type='text', value='')
-          .split5
-            input(type='text', value='')
-        .result.two
-          .split6
-            h2 3
-          .split2
-            h2 B field of wire
-          .split
-             Preview
-          .split3
-            input(type='text', value='')
-          .split5
-            input(type='text', value='')
-          .split5
-            input(type='text', value='')
+        //Iteration begins
+        -i =0;
+        -len = results.length;
+        while i<len
+          if(i%2==0)
+            .result.two.header
+              .split5 
+                .entry_font #{i+1}
+              .split2
+                .entry_font #{results[i][0]}
+              .split
+                p.
+                  <a href=#{preview_path}}>Preview</a>
+              .split3
+                input(type='text', value='')
+              .split5
+                input(type='text', value='')
+              .split5
+                input(type='text', value='')
+          else 
+            .result.one.header
+              .split5 
+                .entry_font #{i+1}
+              .split2
+                .entry_font #{results[i][0]}
+              .split
+                p.
+                  <a href=#{results[i][1]}>Preview</a>
+              .split3
+                input(type='text', value='')
+              .split5
+                input(type='text', value='')
+              .split5
+                input(type='text', value='')
+          -i=i+1;
+          
         .result.one.header
           button(type='submit', class='download', onclick='/') Update
     // Footer
