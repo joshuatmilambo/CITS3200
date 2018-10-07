@@ -38,7 +38,9 @@ module.exports.testhistory = function(req,res){
 }
 
 module.exports.updateresult = async function(req,res){
-  let testQuery = await ctrlMain.queryPromise('SELECT short_description,preview_path FROM Question JOIN Question_History USING (q_id) WHERE paper_id = ?',[paper_id]);
+  // let testQuery = await ctrlMain.queryPromise('SELECT short_description,preview_path FROM Question JOIN Question_History USING (q_id) WHERE paper_id = ?',[paper_id]);
+  var results =[];
+  let testQuery = await ctrlMain.queryPromise('SELECT short_description,preview_path FROM Question JOIN Question_History USING (q_id) WHERE paper_id = 1');
   for (var i = 0; i < testQuery.length; i++) {
     var single =[];
     single.push(testQuery[i]['short_description'],testQuery[i]['preview_path']);
