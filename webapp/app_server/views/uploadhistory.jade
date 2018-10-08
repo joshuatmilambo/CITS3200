@@ -6,7 +6,7 @@ html
       i =0;
 
       function changepaper(selectvalue,formparent) {
-        if(selectvalue.value == "newtest"){
+        if(selectvalue.value == "newpaper"){
           formparent.elements[1].style.display = "none";
           formparent.elements[3].style.display = "";
         }
@@ -67,7 +67,6 @@ html
       #history.formContainer
         
         - var form = 1;
-        - var formno = 1;
         while form <= formno
           
           form(id = "paper" + form, method = 'post')
@@ -86,7 +85,8 @@ html
                 .split4
                   h2
                     select(onchange='selectPaper(this)')
-                      option(value='1') UWA PHYS1001 Test 1 20/03/18
+                      each paper, i in papers
+                        option(value=i)=paper
             fieldset#paperinfo(style='border:none')
               .result.one.header
                 .split4
