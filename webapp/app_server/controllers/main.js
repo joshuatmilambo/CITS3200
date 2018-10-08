@@ -55,10 +55,10 @@ module.exports.login = function(req,res){
 }
 
 
-module.exports.uploadhistory = function(req,res){
+module.exports.uploadhistory = async function(req,res){
   var formno = 1;
-  var userPapers = [];
-  var user_id = user.getid(); //get user's id
+  var userPapers = ["Testing Paper Pls Show"];
+  var user_id = 1;
   let testQuery = await ctrlMain.queryPromise('SELECT institution, unit, assessment, date FROM paper WHERE user_id = ?',[user_id]);
   for (var i = 0; i < testQuery.length; i++) {
     userPapers.push(testQuery[i]['institution'] +" "+ testQuery[i]['unit'] +" "+  testQuery[i]['assessment'] +" "+ testQuery[i]['date'] +" "+ testQuery[i]['proportion']);
