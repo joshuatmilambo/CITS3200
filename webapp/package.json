@@ -6,8 +6,6 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
-    "bcrypt": "^3.0.1",
-    "client-sessions": "^0.8.0",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
     "express": "~4.16.0",
@@ -16,9 +14,9 @@
     "fs": "0.0.1-security",
     "http-errors": "~1.6.2",
     "jade": "~1.11.0",
+    "jszip": "^3.1.5",
     "morgan": "~1.9.0",
     "mysql": "^2.16.0",
-    "passport": "^0.4.0",
     "read-chunk": "^3.0.0"
   }
 }

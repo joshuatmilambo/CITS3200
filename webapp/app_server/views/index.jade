@@ -27,7 +27,7 @@ html
           a(href='/test') View Test
         li
           a(href='/testhistory') Update Result
-    form#search.formContainer(method='GET', action='/result')
+    form#search.formContainer(method='get', action='result', enctype='multipart/form-data')
       h1 SEARCH FOR QUESTIONS
       input#keywords(type='text', placeholder="Light, Electricity, Gauss's Law", name='keywords')
       button(type="submit") SEARCH

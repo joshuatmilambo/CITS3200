@@ -6,7 +6,7 @@ html
     // Meta Tags
     meta(charset='UTF-8')
     meta(name='description', content='Find existing exam questions easily')
-    meta(name='author', content='Sam Fairs, Chen Liu, Joshua Milambo, Lachlan Bunney, Michael Bleakley, Raymond Luk')
+    meta(name='author', content='Sam Fairs, Chen Liu, Joshua Milambo, Lachlan Bunney, Michael Bleakley, Minrui Lu')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     meta(name='keywords', content='Physics, Exam, Question, Database, Latex')
     // Links/References
@@ -18,8 +18,8 @@ html
     nav.navbar
       .navTitle
         a(href='/') Exam Question Database
-        form.navSearch(method='GET', action='/result')
-          input#navSearch(type='text', placeholder="Light, Electricity, Gauss's Law", name='navSearch')
+        form.navSearch(method='get', action='result', enctype='multipart/form-data')
+          input#navSearch(type='text', placeholder="Light, Electricity, Gauss's Law", name='keywords')
           button(type='navSubmit')
             img(width='40px', height='40px', src='images/search_icon.png')
       ul.navMenu
