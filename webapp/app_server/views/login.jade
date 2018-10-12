@@ -18,15 +18,17 @@ html
     nav.navbar
       .navTitle
         a(href='/') Exam Question Database
-    form#search.formContainer(method='GET', action='/index')
+    form#search.formContainer(method='POST', action='/login')
       h1 Login To Your Account
       .formGrid
         .gridItem Username:
         .gridItem
-          input(type="text")
+          input(type="text",name="username")
         .gridItem Password:
         .gridItem 
-          input(type="text")
+          input(type="text",name="password")
+        .gridItem
+          p #{warning} 
       button(type="submit") Login
     // Footer
     footer.footer
