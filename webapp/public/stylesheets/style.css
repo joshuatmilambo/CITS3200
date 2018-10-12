@@ -142,12 +142,6 @@ footer {
 .split4 {
     width: 50%;
 }
-.split5{
-    width: 10%;
-}
-.split6{
-   width: 5px:
-}
 
 .split > h2,
 .thirds > h2,
@@ -157,7 +151,7 @@ footer {
 }
 
 .result {
-    min-height: 30px;
+    min-height: 51px;
     width: 90%;
     margin: auto;
     display: flex;
@@ -300,11 +294,7 @@ button[type="submit"] {
 }
 
 button.download {
-    /* margin: auto; */
-    margin-top: : 4px;
-    margin-bottom: 6px;
-    margin-left: 50%;
-    -webkit-transform: translate(-60%, 0);
+    margin: auto;
 }
 
 button:hover,
@@ -351,13 +341,4 @@ button[type="navSubmit"]:hover {
     width: 300px;
     position: relative;
     top: -8px;
-}
-
-/* Raymond's modification*/
-.entry_font{
-  font-size: 16px;
-  position:relative;
-  top:50%;
-  left:50%;
-  -webkit-transform: translate(-50%, -50%);
 }
