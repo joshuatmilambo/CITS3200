@@ -6,7 +6,7 @@ html
     // Meta Tags
     meta(charset='UTF-8')
     meta(name='description', content='Find existing exam questions easily')
-    meta(name='author', content='Sam Fairs, Chen Liu, Joshua Milambo, Lachlan Bunney, Michael Bleakley, Raymond Luk')
+    meta(name='author', content='Sam Fairs, Chen Liu, Joshua Milambo, Lachlan Bunney, Michael Bleakley, Minrui Lu')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     meta(name='keywords', content='Physics, Exam, Question, Database, Latex')
     // Links/References
@@ -18,8 +18,8 @@ html
     nav.navbar
       .navTitle
         a(href='/') Exam Question Database
-        form.navSearch(action='/result')
-          input#navSearch(type='text', placeholder="Light, Electricity, Gauss's Law", name='navSearch')
+        form.navSearch(method='get', action='result', enctype='multipart/form-data')
+          input#navSearch(type='text', placeholder="Light, Electricity, Gauss's Law", name='keywords')
           button(type='navSubmit')
             img(width='40px', height='40px', src='images/search_icon.png')
       ul.navMenu
@@ -48,7 +48,7 @@ html
           .split
             button(type='remove', onclick="location.href='/test';") X
       // Test Detail
-      div(class='formContainer', id='resultslower')
+      form(class='formContainer', id='resultslower' action='addtest' method='post')
         h1 Test Detail
         .result.one.header
           .split4.left
@@ -70,12 +70,12 @@ html
               input(type='text', value='')
         .result.one.header
           .split4.left
-            h2 Data:
+            h2 Date:
           .split4.right
             h2 
               input(type='text',value='')
         .result.one.header
-          button(type='submit', class='download', onclick='/') Download
+          button(type='submit', class='download') Download
         
     // Footer
     footer.footer

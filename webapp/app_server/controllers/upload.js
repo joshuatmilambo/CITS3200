@@ -2,17 +2,9 @@ var formidable = require('formidable');
 var fs = require('fs');
 var fileType = require('file-type');
 var readChunk = require('read-chunk');
+var JSZip = require("jszip");
 
 /*--------Raymond's modification starts--------------*/
-/*
-connection.connect(function(err) {
-	if (err) {
-		console.error('Error connecting: ' + err.stack);
-		return;
-	}
-	console.log('Connected as id ' + connection.threadId);
-});
-*/
 
 // insert questions
 function insert_question(q_id, name, type, size, zip_path, preview_path, note, short_description, key_words){
@@ -83,7 +75,7 @@ module.exports.upload = function(req, res) {
         console.log('Qid: ' + qid);
 
         //Sets up dynamic upload directory based on Question ID
-        var dir = __dirname + '/files/' + qid;
+        var dir = __dirname + '\\files\\' + qid;
         if(!fs.existsSync(dir))
             fs.mkdirSync(dir);
         else {
@@ -114,11 +106,11 @@ module.exports.upload = function(req, res) {
 
                 //If filetype is allowed and corresponds to the input field --> rename and add file to array
                 if((file !== null) && (field === 'uploadzip' && fileExt.ext === 'zip')) {
-                    fs.renameSync(file.path, form.uploadDir + '/' + file.name);
+                    fs.renameSync(file.path, form.uploadDir + '\\' + file.name);
                     files[0] = file;
                 }
                 else if((file !== null) && (field === 'uploadpdf' && fileExt.ext === 'pdf')) {
-                    fs.renameSync(file.path, form.uploadDir + '/' + file.name);
+                    fs.renameSync(file.path, form.uploadDir + '\\' + file.name);
                     files[1] = file;
                 }
                 //If not, delete file from filesystem
@@ -146,12 +138,42 @@ module.exports.upload = function(req, res) {
                             type = i;
                         }
                     };
-                    insert_question(qid, files[0].name, fields[type][1], files[0].size, form.uploadDir + '/' + files[0].name, form.uploadDir + '/' + files[1].name,
+
+                    //READS UPLOADED ZIP FILE USING JSZIP
+                    fs.readFile(form.uploadDir + '\\' + files[0].name, function(err, data) {
+                        if (err) throw err;
+
+                        var read = new JSZip();
+                        //LOAD DATA INTO JSZIP
+                        read.loadAsync(data)
+                        //AFTER, GET CONTENTS OF DATA
+                        .then(function(contents) {
+                            //FOR EVERY FILE IN THE ZIP
+                            Object.keys(contents.files).forEach(function(filename){
+                                //CHECK IF FILE NAME BEGINS WITH "figs/" --> MAKE DIRECTORY figs IF IT DOESN'T EXIST
+                                var folder = filename.split('');
+                                if(/^fig/.test(folder[0]) && !fs.existsSync(dir + '\\' + folder[0])) {
+                                    fs.mkdirSync(dir + '\\' + folder[0]);
+                                }
+                                //PUT FILE INTO BUFFER...
+                                read.file(filename).async('nodebuffer')
+                                .then(function(content){
+                                    //WRITE FILE TO DIRECTORY   
+                                    var dest = dir + '\\' + filename;
+                                    fs.writeFileSync(dest, content) 
+                                });
+                            });
+                        });
+                        //DELETE OLD ZIP FILE
+                        fs.unlinkSync(form.uploadDir + '\\' + files[0].name);
+                    });
+
+                    insert_question(qid, (files[0].name).split(".")[0], fields[type][1], files[0].size, dir, form.uploadDir + '\\preview.png',
                         fields[notes][1], fields[description][1], fields[keywords][1]);
                     res.redirect('/uploadhistory');
                 }
                 else {
-                    console.log('Error Uploading - Not ENough Correct Files Given');
+                    console.log('Error Uploading - Not Enough Correct Files Given');
                     res.redirect('/upload');
                 }
             });
@@ -160,6 +182,3 @@ module.exports.upload = function(req, res) {
         form.parse(req);
     });
 };
-
-// connection.end();
-// don't use the connection.end() can prevent the error when using callback function in mysql functions

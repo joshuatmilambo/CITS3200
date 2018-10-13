@@ -6,7 +6,7 @@ html
     // Meta Tags
     meta(charset='UTF-8')
     meta(name='description', content='Find existing exam questions easily')
-    meta(name='author', content='Sam Fairs, Chen Liu, Joshua Milambo, Lachlan Bunney, Michael Bleakley, Raymond Luk')
+    meta(name='author', content='Sam Fairs, Chen Liu, Joshua Milambo, Lachlan Bunney, Michael Bleakley, Minrui Lu')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     meta(name='keywords', content='Physics, Exam, Question, Database, Latex')
     // Links/References
@@ -17,9 +17,9 @@ html
     // Navbar
     nav.navbar
       .navTitle
-        a(href='/index') Exam Question Database
-        form.navSearch(action='/result')
-          input#navSearch(type='text', placeholder="Light, Electricity, Gauss's Law", name='navSearch')
+        a(href='/') Exam Question Database
+        form.navSearch(method='get', action='result', enctype='multipart/form-data')
+          input#navSearch(type='text', placeholder="Light, Electricity, Gauss's Law", name='keywords')
           button(type='navSubmit')
             img(width='40px', height='40px', src='images/search_icon.png')
       ul.navMenu
@@ -32,9 +32,10 @@ html
         li
           a(href='/testhistory') Update Result
     .main
-      #results.formContainer
-        h1 QUESTION HISTORY
-        .result.one.header
+      <!--#results.formContainer-->
+      h1 QUESTION HISTORY
+        .result.two.header
+          //tbody 
           .split
             h2 INSTITUTION
           .split
@@ -44,40 +45,32 @@ html
           .split
             h2 DATE
           .split
-            h2 CORRECT
-        .result.two
-          .split
-            p UWA
-          .split
-            p PHYS1001
-          .split
-            p Test 1
-          .split
-            p 03/03/2019
-          .split
-            p 347/700
-        .result.one
-          .split
-            p UWA
-          .split
-            p PHYS1001
-          .split
-            p Exam
-          .split
-            p 01/06/2018
-          .split
-            p 450/640
-        .result.two
-          .split
-            p UWA
-          .split
-            p PHYS1001
-          .split
-            p Test 2
-          .split
-            p 20/05/2017
-          .split
-            p 200/570
-    // Footer
+             h2 CORRECT
+             -i= 0;
+             -len = results.length;
+         while i < len
+            .result.one.header
+              .split
+                h3= results[i]
+               - i++;
+              .split
+                h3= results[i]
+                - i++
+              .split
+                h3= results[i]
+                - i++
+              .split
+                h3= results[i]
+                - i++
+              .split
+                h3= results[i] + '/' + results[i+1]
+                - i = i + 2;
+
+
+                  //if((i+5)%5==0 && i > 0)
+                  //    tr
+                  //.split
+                     //   h2  ${result}
+
     footer.footer
-      p Example filler text for the footer of the page.
+      p #{results}
