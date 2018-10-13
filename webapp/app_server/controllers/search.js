@@ -41,9 +41,10 @@ module.exports.result = async function(req, res) {
 		//Search through database asynchronously
 		let searchQuery = await ctrlMain.queryPromise('SELECT q_id,short_description,update_date from Question WHERE key_words LIKE ?',[keyword]);
 
-		//For array of returned qids, check if it's already in results -> if not add to reulst
+		//For array of returned qids, check if it's already in results -> if not add to results
 		for (var j=0;j<searchQuery.length;j++){
 			if(results.includes(searchQuery[j]['q_id'])==false){
+				//Contruct array with required information
 				temp = new Array(3);
 				temp[0] = searchQuery[j]['q_id'];
 				temp[1] = searchQuery[j]['short_description'];
@@ -54,5 +55,6 @@ module.exports.result = async function(req, res) {
 	}
 
 	console.log(results);
+	//Pass to results array to results rendere
 	res.render('result', {results: results});
 };
