@@ -52,7 +52,21 @@ INSERT INTO `Paper` VALUES
 (4,1,'done','UWA','PHYS1003','Assignment','2018-09-02'),
 (5,1,'in process','UWA','PHYS1001','Test','2018-09-03'),
 (6,3,'in process','ECU','PHYS1002','Exam','2018-09-04'),
-(7,1,'in process','Murdoch','PHYS1002','Test','2018-09-02');
+(7,1,'in process','Murdoch','PHYS1002','Test','2018-09-02'),
+(8,2,'done','ECU','PHYS1004','Exam','2018-09-06'),
+(9,2,'in process','UWA','PHYS1004','Exam','2018-09-07'),
+(10,2,'done','Murdoch','PHYS1004','Exam','2018-09-06'),
+(11,2,'done','Curtin','PHYS1004','Exam','2018-09-06'),
+(12,2,'done','ECU','PHYS1005','Exam','2018-09-10'),
+(13,3,'done','UWA','PHYS1005','Exam','2018-09-10'),
+(14,1,'done','Curtin','PHYS1005','Test','2018-09-10'),
+(15,1,'done','Curtin','PHYS1005','Test','2018-09-10'),
+(16,2,'in process','ECU','PHYS1006','Assignment','2018-09-11'),
+(17,2,'in process','Curtin','PHYS1006','Assignment','2018-09-11'),
+(18,2,'in process','UWA','PHYS1007','Assignment','2018-09-13'),
+(19,1,'in process','Murdoch','PHYS1007','Assignment','2018-09-13'),
+(20,3,'in process','ECU','PHYS1007','Assignment','2018-09-13');
+
 
 -- --------------------------------------------------------
 
@@ -74,17 +88,26 @@ CREATE TABLE `Question` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 INSERT INTO `Question` VALUES
-(1,'light01',500,'zip','zip_path','preview_path','q1','q1','light electricity motion','2018-09-10'),
-(2,'electricity01',500,'zip','zip_path','preview_path','q2','q2','light electricity motion','2018-09-10'),
-(3,'light02',500,'zip','zip_path','preview_path','q3','q3','light electricity motion','2018-09-10'),
-(4,'light03',500,'zip','zip_path','preview_path','q4','q4','light electricity motion','2018-09-11'),
-(5,'motion01',500,'zip','zip_path','preview_path','q5','q5','light electricity motion','2018-09-12'),
-(6,'friction01',500,'zip','zip_path','preview_path','q6','q6','light electricity motion','2018-09-20');
-
-
-
-
-
+(1,'light01',500,'zip','zip_path','preview_path','q1','q1','light,electricity,motion','2017-09-10'),
+(2,'electricity01',500,'zip','zip_path','preview_path','q2','q2','light,electricity,motion','2017-09-10'),
+(3,'light02',500,'zip','zip_path','preview_path','q3','q3','light,electricity,motion','2017-09-10'),
+(4,'light03',500,'zip','zip_path','preview_path','q4','q4','light,electricity,motion','2017-09-11'),
+(5,'motion01',500,'zip','zip_path','preview_path','q5','q5','light,electricity,motion','2017-09-12'),
+(6,'friction01',500,'zip','zip_path','preview_path','q6','q6','light,electricity,motion','2017-09-20'),
+(7,'mechanic',500,'zip','zip_path','preview_path','q7','q7','dynamics,vectors,motion','2017-09-20'),
+(8,'mechanic',500,'zip','zip_path','preview_path','q8','q8','dynamics,vectors,motion','2017-09-20'),
+(9,'mechanic',500,'zip','zip_path','preview_path','q9','q9','dynamics,vectors,motion','2017-09-20'),
+(10,'mechanic',500,'zip','zip_path','preview_path','q10','q10','dynamics,vectors,motion','2017-09-20'),
+(11,'electromagnetism',500,'zip','zip_path','preview_path','q11','q11','circuits,vectors,motion','2017-09-20'),
+(12,'electromagnetism',500,'zip','zip_path','preview_path','q12','q12','circuits,vectors,motion','2017-09-20'),
+(13,'electromagnetism',500,'zip','zip_path','preview_path','q12','q12','circuits,vectors,motion','2017-09-20'),
+(14,'electromagnetism',500,'zip','zip_path','preview_path','q14','q14','circuits,vectors,motion','2017-09-20'),
+(15,'electromagnetism',500,'zip','zip_path','preview_path','q15','q15','circuits,vectors,motion','2017-09-20'),
+(16,'history',500,'zip','zip_path','preview_path','q16','q16','Newton,Einstein,Galileo','2017-09-21'),
+(17,'history',500,'zip','zip_path','preview_path','q17','q17','Newton,Einstein,Galileo','2017-09-21'),
+(18,'history',500,'zip','zip_path','preview_path','q18','q18','Newton,Einstein,Galileo','2017-09-21'),
+(19,'history',500,'zip','zip_path','preview_path','q19','q19','Newton,Einstein,Galileo','2017-09-21'),
+(20,'history',500,'zip','zip_path','preview_path','q20','q20','Newton,Einstein,Galileo','2017-09-21');
 
 -- --------------------------------------------------------
 
@@ -103,9 +126,45 @@ INSERT INTO `Temp_Paper` VALUES
 (2,1,1),
 (2,2,1),
 (2,3,1),
-(6,1,2),
-(6,2,2),
-(6,3,2);
+(2,4,1),
+(2,5,1),
+(2,6,1),
+(2,7,1),
+(2,8,1),
+(2,9,1),
+(2,10,1),
+(2,11,1),
+(2,12,1),
+(2,13,1),
+(2,14,1),
+(2,15,1),
+(2,16,1),
+(2,17,1),
+(2,18,1),
+(2,19,1),
+(2,20,1),
+(6,1,1),
+(6,2,1),
+(6,3,1),
+(6,4,1),
+(6,5,1),
+(6,6,1),
+(6,7,1),
+(6,8,1),
+(6,9,1),
+(6,10,1),
+(6,11,1),
+(6,12,1),
+(6,13,1),
+(6,14,1),
+(6,15,1),
+(6,16,1),
+(6,17,1),
+(6,18,1),
+(6,19,1),
+(6,20,1);
+
+
 -- --------------------------------------------------------
 
 --
@@ -117,7 +176,7 @@ CREATE TABLE `Question_History` (
   `q_id` int(8) NOT NULL,
   `paper_id` int(8) NOT NULL,
   `correct` int(5) DEFAULT NULL,
-  `total_student` int(5) DEFAULT NULL，
+  `total_student` int(5) DEFAULT NULL,
   `note` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -126,7 +185,43 @@ INSERT INTO  `Question_History` VALUES
 (1,1,1,60,100,'note 1'),
 (2,2,1,40,100, 'note 2'),
 (3,3,1,70,100, 'note 3'),
-(4,3,4,60,99, 'note 4');
+(4,4,1,40,100,'note 4'),
+(5,5,1,40,100,'note 5'),
+(6,6,1,40,100,'note 6'),
+(7,7,1,40,100,'note 7'),
+(8,8,1,40,100,'note 8'),
+(9,9,1,40,100,'note 9'),
+(10,10,1,40,100,'note 10'),
+(11,11,1,40,100,'note 11'),
+(12,12,1,40,100,'note 12'),
+(13,13,1,40,100,'note 13'),
+(14,14,1,40,100,'note 14'),
+(15,15,1,40,100,'note 15'),
+(16,16,1,40,100,'note 16'),
+(17,17,1,40,100,'note 17'),
+(18,18,1,40,100,'note 18'),
+(19,19,1,40,100,'note 19'),
+(20,20,1,40,100,'note 20'),
+(21,1,4,60,100,'note 1'),
+(22,2,4,40,100, 'note 2'),
+(23,3,4,70,100, 'note 3'),
+(24,4,4,40,100,'note 4'),
+(25,5,4,40,100,'note 5'),
+(26,6,4,40,100,'note 6'),
+(27,7,4,40,100,'note 7'),
+(28,8,4,40,100,'note 8'),
+(29,9,4,40,100,'note 9'),
+(30,10,4,40,100,'note 10'),
+(31,11,4,40,100,'note 11'),
+(32,12,4,40,100,'note 12'),
+(33,13,4,40,100,'note 13'),
+(34,14,4,40,100,'note 14'),
+(35,15,4,40,100,'note 15'),
+(36,16,4,40,100,'note 16'),
+(37,17,4,40,100,'note 17'),
+(38,18,4,40,100,'note 18'),
+(39,19,4,40,100,'note 19'),
+(40,20,4,40,100,'note 20');
 -- --------------------------------------------------------
 
 --
