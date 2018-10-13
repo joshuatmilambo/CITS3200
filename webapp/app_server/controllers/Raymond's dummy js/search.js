@@ -46,9 +46,9 @@ function search_results(matched_q_id){
 	var results=[];
 	for (var i=0;i<matched_q_id.length;i++){
 		var single_result = [];
-		connection.query('SELECT short_description,update_date,preview_path FROM Question WHERE q_id=?',[matched_q_id[i]],function(err,results){
+		connection.query('SELECT short_description,update_date,preview_path,video_link FROM Question WHERE q_id=?',[matched_q_id[i]],function(err,results){
 			if(err) throw err;
-			single_result.push(results[0]['short_description'],results[0]['update_date'],results[0]['preview_path']);
+			single_result.push(results[0]['short_description'],results[0]['update_date'],results[0]['preview_path'],results[0]['video_link']);
 		});
 	  results.push(single_result);
 	}

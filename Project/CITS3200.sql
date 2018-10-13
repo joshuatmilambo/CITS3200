@@ -84,30 +84,31 @@ CREATE TABLE `Question` (
   `note` varchar(200) DEFAULT NULL,
   `short_description` varchar(200) DEFAULT NULL,
   `key_words` varchar(100) DEFAULT NULL,
-  `update_date` date NOT NULL
+  `update_date` date NOT NULL,
+  `video_link` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 INSERT INTO `Question` VALUES
-(1,'light01',500,'zip','zip_path','preview_path','q1','q1','light,electricity,motion','2017-09-10'),
-(2,'electricity01',500,'zip','zip_path','preview_path','q2','q2','light,electricity,motion','2017-09-10'),
-(3,'light02',500,'zip','zip_path','preview_path','q3','q3','light,electricity,motion','2017-09-10'),
-(4,'light03',500,'zip','zip_path','preview_path','q4','q4','light,electricity,motion','2017-09-11'),
-(5,'motion01',500,'zip','zip_path','preview_path','q5','q5','light,electricity,motion','2017-09-12'),
-(6,'friction01',500,'zip','zip_path','preview_path','q6','q6','light,electricity,motion','2017-09-20'),
-(7,'mechanic',500,'zip','zip_path','preview_path','q7','q7','dynamics,vectors,motion','2017-09-20'),
-(8,'mechanic',500,'zip','zip_path','preview_path','q8','q8','dynamics,vectors,motion','2017-09-20'),
-(9,'mechanic',500,'zip','zip_path','preview_path','q9','q9','dynamics,vectors,motion','2017-09-20'),
-(10,'mechanic',500,'zip','zip_path','preview_path','q10','q10','dynamics,vectors,motion','2017-09-20'),
-(11,'electromagnetism',500,'zip','zip_path','preview_path','q11','q11','circuits,vectors,motion','2017-09-20'),
-(12,'electromagnetism',500,'zip','zip_path','preview_path','q12','q12','circuits,vectors,motion','2017-09-20'),
-(13,'electromagnetism',500,'zip','zip_path','preview_path','q12','q12','circuits,vectors,motion','2017-09-20'),
-(14,'electromagnetism',500,'zip','zip_path','preview_path','q14','q14','circuits,vectors,motion','2017-09-20'),
-(15,'electromagnetism',500,'zip','zip_path','preview_path','q15','q15','circuits,vectors,motion','2017-09-20'),
-(16,'history',500,'zip','zip_path','preview_path','q16','q16','Newton,Einstein,Galileo','2017-09-21'),
-(17,'history',500,'zip','zip_path','preview_path','q17','q17','Newton,Einstein,Galileo','2017-09-21'),
-(18,'history',500,'zip','zip_path','preview_path','q18','q18','Newton,Einstein,Galileo','2017-09-21'),
-(19,'history',500,'zip','zip_path','preview_path','q19','q19','Newton,Einstein,Galileo','2017-09-21'),
-(20,'history',500,'zip','zip_path','preview_path','q20','q20','Newton,Einstein,Galileo','2017-09-21');
+(1,'light01',500,'zip','zip_path','preview_path','q1','q1','light,electricity,motion','2017-09-10','https://www.youtube.com/watch?v=VYOjWnS4cMY'),
+(2,'electricity01',500,'zip','zip_path','preview_path','q2','q2','light,electricity,motion','2017-09-10','https://www.youtube.com/watch?v=VYOjWnS4cMY'),
+(3,'light02',500,'zip','zip_path','preview_path','q3','q3','light,electricity,motion','2017-09-10','https://www.youtube.com/watch?v=VYOjWnS4cMY'),
+(4,'light03',500,'zip','zip_path','preview_path','q4','q4','light,electricity,motion','2017-09-11','https://www.youtube.com/watch?v=VYOjWnS4cMY'),
+(5,'motion01',500,'zip','zip_path','preview_path','q5','q5','light,electricity,motion','2017-09-12','https://www.youtube.com/watch?v=VYOjWnS4cMY'),
+(6,'friction01',500,'zip','zip_path','preview_path','q6','q6','light,electricity,motion','2017-09-20','https://www.youtube.com/watch?v=VYOjWnS4cMY'),
+(7,'mechanic',500,'zip','zip_path','preview_path','q7','q7','dynamics,vectors,motion','2017-09-20','https://www.youtube.com/watch?v=VYOjWnS4cMY'),
+(8,'mechanic',500,'zip','zip_path','preview_path','q8','q8','dynamics,vectors,motion','2017-09-20','https://www.youtube.com/watch?v=VYOjWnS4cMY'),
+(9,'mechanic',500,'zip','zip_path','preview_path','q9','q9','dynamics,vectors,motion','2017-09-20','https://www.youtube.com/watch?v=VYOjWnS4cMY'),
+(10,'mechanic',500,'zip','zip_path','preview_path','q10','q10','dynamics,vectors,motion','2017-09-20','https://www.youtube.com/watch?v=VYOjWnS4cMY'),
+(11,'electromagnetism',500,'zip','zip_path','preview_path','q11','q11','circuits,vectors,motion','2017-09-20','https://www.youtube.com/watch?v=VYOjWnS4cMY'),
+(12,'electromagnetism',500,'zip','zip_path','preview_path','q12','q12','circuits,vectors,motion','2017-09-20','https://www.youtube.com/watch?v=VYOjWnS4cMY'),
+(13,'electromagnetism',500,'zip','zip_path','preview_path','q12','q12','circuits,vectors,motion','2017-09-20','https://www.youtube.com/watch?v=VYOjWnS4cMY'),
+(14,'electromagnetism',500,'zip','zip_path','preview_path','q14','q14','circuits,vectors,motion','2017-09-20','https://www.youtube.com/watch?v=VYOjWnS4cMY'),
+(15,'electromagnetism',500,'zip','zip_path','preview_path','q15','q15','circuits,vectors,motion','2017-09-20','https://www.youtube.com/watch?v=VYOjWnS4cMY'),
+(16,'history',500,'zip','zip_path','preview_path','q16','q16','Newton,Einstein,Galileo','2017-09-21','https://www.youtube.com/watch?v=VYOjWnS4cMY'),
+(17,'history',500,'zip','zip_path','preview_path','q17','q17','Newton,Einstein,Galileo','2017-09-21','https://www.youtube.com/watch?v=VYOjWnS4cMY'),
+(18,'history',500,'zip','zip_path','preview_path','q18','q18','Newton,Einstein,Galileo','2017-09-21','https://www.youtube.com/watch?v=VYOjWnS4cMY'),
+(19,'history',500,'zip','zip_path','preview_path','q19','q19','Newton,Einstein,Galileo','2017-09-21','https://www.youtube.com/watch?v=VYOjWnS4cMY'),
+(20,'history',500,'zip','zip_path','preview_path','q20','q20','Newton,Einstein,Galileo','2017-09-21','https://www.youtube.com/watch?v=VYOjWnS4cMY');
 
 -- --------------------------------------------------------
 
