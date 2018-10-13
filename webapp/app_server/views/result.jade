@@ -43,39 +43,35 @@ html
             h2 Preview
           .split
             h2 History
-        .result.two
-          .split2
-            p Question 1
-          .split
-            p 2018
-          .split
-            a(href='/question')
-              p View
-          .split
-            a(href='/history')
-              p History
-        .result.one
-          .split2
-            p Question 2
-          .split
-            p 2018
-          .split
-            a(href='/question')
-              p View
-          .split
-            a(href='/history')
-              p History
-        .result.two
-          .split2
-            p Question 3
-          .split
-            p 2018
-          .split
-            a(href='/question')
-              p View
-          .split
-            a(href='/history')
-              p History
+        // ITERATION BEGINS
+        -i = 0;
+        -len = results.length;
+        while i < len
+          if(i % 2 == 0)
+            .result.two
+              .split2
+                p #{results[i][1]}
+              .split
+                p #{results[i][2]}
+              .split
+                a(href='/question?qid=' + results[i][0])
+                  p View
+              .split
+                a(href='/history?qid=' + results[i][0])
+                  p History
+          else
+            .result.one
+              .split2
+                p #{results[i][1]}
+              .split
+                p #{results[i][2]}
+              .split
+                a(href='/question?qid=' + results[i][0])
+                  p View
+              .split
+                a(href='/history?qid=' + results[i][0])
+                  p History
+          -i = i + 1;
     // Footer
     footer.footer
       p Example filler text for the footer of the page.
