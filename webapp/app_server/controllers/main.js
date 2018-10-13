@@ -28,7 +28,8 @@ module.exports.history = async function (req, res) {
     for (var i = 0; i < testQuery.length; i++) {
         results.push(testQuery[i]['institution'], testQuery[i]['unit'], testQuery[i]['assessment'], testQuery[i]['date'], testQuery[i]['proportion']);
     }*/
-    console.log(results);
+    var input = req.query.qid;
+    console.log(results, input);
     res.render('history', {results:results});
 }
 
