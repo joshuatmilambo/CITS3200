@@ -11,7 +11,7 @@ router.post('/login',ctrlLogin.login);
 router.get('/result', ctrlMain.result);
 router.get('/upload', ctrlMain.upload);
 router.get('/test', ctrlMain.test);
-router.get('/viewquestion', ctrlViewQuestion.viewquestion);
+router.get('/question', ctrlViewQuestion.viewquestion);
 router.get('/history', ctrlMain.history);
 router.get('/testhistory',ctrlMain.testhistory);
 router.get('/updateresult',ctrlMain.updateresult);
