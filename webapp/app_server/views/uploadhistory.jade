@@ -1,0 +1,142 @@
+doctype html
+html
+  head
+
+    script.
+      i =1;
+
+      function changepaper(selectvalue,formparent) {
+        if(selectvalue.value == "newpaper"){
+          formparent.elements[1].style.display = "none";
+          formparent.elements[3].style.display = "";
+        }
+        else if(selectvalue.value == 'oldpaper'){
+          formparent.elements[3].style.display = "none";
+          formparent.elements[1].style.display = "";
+        }
+      }
+
+      function addHistory() {
+        i++;
+        document.getElementById('paper'+i).style.display='';
+      }
+
+      function removeLastHistory(){
+        document.getElementById('paper'+i).style.display='none';
+        i--;
+       }
+
+    // Title of Page
+    title Exam Question Database
+    // Meta Tags
+    meta(charset="UTF-8")
+    |         
+    meta(name="description", content="Find existing exam questions easily")
+    |         
+    meta(name="author", content="Sam Fairs, Chen Liu, Joshua Milambo, Lachlan Bunney, Michael Bleakley, Raymond Luk")
+    |         
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    |         
+    meta(name="keywords", content="Physics, Exam, Question, Database, Latex")
+    // Links/References
+    link(rel="stylesheet", href="/stylesheets/style.css")
+    |         
+    link(href="https://fonts.googleapis.com/css?family=Poppins:400,400i,700", rel="stylesheet")
+  // Navbar
+  nav.navbar
+    .navTitle
+      a(href="/index") Exam Question Database
+      |             
+      form.navSearch(method='get', action='result', enctype='multipart/form-data')
+        input#navSearch(type="text", placeholder="Light, Electricity, Gauss's Law", name="keywords")
+        |                 
+        button(type="navSubmit")
+          img(width="40px", height="40px", src="images/search_icon.png")
+    |         
+    ul.navMenu
+      li
+        a(href="/") Login
+      |             
+      li
+        a(href="/upload") Upload Question
+      |             
+      li
+        a(href="/test") View Test
+  |   
+  body
+    // Body of Page
+    .main
+      p
+        a(href="/upload") Upload Question
+        |  → 
+        b Question History
+        |  → Submitted
+      |                 
+      #history.formContainer
+        
+        - var form = 1;
+        while form <= formno
+          
+          form(id = "paper" + form, method = 'post')
+            .result.two.header
+              .split4
+                h2 Paper # #{form}
+              .split4
+                h2
+                  select(id='oldnew', onchange="changepaper(this,this.parentNode.parentNode.parentNode.parentNode)")
+                    option(value='oldpaper') Past
+                    option(value='newpaper', selected='True') New
+            fieldset#oldpapers(style='display:none; border:none')
+              .result.one.header
+                .split4
+                  h2 Select
+                .split4
+                  h2
+                    select(onchange='selectPaper(this)')
+                      each paper, i in papers
+                        option(value=i)=paper
+            fieldset#paperinfo(style='border:none')
+              .result.one.header
+                .split4
+                  h2 Institution
+                .split4
+                  h2
+                    input(type='text', id='institution'+ 1)
+              .result.one.header
+                .split4
+                  h2 Unit
+                .split4
+                  h2
+                    input(type='text', id='Unit'+ 1)
+              .result.one.header
+                .split4
+                  h2 Assessment
+                .split4
+                  h2
+                    input(type='text', id='Assessment'+ 1)
+              .result.one.header
+                .split4
+                  h2 Date
+                .split4
+                  h2
+                    input(type='text', id='Date'+ 1)
+            - form++;
+                    
+        h2
+          button(id = 'add', value="Add Paper", onclick="addHistory()") Add Paper 
+
+          button(id = 'add', value="Add Paper", onclick="removeLastHistory()") Remove Last Paper 
+
+          button(id = 'submit' type="submit", value="Submit", onclick="submitHistory()") Submit
+        |   
+        |           
+        
+      |         
+      p
+        a(href="/upload") Upload Question
+        |  → 
+        b Question History
+        |  → Submitted
+  // Footer
+  footer.footer
+    p Example filler text for the footer of the page.
