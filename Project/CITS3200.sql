@@ -107,8 +107,8 @@ INSERT INTO `Question` VALUES
 (16,'history',500,'zip','zip_path','preview_path','q16','q16','Newton,Einstein,Galileo','2017-09-21','https://www.youtube.com/watch?v=VYOjWnS4cMY'),
 (17,'history',500,'zip','zip_path','preview_path','q17','q17','Newton,Einstein,Galileo','2017-09-21','https://www.youtube.com/watch?v=VYOjWnS4cMY'),
 (18,'history',500,'zip','zip_path','preview_path','q18','q18','Newton,Einstein,Galileo','2017-09-21','https://www.youtube.com/watch?v=VYOjWnS4cMY'),
-(19,'history',500,'zip','zip_path','preview_path','q19','q19','Newton,Einstein,Galileo','2017-09-21','https://www.youtube.com/watch?v=VYOjWnS4cMY'),
-(20,'history',500,'zip','zip_path','preview_path','q20','q20','Newton,Einstein,Galileo','2017-09-21','https://www.youtube.com/watch?v=VYOjWnS4cMY');
+(19,'history',500,'zip','zip_path','preview_path','q19','q19','Newton,Einstein,Galileo','2017-09-21'),
+(20,'history',500,'zip','zip_path','preview_path','q20','q20','Newton,Einstein,Galileo','2017-09-21');
 
 -- --------------------------------------------------------
 
