@@ -56,7 +56,7 @@ module.exports.login = function(req,res){
 
 
 module.exports.uploadhistory = async function(req,res){
-  var formno = 5; //for now, unsure how to change adaptively and reload
+  var formno = 1;
   var userPapers = ["Testing Paper Pls Show"];
   var user_id = 1;
   let testQuery = await ctrlMain.queryPromise('SELECT institution, unit, assessment, date FROM Paper WHERE user_id = ?',[user_id]);
