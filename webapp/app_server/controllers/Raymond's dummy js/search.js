@@ -58,9 +58,9 @@ function search_results(matched_q_id){
 //Return question history
 function single_question_history(q_id){
 	var result =[];
-	connection.query('SELECT institution,unit,assessment,date,correct,total_student,note FROM Question_History JOIN Paper USING paper_id WHERE q_id=?',[q_id],function(err,results){
+	connection.query('SELECT institution,unit,assessment,date,correct,total_student FROM Question_History JOIN Paper USING paper_id WHERE q_id=?',[q_id],function(err,results){
 		if(err) throw err;
-		single_result.push(results[0]['institution'],results[0]['unit'],results[0]['assessment'],results[0]['date'],results[0]['correct'],results[0]['total_student'],results[0]['note']);
+		single_result.push(results[0]['institution'],results[0]['unit'],results[0]['assessment'],results[0]['date'],results[0]['correct'],results[0]['total_student']);
 	});
 	return (result);
 }
@@ -82,20 +82,6 @@ function get_status(paper_id){
 		result_status = results[0]['status'];
 	});
 	return (result_status);
-}
-
-//Get past papers
-function get_past_papers(){
-	connection.query('SELECT institution,unit,assessment,date FROM Paper WHERE status = "done"',function(err,results){
-		if(err) throw err;
-		var past_papers = [];
-		for (var i=0;i<results.length;i++){
-			var string = "";
-			string = results[i]['institution']+"|"+results[i]['unit']+"|"+results[i]['assessment']+"|"+results[i]['date'];
-			past_papers.push(string);
-		}
-		return (past_papers); // "foo()" starts here!
-	});
 }
 
 

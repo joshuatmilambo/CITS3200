@@ -2,9 +2,10 @@ var ctrlMain = require('../controllers/main');
 
 
 /* GET home page */
-module.exports.index = function(req,res){
-  res.render('index',{});
-};
+module.exports.result = function(req,res){
+  console.log(req.session.user);
+  res.render('result',{});
+}
 
 /* GET upload page */
 module.exports.upload = function(req,res){
@@ -14,11 +15,6 @@ module.exports.upload = function(req,res){
 /* GET test page */
 module.exports.test = function(req,res){
   res.render('test',{});
-}
-
-/* GET question page */
-module.exports.question = function (req, res) {
-    res.render('question', {});
 }
 
 /* GET history page */
@@ -60,6 +56,7 @@ module.exports.uploadhistory = function(req,res){
   res.render('uploadhistory',{});
 }
 
+}
 
 /* FUNCTION USED TO ENFORCE QUERY TO EXECUTE ASYNCHRONOUSLY */
 module.exports.queryPromise = function(str, params) {
