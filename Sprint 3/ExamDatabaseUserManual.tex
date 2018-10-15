@@ -1,12 +1,14 @@
 \documentclass[12pt, a4paper, titlepage]{book}
-\usepackage[top = 2.5cm, bottom  = 2.5cm]{geometry}
+\usepackage[top = 2.5cm, bottom  = 2.5cm, left = 2.4cm, right = 2.4cm]{geometry}
 \usepackage{graphicx}
 \usepackage{mathtools}
 \usepackage{float}
 \usepackage{setspace}
 \usepackage{marginnote}
-\usepackage{subcaption}
+%\usepackage{subcaption}
 \usepackage{titling}
+\usepackage{subfig}
+\usepackage[titletoc]{appendix}
 
 \captionsetup{font=small, skip=1pt}
 \setlength{\textfloatsep}{3pt plus 2pt minus 2pt}
@@ -176,8 +178,47 @@ Once on the page for a single paper, you will see each question laid out in orde
 \includegraphics[width = 12cm, height = 15cm]{example-image}
 \caption{The Preview Page for an Example Question}
 \end{figure}
+\begin{appendices}
+\addappheadtotoc
 
+\chapter{A Notice About User Deletion}
+\small
+The database behind this system is a MySQL Relational Datanase in which changes in some tables are cascaded throughout the database. More specifically: when there an entry in a table gets updated or deleted, \emph{associated entries in other tables will be affected similarly}. Specifically one should be careful when deleting users, as this may cause all data associated with this user to be removed from the database, \textbf{including any questions uploaded to the database by this user}.
+\\
+\par An Example Follows:
+\begin{figure}[H]
+\centering \subfloat[Original User Table]{{\includegraphics[width=4cm, height = 6cm]{origusetable.PNG} }}%
+    \qquad
+    \subfloat[Original Paper Table]{{\includegraphics[width=5cm, height =6cm]{origpaptable.PNG} }}%
+    \qquad
+    \subfloat[Original In-Progress Papers Table]{{\includegraphics[width=5cm, height = 6cm]{origtemptable.PNG} }}%
+    \caption{Tables Prior to the Delete User Query}%
+    \label{fig:DBpredel}%
+    \end{figure}
+ \par Now, deleting the user with id = 2:
+\begin{figure}[htp]
+\centering
+\includegraphics[width = 8cm, height = 2cm]{delquer.png}
+\caption{Deletion Query for User Where UserId = 2}
+\end{figure}\pagebreak
+\par We end up with the new user table
+\begin{figure}[H]
+\centering
+\includegraphics[width = 10cm, height = 3cm]{newusetable.png}
+\caption{User Table from fig \ref{fig:DBpredel} After the Deletion Query}
+\end{figure}
+\par However we can also see that all records with reference to User Id = 2 in Paper and Temp\_Paper are also removed:
+\begin{figure}[H]
+\centering
+\subfloat[New Paper Table]{{\includegraphics[width=8cm, height = 7cm]{newpaptable.PNG} }}%
+    \qquad
+    \subfloat[New In-Progress Paper Table]{{\includegraphics[width=6cm, height =8cm]{newtemptable.PNG} }}%
+    \qquad
+    \caption{Paper and In-Progress Paper Tables After User Deletion}
+ \end{figure}
+
+
+\end{appendices}
 \listoffigures
-
 
 \end{document}
