@@ -1,8 +1,59 @@
 var mysql = require('mysql');
-var formidable = require('formidable');
-var ctrlMain = require('../controllers/main');
 
 /*--------Raymond's modification starts--------------*/
+var key_words = words_searched;
+var matched_q_id = [];
+// attempt to connect to mysql server
+var connection = mysql.createConnection({
+	host : 'localhost',
+	user : 'root',
+	password : 'cits3200',
+	database: 'CITS3200'
+});
+
+
+connection.connect(function(err) {
+	if (err) {
+		console.error('Error connecting: ' + err.stack);
+		return;
+	}
+	console.log('Connected as id ' + connection.threadId);
+});
+
+// Return a question ID by searching a key word
+function search_a_word(key_word){
+  key_word = "%".concat(key_word,"%");
+	connection.query('SELECT q_id from Question WHERE key_words LIKE ?',[key_word],function(err,results){
+		if(err) throw err;
+		for (var i=0;i<results.length;i++){
+			if(matched_q_id.includes(results[i]['q_id'])==false){
+				matched_q_id.push(results[i]['q_id']);
+			}
+		}
+	});
+}
+
+//Return a list of question ID by searching multiple
+function search_words(key_words){
+	var key_word_list = key_words.split(",");
+	for (var i=0;i<key_word_list.length;i++){
+		search_a_word();
+	}
+}
+
+//Return question information in search result webpage
+function search_results(matched_q_id){
+	var results=[];
+	for (var i=0;i<matched_q_id.length;i++){
+		var single_result = [];
+		connection.query('SELECT short_description,update_date,preview_path FROM Question WHERE q_id=?',[matched_q_id[i]],function(err,results){
+			if(err) throw err;
+			single_result.push(results[0]['short_description'],results[0]['update_date'],results[0]['preview_path']);
+		});
+	  results.push(single_result);
+	}
+	return (results);
+}
 
 //Return question history
 function single_question_history(q_id){
@@ -23,38 +74,29 @@ function questions_history(){
 	return (history_results);
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*--------Raymond's modification ends--------------*/
-
-
-/*----------------CONTROLLERS----------------*/
-
-module.exports.result = async function(req, res) {
-	//Perform string processing to generate list of keywords
-	var input = req.query.keywords.replace(/\s/g, '');
-	var keywords = input.split(',');
-
-	var results = [];
-
-	//For every keyword
-	for(var i = 0; i < keywords.length; i++) {
-		keyword = "%".concat(keywords[i],"%");
-		//Search through database asynchronously
-		let searchQuery = await ctrlMain.queryPromise('SELECT q_id,short_description,update_date from Question WHERE key_words LIKE ?',[keyword]);
-
-		//For array of returned qids, check if it's already in results -> if not add to results
-		for (var j=0;j<searchQuery.length;j++){
-			if(results.includes(searchQuery[j]['q_id'])==false){
-				//Contruct array with required information
-				temp = new Array(3);
-				temp[0] = searchQuery[j]['q_id'];
-				temp[1] = searchQuery[j]['short_description'];
-				temp[2] = searchQuery[j]['update_date'].getFullYear();
-				results.push(temp);
-			}
-		}
-	}
-
-	console.log(results);
-	//Pass to results array to results rendere
-	res.render('result', {results: results});
-};

@@ -6,7 +6,7 @@ html
     // Meta Tags
     meta(charset='UTF-8')
     meta(name='description', content='Find existing exam questions easily')
-    meta(name='author', content='Sam Fairs, Chen Liu, Joshua Milambo, Lachlan Bunney, Michael Bleakley, Minrui Lu')
+    meta(name='author', content='Sam Fairs, Chen Liu, Joshua Milambo, Lachlan Bunney, Michael Bleakley, Raymond Luk')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     meta(name='keywords', content='Physics, Exam, Question, Database, Latex')
     // Links/References
@@ -18,8 +18,8 @@ html
     nav.navbar
       .navTitle
         a(href='/index') Exam Question Database
-        form.navSearch(method='get', action='result', enctype='multipart/form-data')
-          input#navSearch(type='text', placeholder="Light, Electricity, Gauss's Law", name='keywords')
+        form.navSearch(method='GET', action='/result')
+          input#navSearch(type='text', placeholder="Light, Electricity, Gauss's Law", name='navSearch')
           button(type='navSubmit')
             img(width='40px', height='40px', src='images/search_icon.png')
       ul.navMenu
@@ -43,35 +43,39 @@ html
             h2 Preview
           .split
             h2 History
-        // ITERATION BEGINS
-        -i = 0;
-        -len = results.length;
-        while i < len
-          if(i % 2 == 0)
-            .result.two
-              .split2
-                p #{results[i][1]}
-              .split
-                p #{results[i][2]}
-              .split
-                a(href='/question?qid=' + results[i][0])
-                  p View
-              .split
-                a(href='/history?qid=' + results[i][0])
-                  p History
-          else
-            .result.one
-              .split2
-                p #{results[i][1]}
-              .split
-                p #{results[i][2]}
-              .split
-                a(href='/question?qid=' + results[i][0])
-                  p View
-              .split
-                a(href='/history?qid=' + results[i][0])
-                  p History
-          -i = i + 1;
+        .result.two
+          .split2
+            p Question 1
+          .split
+            p 2018
+          .split
+            a(href='/viewquestion?q=23456')
+              p View
+          .split
+            a(href='/history')
+              p History
+        .result.one
+          .split2
+            p Question 2
+          .split
+            p 2018
+          .split
+            a(href='/viewquestion')
+              p View
+          .split
+            a(href='/history')
+              p History
+        .result.two
+          .split2
+            p Question 3
+          .split
+            p 2018
+          .split
+            a(href='/question')
+              p View
+          .split
+            a(href='/history')
+              p History
     // Footer
     footer.footer
       p Example filler text for the footer of the page.
