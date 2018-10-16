@@ -16,15 +16,6 @@ html
         }
       }
 
-      function addHistory() {
-        i++;
-        document.getElementById('paper'+i).style.display='';
-      }
-
-      function removeLastHistory(){
-        document.getElementById('paper'+i).style.display='none';
-        i--;
-       }
 
     // Title of Page
     title Exam Question Database
@@ -72,55 +63,53 @@ html
         b Question History
         |  → Submitted
       |                 
-      form#history(method='post',enctype='multipart/form-data')
-        
-        - var form = 1;
-        while form <= formno
-          
-          fieldset(id = "paper" + form, style='border:none', name='paper' + form)
+      form#history
+        - var formnn = 1;
+        while formnn <= formno 
+          fieldset(id = "paper" + formn, style='border:none', name='paper' + formn)
             .result.two.header
               .split4
-                h2 Paper # #{form}
+                h2 Paper # #{formn}
               .split4
                 h2
-                  select(id='oldnew', onchange="changepaper(this,this.parentNode.parentNode.parentNode.parentNode)",name='oldnew'+form)
+                  select(id='oldnew', onchange="changepaper(this,this.parentNode.parentNode.parentNode.parentNode)",name='oldnew'+formn)
                     option(value='oldpaper') Past
                     option(value='newpaper', selected='True') New
-            fieldset#oldpapers(style='display:none; border:none',name='oldpapers'+form)
+            fieldset#oldpapers(style='display:none; border:none',name='oldpapers'+formn)
               .result.one.header
                 .split4
                   h2 Select
                 .split4
                   h2
-                    select(onchange='selectPaper(this)', name='selectoldpap'+form)
+                    select(onchange='selectPaper(this)', name='selectoldpap'+formn)
                       each paper in papers
                         option(value = paper) = paper
-            fieldset#paperinfo(style='border:none', name='paperinfo'+form)
+            fieldset#paperinfo(style='border:none', name='paperinfo'+formn)
               .result.one.header
                 .split4
                   h2 Institution
                 .split4
                   h2
-                    input(type='text', id='Institution'+ form,name='institution'+form)
+                    input(type='text', id='Institution'+ formn,name='institution'+formn)
               .result.one.header
                 .split4
                   h2 Unit
                 .split4
                   h2
-                    input(type='text', id='Unit'+ form, name='unit'+form)
+                    input(type='text', id='Unit'+ formn, name='unit'+formn)
               .result.one.header
                 .split4
                   h2 Assessment
                 .split4
                   h2
-                    input(type='text', id='Assessment'+ form, name='assessment'+form)
+                    input(type='text', id='Assessment'+ formn, name='assessment'+formn)
               .result.one.header
                 .split4
                   h2 Date
                 .split4
                   h2
-                    input(type='text', id='Date'+ form, name='date'+form)
-            - form++;
+                    input(type='text', id='Date'+ formn, name='date'+formn)
+            - formn++;
                     
         h2
           -nextup = parseInt(formno)+1;
@@ -129,7 +118,7 @@ html
           if(formno > 1) 
             -onedown=parseInt(formno)-1;
             a(href='/uploadhistory?formno=' + (onedown))
-              button(id = 'add', value="Add Paper") Remove Last Paper
+              button(id = 'add', value="Remove Paper") Remove Last Paper
 
           button(id = 'submit', type="submit", value="Submit") Submit
         |   
