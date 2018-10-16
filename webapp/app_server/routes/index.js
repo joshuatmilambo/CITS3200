@@ -18,6 +18,7 @@ router.get('/updateresult',ctrlMain.updateresult);
 router.get('/uploadhistory',ctrlMain.uploadhistory);
 router.get('/adduser',ctrlMain.adduser);
 router.post('/addnewuser',ctrlMain.addnewuser);
+router.post('/updateresult',ctrlMain.update);
 
 /* POST File Upload */
 router.post('/uploadfiles', ctrlUpload.upload);

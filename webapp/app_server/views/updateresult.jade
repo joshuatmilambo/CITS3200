@@ -32,7 +32,7 @@ html
         li
           a(href='/testhistory') Update Result
     .main
-      #results.formContainer
+      form#results.formContainer(method='POST',action'/updateresult?p='+pid)
         h1 Update Result
         .result.one.header
           .split
@@ -44,42 +44,26 @@ html
           .split
             h2 DATE
           .split
-            h2 RESULT
-        .result.two
+            h2 Correct 
           .split
-            p UWA
-          .split
-            p PHYS1001
-          .split
-            p Test 1
-          .split
-            p 03/03/2019
-          .split
-            input(type='text', value='')
-        .result.one
-          .split
-            p UWA
-          .split
-            p PHYS1001
-          .split
-            p Exam
-          .split
-            p 01/06/2018
-          .split
-            input(type='text', value='')
-        .result.two
-          .split
-            p UWA
-          .split
-            p PHYS1001
-          .split
-            p Test 2
-          .split
-            p 20/05/2017
-          .split
-            input(type='text', value='')
+            h2 Total Students
+        -each val in questions
+          .result.two
+            .split
+              p=val.preview
+            .split
+              p=val.unit
+            .split
+              p=val.assessement
+            .split
+              p=val.dates
+            .split
+              input(type='text',value='',name='correct')
+            .split
+              input(type='text', value='',name='total')
+              input(type='hidden', value=''+val.qid, name='qid')
         .result.one.header
-          button(type='submit', class='download', onclick='/') Update
+          button(type='submit', class='download') Update
     // Footer
     footer.footer
       p Example filler text for the footer of the page.

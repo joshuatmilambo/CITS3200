@@ -43,26 +43,18 @@ html
             h2 Date
           .split
             h2 View Test
-        .result.two
-          .split2
-            p CITS3200
-          .split
-            p Final Exam
-          .split
-            p 30/08/2017
-          .split
-            a(href='/updateresult')
-              p Update Result
-        .result.one
-          .split2
-            p CITS3402
-          .split
-            p Final
-          .split
-            p 31/08/2017
-          .split
-            a(href='/updateresult')
-              p Update Result
+        -each val in testhis
+          .result.two
+            .split2
+              p=val.unit
+            .split
+              p=val.assessement
+            .split
+              p=val.dates
+            .split
+              a(href='/updateresult?p='+val.paper_id)
+                p Update Result
+              
     // Footer
     footer.footer
       p Example filler text for the footer of the page.

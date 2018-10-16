@@ -11,12 +11,22 @@ var session = require('client-sessions');
 
 var app = express();
 
-// define globabl variable storing SQL connection details
+/* define globabl variable storing SQL connection details
 connection = mysql.createConnection({
   host : 'localhost',
 	user : 'root',
   password : 'cits3200',
   database : 'CITS3200'
+});
+*/
+
+//global connection of sql
+connection=mysql.createConnection({
+host : '127.0.0.1',
+user : 'root',
+password : 'Aa18605323205',
+prot : '3306',
+database: 'testdata'
 });
 
 // view engine setup
