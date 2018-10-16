@@ -23,7 +23,7 @@ module.exports.question = function (req, res) {
 
 /* GET history page */
 module.exports.history = async function (req, res) {
-    var results = ['uwa', 'unit', 'test', 'date', '100','200', 'test1', 'test1', 'test1', 'test1', 'test1','smile'];
+    var results = ['uwa', 'unit', 'test', 'date', '100','200','used copper' , 'test1', 'test1', 'test1', 'test1', 'test1','smile', 'added line'];
     /*let testQuery = await ctrlMain.queryPromise('SELECT institution, unit, assessment, date, correct / total_student AS proportion FROM question_history q JOIN paper p WHERE q.paper_id = p.paper_id AND q_id = 3');
     for (var i = 0; i < testQuery.length; i++) {
         results.push(testQuery[i]['institution'], testQuery[i]['unit'], testQuery[i]['assessment'], testQuery[i]['date'], testQuery[i]['proportion']);
