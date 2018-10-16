@@ -65,7 +65,7 @@ module.exports.login = function(req,res){
 
 
 module.exports.uploadhistory = async function(req,res){
-  var formno = 1;
+  var formno = req.query.formno;
   var userPapers = ["Testing Paper Pls Show"];
   var user_id = 1;
   let testQuery = await ctrlMain.queryPromise('SELECT institution, unit, assessment, date FROM Paper WHERE user_id = ?',[user_id]);
