@@ -1,0 +1,52 @@
+doctype html
+html
+  head
+    // Title of Page
+    title Exam Question Database
+    // Meta Tags
+    meta(charset='UTF-8')
+    meta(name='description', content='Find existing exam questions easily')
+    meta(name='author', content='Sam Fairs, Chen Liu, Joshua Milambo, Lachlan Bunney, Michael Bleakley, Minrui Lu')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(name='keywords', content='Physics, Exam, Question, Database, Latex')
+    // Links/References
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(href='https://fonts.googleapis.com/css?family=Poppins:400,400i,700', rel='stylesheet')
+  // Body of Page
+  body
+    // Navbar
+    nav.navbar
+      .navTitle
+        a(href='/index') Exam Question Database
+        form.navSearch(method='get', action='result', enctype='multipart/form-data')
+          input#navSearch(type='text', placeholder="Light, Electricity, Gauss's Law", name='keywords')
+          button(type='navSubmit')
+            img(width='40px', height='40px', src='images/search_icon.png')
+      ul.navMenu
+        li
+          a(href='/') Logout
+        li
+          a(href='/upload') Upload Question
+        li
+          a(href='/test') View Test
+        li
+          a(href='/testhistory') Update Result
+    .main
+      #question.formContainer
+        -var test = true;
+        if(test == true)
+          h3 Qid has been successfully added to Pid
+        else
+          h3 there is an error
+        iframe(src='Images/Test.pdf')
+        .result
+          .split(style='text-align: left')
+            a(href='\index')  
+             button#addCart Back to Search
+          .split(style='text-align: right')
+            a(href='\index')  
+              button#solution(type='noLink') View Test
+        
+    // Footer
+    footer.footer
+      p #{results}
