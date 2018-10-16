@@ -123,9 +123,12 @@ html
             - form++;
                     
         h2
-          button(id = 'add', value="Add Paper", onclick="addHistory()") Add Paper 
-
-          button(id = 'add', value="Add Paper", onclick="removeLastHistory()") Remove Last Paper 
+          
+          a(href='/uploadhistory?formno=' + (formno + 1))
+            button(id = 'add', value="Add Paper") Add Paper 
+          if(formno > 1) 
+            a(href='/uploadhistory?formno=' + (formno - 1))
+              button(id = 'add', value="Add Paper") Remove Last Paper
 
           button(id = 'submit' type="submit", value="Submit", onclick="submitHistory()") Submit
         |   
