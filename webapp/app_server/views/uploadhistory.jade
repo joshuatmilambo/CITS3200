@@ -72,54 +72,54 @@ html
         b Question History
         |  → Submitted
       |                 
-      #history.formContainer
+      form#history(action='uploadhistories', method='post',enctype='multipart/form-data')
         
         - var form = 1;
         while form <= formno
           
-          form(id = "paper" + form, method = 'post')
+          fieldset(id = "paper" + form, style='border:none', name='paper' + form)
             .result.two.header
               .split4
                 h2 Paper # #{form}
               .split4
                 h2
-                  select(id='oldnew', onchange="changepaper(this,this.parentNode.parentNode.parentNode.parentNode)")
+                  select(id='oldnew', onchange="changepaper(this,this.parentNode.parentNode.parentNode.parentNode)",name='oldnew'+form)
                     option(value='oldpaper') Past
                     option(value='newpaper', selected='True') New
-            fieldset#oldpapers(style='display:none; border:none')
+            fieldset#oldpapers(style='display:none; border:none',name='oldpapers'+form)
               .result.one.header
                 .split4
                   h2 Select
                 .split4
                   h2
-                    select(onchange='selectPaper(this)')
-                      each paper, i in papers
-                        option(value=i)=paper
-            fieldset#paperinfo(style='border:none')
+                    select(onchange='selectPaper(this)', name='selectoldpap'+form)
+                      each paper in papers
+                        option(value = paper) = paper
+            fieldset#paperinfo(style='border:none', name='paperinfo'+form)
               .result.one.header
                 .split4
                   h2 Institution
                 .split4
                   h2
-                    input(type='text', id='institution'+ 1)
+                    input(type='text', id='Institution'+ form,name='institution'+form)
               .result.one.header
                 .split4
                   h2 Unit
                 .split4
                   h2
-                    input(type='text', id='Unit'+ 1)
+                    input(type='text', id='Unit'+ form, name='unit'+form)
               .result.one.header
                 .split4
                   h2 Assessment
                 .split4
                   h2
-                    input(type='text', id='Assessment'+ 1)
+                    input(type='text', id='Assessment'+ form, name='assessment'+form)
               .result.one.header
                 .split4
                   h2 Date
                 .split4
                   h2
-                    input(type='text', id='Date'+ 1)
+                    input(type='text', id='Date'+ form, name='date'+form)
             - form++;
                     
         h2
@@ -131,7 +131,7 @@ html
             a(href='/uploadhistory?formno=' + (onedown))
               button(id = 'add', value="Add Paper") Remove Last Paper
 
-          button(id = 'submit' type="submit", value="Submit", onclick="submitHistory()") Submit
+          button(id = 'submit', type="submit", value="Submit") Submit
         |   
         |           
         
