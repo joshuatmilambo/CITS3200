@@ -37,7 +37,8 @@ html
         iframe(src='Images/Test.pdf')
         .result
           .split(style='text-align: left')
-            button#addCart Add to Test
+            a(href='/questionadded?qid=1&pid=1')
+              button#addCart Add to Test
           .split(style='text-align: right')
             button#solution(type='noLink') Video Solution
         .result

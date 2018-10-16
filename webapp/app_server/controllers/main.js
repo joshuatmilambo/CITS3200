@@ -21,6 +21,14 @@ module.exports.question = function (req, res) {
     res.render('question', {});
 }
 
+module.exports.questionadded = function (req, res) {
+    var qid = req.query.qid;
+    var pid = req.query.pid;
+    var results = [];
+    results.push(qid, pid);
+    res.render('questionadded', {results:results});
+}
+
 /* GET history page */
 module.exports.history = async function (req, res) {
     var results = ['uwa', 'unit', 'test', 'date', '100','200','used copper' , 'test1', 'test1', 'test1', 'test1', 'test1','smile', 'added line'];
