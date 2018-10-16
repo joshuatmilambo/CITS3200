@@ -123,11 +123,11 @@ html
             - form++;
                     
         h2
-          -nextup = formno+1;
+          -nextup = parseInt(formno)+1;
           a(href='/uploadhistory?formno=' + (nextup))
             button(id = 'add', value="Add Paper") Add Paper 
           if(formno > 1) 
-            -onedown=formno-1;
+            -onedown=parseInt(formno)-1;
             a(href='/uploadhistory?formno=' + (onedown))
               button(id = 'add', value="Add Paper") Remove Last Paper
 
