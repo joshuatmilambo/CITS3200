@@ -37,13 +37,13 @@ html
         .result.two.header
           //tbody 
           .split
-            h2 INSTITUTION
+            h3 INSTITUTION
           .split
-            h2 UNIT
+            h3 UNIT
           .split
-            h2 ASSESSMENT
+            h3 ASSESSMENT
           .split
-            h2 DATE
+            h3 DATE
           .split
              h2 CORRECT
              -i= 0;
@@ -53,22 +53,22 @@ html
          while i < len
             .result.one.header
               .split
-                h3= results[i]
+                p= results[i]
                - i++;
               .split5
-                h3= results[i]
+                p= results[i]
                 - i++
               .split
-                h3= results[i]
+                = results[i]
                 - i++
               .split6
-                h3= results[i]
+                p= results[i]
                 - i++
               .split
-                h3= results[i] + '/' + results[i+1]
+                p= results[i] + '/' + results[i+1]
                 - i = i + 2;
               .split3
-                h3= results[i]
+                p= results[i]
                 - i++
 
 
