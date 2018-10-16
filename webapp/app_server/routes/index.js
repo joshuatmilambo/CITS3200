@@ -3,6 +3,7 @@ var router = express.Router();
 var ctrlMain = require('../controllers/main');
 var ctrlUpload = require('../controllers/upload');
 var ctrlSearch = require('../controllers/search');
+var ctrlDownload = require('../controllers/download');
 
 /* GET home page. */
 router.get('/', ctrlMain.login);
@@ -18,5 +19,6 @@ router.get('/uploadhistory',ctrlMain.uploadhistory);
 
 /* POST File Upload */
 router.post('/uploadfiles', ctrlUpload.upload);
+router.post('/download', ctrlDownload.download);
 
 module.exports = router;

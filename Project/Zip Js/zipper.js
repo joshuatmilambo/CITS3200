@@ -5,7 +5,7 @@ var filecontents = "";
 //reads the current file being looked at to the file contetnts string
 function stringBuilder(filename){
 	let reader = new FileReader();
-	filecontent += reader.readAsBinaryString(filename) + "\n";
+	filecontents += reader.readAsBinaryString(filename) + "\n";
 }
 
 /*
@@ -16,10 +16,10 @@ creates the zip to be downloaded
 */
 function zipMaker(){
 	var zip = new JSZip();
-	zip.file("Questions.tex", filecontent);
+	zip.file("Questions.tex", filecontents);
 	var img = zip.folder("images");
 	for (i = 0; i<numfiles;i++){
-		img.file("fig"+(i++)+".png", imgData, {base64;true});
+		img.file("fig"+(i++)+".png", imgData, {base64:true});
 	}
 	zip.generateAsync({type:"blob"})
 	zip.generateAsync({type:"blob"}).then(function(content) {

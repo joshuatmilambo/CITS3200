@@ -7,11 +7,11 @@ var JSZip = require("jszip");
 /*--------Raymond's modification starts--------------*/
 
 // insert questions
-function insert_question(q_id, name, type, size, zip_path, preview_path, note, short_description, key_words){
+function insert_question(q_id, name, type, size, zip_path, preview_path, note, short_description, key_words, video_link){
 
   var date = new Date().toLocaleDateString();
 
-  connection.query('INSERT INTO Question VALUES (?,?,?,?,?,?,?,?,?,?)',[q_id,name,size,type,zip_path,preview_path,note,short_description,key_words,date],function(err,results){
+  connection.query('INSERT INTO Question VALUES (?,?,?,?,?,?,?,?,?,?,?)',[q_id,name,size,type,zip_path,preview_path,note,short_description,key_words,date,video_link],function(err,results){
 		if(err) throw err;
         console.log("Question inserted successfully");
 	});
@@ -123,7 +123,7 @@ module.exports.upload = function(req, res) {
             .on('end', function() {
                 if(files.length === 2) {
                     console.log('Upload Complete');
-                    var notes, description, keywords, type; 
+                    var notes, description, keywords, type, video_link; 
                     for(var i = 0; i < fields.length; i++) {
                         if(fields[i][0] === 'notes') {
                             notes = i;
@@ -133,6 +133,9 @@ module.exports.upload = function(req, res) {
                         }
                         else if(fields[i][0] === 'keywords') {
                             keywords = i;
+                        }
+                        else if(fields[i][0] == 'video') {
+                            video_link = i;
                         }
                         else {
                             type = i;
@@ -169,7 +172,7 @@ module.exports.upload = function(req, res) {
                     });
 
                     insert_question(qid, (files[0].name).split(".")[0], fields[type][1], files[0].size, dir, form.uploadDir + '/' + files[1].name,
-                        fields[notes][1], fields[description][1], fields[keywords][1]);
+                        fields[notes][1], fields[description][1], fields[keywords][1], fields[video_link][1]);
                     res.redirect('/uploadhistory');
                 }
                 else {
