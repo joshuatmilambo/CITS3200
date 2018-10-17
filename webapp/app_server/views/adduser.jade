@@ -18,18 +18,18 @@ html
     nav.navbar
       .navTitle
         a(href='/') Exam Question Database
-    form#search.formContainer(method='POST', action='/login')
-      h1 Login To Your Account
+    form#search.formContainer(method='POST', action='/addnewuser')
+      h1 Add New User
       .formGrid
         .gridItem Username:
         .gridItem
           input(type="text",name="username")
         .gridItem Password:
-        .gridItem 
+        .gridItem
           input(type="text",name="password")
         .gridItem
-          p #{warning} 
-      button(type="submit") Login
+          p #{warning}
+      button(type="submit") Add
     // Footer
     footer.footer
-      p Example filler text for the footer of the page.
+      p Exam Question Database.

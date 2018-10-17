@@ -4,6 +4,7 @@ var ctrlMain = require('../controllers/main');
 var ctrlUpload = require('../controllers/upload');
 var ctrlSearch = require('../controllers/search');
 var ctrlDownload = require('../controllers/download');
+var ctrlLogin = require ('../controllers/login');
 
 /* GET home page. */
 router.get('/', ctrlMain.login);
@@ -16,10 +17,16 @@ router.get('/history', ctrlMain.history);
 router.get('/testhistory',ctrlMain.testhistory);
 router.get('/updateresult',ctrlMain.updateresult);
 router.get('/index',ctrlMain.index);
+router.get('/updateresults',ctrlMain.updateresults);
 router.get('/uploadhistory',ctrlMain.uploadhistory);
+router.get('/adduser',ctrlMain.adduser);
+
 
 /* POST File Upload */
 router.post('/uploadfiles', ctrlUpload.upload);
 router.post('/download', ctrlDownload.download);
+router.post('/login',ctrlLogin.login);
+router.post('/addnewuser',ctrlMain.addnewuser);
+router.post('/updateresult',ctrlMain.update);
 
 module.exports = router;

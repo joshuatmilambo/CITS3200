@@ -1,4 +1,45 @@
 var ctrlMain = require('../controllers/main');
+const express = require('express');
+var mysql = require('mysql');
+
+
+//add user
+module.exports.adduser = function(req,res){
+  res.render('adduser',{});
+};
+
+module.exports.addnewuser = function(req,res){
+  var username=req.body.username;
+  var password=req.body.password;
+  var userexist=false;
+  var connection=mysql.createConnection({
+  host : '127.0.0.1',
+  user : 'root',
+  password : 'Aa18605323205',
+  prot : '3306',
+  database: 'cits3200'
+  });
+  connection.connect(function(err) {
+  	if (err) throw err;
+  	connection.query('select * from user',function(err,result,fields){
+      if(err) throw err;
+      for(i=0;i<result.length;i++){
+        if(username==result[i].user_name){
+          userexist=true;
+        }
+      }
+      if(userexist){
+        res.render('adduser',{warning:'User already exist'});
+      }else{
+        connection.query("insert into user (user_name,user_type) values ('"+username+"','"+password+"')",function(err,result,fields){
+          console.log('here');
+          if (err) throw err;
+          res.render('adduser',{warning:'User sucessfully added'})
+        });
+      }
+    });
+  });
+};
 
 
 /* GET home page */
@@ -43,8 +84,52 @@ module.exports.history = async function (req, res) {
 
 /* Get test history page */
 module.exports.testhistory = function(req,res){
-  res.render('testhistory',{});
-}
+  var userid=req.session.user;
+  console.log(userid);
+  var testhistories;
+  var connection=mysql.createConnection({
+  host : '127.0.0.1',
+  user : 'root',
+  password : 'Aa18605323205',
+  prot : '3306',
+  database: 'cits3200'
+  });
+  var username=req.session.user
+  connection.connect(function(err) {
+    if (err) throw err;
+    connection.query('select * from paper where user_id="'+userid+'"',function(err,result,fields){
+      if(err) throw err;
+      //console.log(result);
+      res.render('testhistory',{testhis:result});
+  });
+});
+};
+
+
+// get question of a paper
+module.exports.updateresults = function(req,res){
+  var pid=req.query.p;
+  var username=req.session.user;
+  console.log(pid);
+  console.log(username);
+  var connection=mysql.createConnection({
+  host : '127.0.0.1',
+  user : 'root',
+  password : 'Aa18605323205',
+  prot : '3306',
+  database: 'cits3200'
+  });
+  connection.connect(function(err) {
+    if (err) throw err;
+    connection.query('select * from ((question_history join question on question_history.q_id=question.q_id) join paper on question_history.paper_id=paper.paper_id) where paper.paper_id="'+pid+'"',function(err,result,fields){
+      //console.log(result);
+      if(err) throw err;
+      res.render('updateresult',{questions:result,paper_id:pid});
+      //console.log(result);
+  });
+});
+};
+
 
 module.exports.updateresult = async function(req,res){
   // let testQuery = await ctrlMain.queryPromise('SELECT short_description,preview_path FROM Question JOIN Question_History USING (q_id) WHERE paper_id = ?',[paper_id]);
@@ -74,6 +159,33 @@ module.exports.uploadhistory = async function(req,res){
   }
   res.render('uploadhistory',{formno: formno, papers: userPapers});
 }
+
+// Update result
+module.exports.update = function(req,res){
+  var n;
+  var correct=req.body.correct;
+  var total=req.body.total;
+  var qid=req.body.qid;
+  console.log(qid);
+  var pid=req.query.p;
+  var connection=mysql.createConnection({
+  host : '127.0.0.1',
+  user : 'root',
+  password : 'Aa18605323205',
+  prot : '3306',
+  database: 'cits3200'
+  });
+  connection.connect(function(err) {
+    if (err) throw err;
+    for (n=0; n<correct.length;n++){
+      console.log(qid[n]);
+      connection.query('update question_history set correct="'+correct[n]+'",total_student="'+total[n]+'" where q_id="'+qid[n]+'"'),function(err,result,fields){
+        if(err) throw err;
+      };
+    };
+  });
+  res.render('index',{});
+};
 
 
 /* FUNCTION USED TO ENFORCE QUERY TO EXECUTE ASYNCHRONOUSLY */
