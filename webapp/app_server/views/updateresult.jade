@@ -23,45 +23,50 @@ html
           button(type='navSubmit')
             img(width='40px', height='40px', src='images/search_icon.png')
       ul.navMenu
-        li
-          a(href='/') Logout
-        li
-          a(href='/upload') Upload Question
-        li
-          a(href='/test') View Test
-        li
-          a(href='/testhistory') Update Result
+          li
+            a(href='/') Logout
+          li
+            a(href='/upload') Upload Question
+          li
+            a(href='/test') View Test
+          li
+            a(href='/testhistory') Update Result
+          -if(ifmaster)
+            li
+              a(href='/adduser') Add User 
     .main
-      form#results.formContainer(method='POST',action='/updateresult?p='+pid)
+      form#results.formContainer(method='POST',action='/updateresult?p='+pid, enctype='multipart/form-data')
         h1 Update Result
         .result.one.header
           .split
-            h2 UNIT
+            h4 UNIT
           .split
-            h2 ASSESSMENT
+            h4 BRIEF DESCRIPTION
           .split
-            h2 DATE
+            h4 DATE
           .split
-            h2 Question Name
+            h4 CORRECT 
           .split
-            h2 Correct 
+            h4 TOTAL STUDENTS
           .split
-            h2 Total Students
-        -each val in questions
+            h4 NOTES
+        - var i = 0;
+        each val in questions
           .result.two
             .split
               p=val.unit
             .split
-              p=val.assessment
+              p=val.short_description
             .split
               p=val.date
             .split
-              p=val.name
+              input(type='text',value='',name='correct.' + i)
             .split
-              input(type='text',value='',name='correct')
+              input(type='text', value='',name='total.' + i)
+              input(type='hidden', value=val.q_id, name='qid.' + i)
             .split
-              input(type='text', value='',name='total')
-              input(type='hidden', value=''+val.q_id, name='qid')
+              input(type='text', value='',name='notes.' + i)
+            -i++;
         .result.one.header
           button(type='submit', class='download') Update
     // Footer

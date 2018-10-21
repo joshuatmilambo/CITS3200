@@ -23,14 +23,17 @@ html
           button(type='navSubmit')
             img(width='40px', height='40px', src='images/search_icon.png')
       ul.navMenu
-        li
-          a(href='/') Logout
-        li
-          a(href='/upload') Upload Question
-        li
-          a(href='/test') View Test
-        li
-          a(href='/testhistory') Update Result
+          li
+            a(href='/') Logout
+          li
+            a(href='/upload') Upload Question
+          li
+            a(href='/test') View Test
+          li
+            a(href='/testhistory') Update Result
+          -if(ifmaster)
+            li
+              a(href='/adduser') Add User      
     .main
       <!--#results.formContainer-->
       h1 QUESTION HISTORY

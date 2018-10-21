@@ -23,30 +23,33 @@ html
           button(type='navSubmit')
             img(width='40px', height='40px', src='images/search_icon.png')
       ul.navMenu
-        li
-          a(href='/') Logout
-        li
-          a(href='/upload') Upload Question
-        li
-          a(href='/test') View Test
-        li
-          a(href='/testhistory') Update Result
+          li
+            a(href='/') Logout
+          li
+            a(href='/upload') Upload Question
+          li
+            a(href='/test') View Test
+          li
+            a(href='/testhistory') Update Result
+          -if(ifmaster)
+            li
+              a(href='/adduser') Add User 
     // Main
     .main
       // Test Qestions
       #results.formContainer
         h1 Test Questions
         .result.one.header
-          .split
+          .split4
             h2 TITLE
-          .split
+          .split4
             h2 REMOVE
         - each val in test
           .result.two
-            .split
+            .split4
               a(href='/question?q='+val.q_id)
                 p=val.name
-            .split
+            .split4
               a(href='/delete?q='+val.q_id)
                 button(type='remove') X
       // Test Detail
