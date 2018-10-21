@@ -62,23 +62,27 @@ module.exports.question = function (req, res) {
     res.render('question', {});
 }
 
-module.exports.questionadded = function (req, res) {
-    var qid = req.query.qid;
-    var pid = req.query.pid;
-    var uid = 1;
-    var results = [qid,pid,uid];
-/*    let testQuery = await ctrlMain.queryPromise('INSERT INTO Paper VALUES (' + pid + ',' + qid + ',' + uid +')');
-    results.push(testQuery[0]['qid'], testQuery[0]['pid'], testQuery[0]['uid']);*/
+module.exports.questionadded = async function (req, res) {
+    var qid = req.query.q;
+    var uid = req.session.user;
+    var connection=mysql.createConnection({
+    host : '127.0.0.1',
+    user : 'root',
+    password : 'Aa18605323205',
+    prot : '3306',
+    database: 'cits3200'
+    });
+    let testQuery = await ctrlMain.queryPromise('INSERT INTO Temp_Paper (q_id, user_id) VALUES ('+qid + ',' + uid +')');
     res.render('questionadded', {results:results});
 }
 
 /* GET history page */
 module.exports.history = async function (req, res) {
-    
-    var results = []//['uwa', 'unit', 'test', 'date', '100','200','used copper' , 'test1', 'test1', 'test1', 'test1', 'test1','smile', 'added line'];
-    let testQuery = await ctrlMain.queryPromise('SELECT institution, unit, assessment, date, correct / total_student AS proportion FROM question_history q JOIN paper p WHERE q.paper_id = p.paper_id AND q_id = 3');
+
+    var results = []//['UWA', 'Physics', 'test', '05/09/2016', '100','200','used copper' , 'UWA', 'Physics', 'test', '12/09/2015', '5','10','null'];
+    let testQuery = await ctrlMain.queryPromise('SELECT institution, unit, assessment, date, correct, total_student, note FROM question_history q JOIN paper p WHERE q.paper_id = p.paper_id AND q_id = 3');
     for (var i = 0; i < testQuery.length; i++) {
-        results.push(testQuery[i]['institution'], testQuery[i]['unit'], testQuery[i]['assessment'], testQuery[i]['date'], testQuery[i]['proportion']);
+        results.push(testQuery[i]['institution'], testQuery[i]['unit'], testQuery[i]['assessment'], testQuery[i]['date'], testQuery[i]['correct'], testQuery[i]['total_student'], testQuery[i]['note']);
     }
     var input = req.query.qid;
     console.log(results, input);
