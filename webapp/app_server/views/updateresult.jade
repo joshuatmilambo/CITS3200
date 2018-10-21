@@ -32,7 +32,7 @@ html
         li
           a(href='/testhistory') Update Result
     .main
-      form#results.formContainer(method='POST',action='/updateresult?p='+pid)
+      form#results.formContainer(method='POST',action='/updateresult?p='+pid, enctype='multipart/form-data')
         h1 Update Result
         .result.one.header
           .split
@@ -47,7 +47,8 @@ html
             h2 Correct 
           .split
             h2 Total Students
-        -each val in questions
+        - vari = 0;
+        each val in questions
           .result.two
             .split
               p=val.unit
@@ -58,10 +59,11 @@ html
             .split
               p=val.date
             .split
-              input(type='text',value='',name='correct')
+              input(type='text',value='',name='correct.' + i)
             .split
-              input(type='text', value='',name='total')
-              input(type='hidden', value=''+val.q_id, name='qid')
+              input(type='text', value='',name='total.' + i)
+              input(type='hidden', value=val.q_id, name='qid')
+            -i++;
         .result.one.header
           button(type='submit', class='download') Update
     // Footer
