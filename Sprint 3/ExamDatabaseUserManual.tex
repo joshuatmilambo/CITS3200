@@ -232,9 +232,20 @@ The database behind this system is a MySQL Relational Datanase in which changes 
     \caption{Paper and In-Progress Paper Tables After User Deletion}
  \end{figure}
 
-\chapter{Other General Warnings and Errors}
-
-
+\chapter{Other General Notices, Warnings, and Errors}
+\begin{table}[H]
+\centering
+\begin{tabular}{p{6cm} p{10 cm}}
+\hline \hline
+ Phenomenon & Explanation \\ \hline
+ \normalsize 
+ Cannot find the function to add a user to the System & Only the adminstrator of the whole system can add users to the application at this stage.\\\\
+ Uploading Non-Zip Question Causes Crash & Ensure the format of the file you uploaded was of the type .zip, the system is designed to fault if there is a wrong file-type uploaded\\\\
+ Uploading JPG or PDF as Preview Causes Crash & Ensure the format of the file you uploaded was of the type .png, the system is designed to fault if there is a wrong file-type uploaded\\\\
+ Downloading a test and cancelled but now the test is gone & If you read the instructions carefully we warned against this since presently the database is updated \textbf{immediately }following the click of the download button to clean up after itself.\\\\
+ \hline \hline
+\end{tabular}
+ \end{table}
 \end{appendices}
 \normalsize
 \listoffigures
