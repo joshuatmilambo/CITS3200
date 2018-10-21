@@ -1,1 +1,4 @@
-runas /noprofile /user:mymachine\administrator start_db.bat
+runas /User:%username% start_db.bat
+start_application.sh
+call start_website.bat
+pause
