@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.9.27)  15 OCT 2018 13:36
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.9.27)  21 OCT 2018 12:50
 entering extended mode
 **"C:/Users/lachl/Documents/GitHub/CITS3200/Sprint 3/ExamDatabaseUserManual.tex
 "
@@ -228,6 +228,12 @@ Package caption Info: float package is loaded.
 \sf@top=\skip56
 \sf@bottom=\skip57
 )
+("C:\Program Files\MiKTeX 2.9\tex\latex\appendix\appendix.sty"
+Package: appendix 2009/09/02 v1.2b extra appendix facilities
+\c@@pps=\count118
+\c@@ppsavesec=\count119
+\c@@ppsaveapp=\count120
+)
 No file ExamDatabaseUserManual.aux.
 \openout1 = `ExamDatabaseUserManual.aux'.
 
@@ -251,14 +257,14 @@ LaTeX Font Info:    ... okay on input line 30.
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: twoside 
-* h-part:(L,W,R)=(71.70166pt, 418.25368pt, 107.55254pt)
+* h-part:(L,W,R)=(68.28644pt, 460.935pt, 68.28644pt)
 * v-part:(T,H,B)=(71.13188pt, 702.78308pt, 71.13188pt)
 * \paperwidth=597.50787pt
 * \paperheight=845.04684pt
-* \textwidth=418.25368pt
+* \textwidth=460.935pt
 * \textheight=702.78308pt
-* \oddsidemargin=-0.56833pt
-* \evensidemargin=35.28255pt
+* \oddsidemargin=-3.98355pt
+* \evensidemargin=-3.98355pt
 * \topmargin=-33.0119pt
 * \headheight=12.0pt
 * \headsep=19.8738pt
@@ -279,16 +285,16 @@ LaTeX Font Info:    ... okay on input line 30.
 
 ("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count118
+\scratchcounter=\count121
 \scratchdimen=\dimen139
 \scratchbox=\box30
-\nofMPsegments=\count119
-\nofMParguments=\count120
+\nofMPsegments=\count122
+\nofMParguments=\count123
 \everyMPshowfont=\toks23
-\MPscratchCnt=\count121
+\MPscratchCnt=\count124
 \MPscratchDim=\dimen140
-\MPnumerator=\count122
-\makeMPintoPDFobject=\count123
+\MPnumerator=\count125
+\makeMPintoPDFobject=\count126
 \everyMPtoPDFconversion=\toks24
 ) ("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\pdftexcmds.sty"
 Package: pdftexcmds 2017/03/19 v0.25 Utility functions of pdfTeX for LuaTeX (HO
@@ -349,222 +355,63 @@ No file ExamDatabaseUserManual.toc.
 [3] [4
 
 ]
+Underfull \hbox (badness 10000) in paragraph at lines 45--48
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 45--48
+
+ []
+
+[1
+
+] [2
+
+]
 Chapter 1.
-<example-image.png, id=18, 401.5pt x 301.125pt>
-File: example-image.png Graphic file (type png)
- <use example-image.png>
-Package pdftex.def Info: example-image.png used on input line 46.
-(pdftex.def)             Requested size: 398.36842pt x 142.26852pt.
-
-Underfull \vbox (badness 6348) has occurred while \output is active []
-
- [5 <C:/Program Files/MiKTeX 2.9/tex/latex/mwe/example-image.png>]
-File: example-image.png Graphic file (type png)
- <use example-image.png>
-Package pdftex.def Info: example-image.png used on input line 55.
-(pdftex.def)             Requested size: 284.54623pt x 398.3776pt.
-
-Underfull \vbox (badness 2435) has occurred while \output is active []
-
- [6]
-
-LaTeX Warning: Reference `ch:upres' on page 7 undefined on input line 67.
-
-File: example-image.png Graphic file (type png)
-<use example-image.png>
-Package pdftex.def Info: example-image.png used on input line 70.
-(pdftex.def)             Requested size: 227.62596pt x 142.26852pt.
-File: example-image.png Graphic file (type png)
- <use example-image.png>
-Package pdftex.def Info: example-image.png used on input line 77.
-(pdftex.def)             Requested size: 398.36842pt x 142.26852pt.
-
-Underfull \vbox (badness 3000) has occurred while \output is active []
-
- [7]
-File: example-image.png Graphic file (type png)
-
-<use example-image.png>
-Package pdftex.def Info: example-image.png used on input line 85.
-(pdftex.def)             Requested size: 398.36842pt x 227.63055pt.
- [8]
-Chapter 2.
-File: example-image.png Graphic file (type png)
-<use example-image.png>
-Package pdftex.def Info: example-image.png used on input line 93.
-(pdftex.def)             Requested size: 284.54623pt x 28.45094pt.
-File: example-image.png Graphic file (type png)
- <use example-image.png>
-Package pdftex.def Info: example-image.png used on input line 106.
-(pdftex.def)             Requested size: 341.45427pt x 426.83315pt.
- [9
-
-] [10]
-Chapter 3.
-<SearchPage.PNG, id=42, 756.57657pt x 309.40594pt>
-File: SearchPage.PNG Graphic file (type png)
- <use SearchPage.PNG>
-Package pdftex.def Info: SearchPage.PNG used on input line 114.
-(pdftex.def)             Requested size: 341.43306pt x 139.63268pt.
-
-<PagetopSearch.PNG, id=44, 646.66594pt x 44.41594pt>
-File: PagetopSearch.PNG Graphic file (type png)
- <use PagetopSearch.PNG>
-Package pdftex.def Info: PagetopSearch.PNG used on input line 119.
-(pdftex.def)             Requested size: 284.52756pt x 19.54239pt.
-File: example-image.png Graphic file (type png)
-
-<use example-image.png>
-Package pdftex.def Info: example-image.png used on input line 128.
-(pdftex.def)             Requested size: 341.45427pt x 426.83315pt.
-
-Underfull \vbox (badness 5345) has occurred while \output is active []
-
- [11
-
- <C:/Users/lachl/Documents/GitHub/CITS3200/Sprint 3/SearchPage.PNG> <C:/Users/l
-achl/Documents/GitHub/CITS3200/Sprint 3/PagetopSearch.PNG>]
-Underfull \hbox (badness 10000) in paragraph at lines 132--134
-
- []
+<NavBarUpQ.PNG, id=25, 720.35791pt x 29.44333pt>
+File: NavBarUpQ.PNG Graphic file (type png)
+ <use NavBarUpQ.PNG>
+Package pdftex.def Info: NavBarUpQ.PNG used on input line 56.
+(pdftex.def)             Requested size: 455.24408pt x 18.60733pt.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 132--134
-
- []
+LaTeX Warning: File `example-dir.PNG' not found on input line 63.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 132--134
+! Package pdftex.def Error: File `example-dir.PNG' not found.
 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 132--134
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 132--134
-
- []
-
-File: example-image.png Graphic file (type png)
-<use example-image.png>
-Package pdftex.def Info: example-image.png used on input line 138.
-(pdftex.def)             Requested size: 398.33858pt x 298.7763pt.
- [12] [13] [14
-
-]
-Chapter 4.
-
-LaTeX Warning: Reference `ch:qadd' on page 15 undefined on input line 143.
-
-
-LaTeX Warning: Reference `sec:pre' on page 15 undefined on input line 143.
-
-File: example-image.png Graphic file (type png)
-<use example-image.png>
-Package pdftex.def Info: example-image.png used on input line 146.
-(pdftex.def)             Requested size: 227.62596pt x 313.01097pt.
- [15] [16]
-Chapter 5.
-File: example-image.png Graphic file (type png)
-<use example-image.png>
-Package pdftex.def Info: example-image.png used on input line 160.
-(pdftex.def)             Requested size: 284.54623pt x 28.45094pt.
-File: example-image.png Graphic file (type png)
- <use example-image.png>
-Package pdftex.def Info: example-image.png used on input line 165.
-(pdftex.def)             Requested size: 398.33858pt x 298.7763pt.
-
-
-LaTeX Warning: Reference `sec:pre' on page 17 undefined on input line 169.
-
-[17
-
-]
-File: example-image.png Graphic file (type png)
- <use example-image.png>
-Package pdftex.def Info: example-image.png used on input line 177.
-(pdftex.def)             Requested size: 341.45427pt x 426.83315pt.
-
-
-! LaTeX Error: Environment Appendix undefined.
-
-See the LaTeX manual or LaTeX Companion for explanation.
+See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.181 \begin{Appendix}
-                      
-? 
-<origusetable.PNG, id=69, 323.2075pt x 258.9675pt>
-File: origusetable.PNG Graphic file (type png)
- <use origusetable.PNG>
-Package pdftex.def Info: origusetable.PNG used on input line 185.
-(pdftex.def)             Requested size: 142.26378pt x 113.98555pt.
-
-<origpaptable.PNG, id=70, 627.34375pt x 492.84125pt>
-File: origpaptable.PNG Graphic file (type png)
- <use origpaptable.PNG>
-Package pdftex.def Info: origpaptable.PNG used on input line 187.
-(pdftex.def)             Requested size: 142.26378pt x 111.76434pt.
-
-<origtemptable.PNG, id=71, 526.96875pt x 514.92375pt>
-File: origtemptable.PNG Graphic file (type png)
- <use origtemptable.PNG>
-Package pdftex.def Info: origtemptable.PNG used on input line 189.
-(pdftex.def)             Requested size: 142.26378pt x 139.01555pt.
-
-Overfull \hbox (0.1282pt too wide) in paragraph at lines 183--192
-\OT1/cmr/m/n/12 The database be-hind this sys-tem is a MySQL Re-la-tional Datan
-ase in which changes
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [18]
-[19 <C:/Users/lachl/Documents/GitHub/CITS3200/Sprint 3/origusetable.PNG> <C:/Us
-ers/lachl/Documents/GitHub/CITS3200/Sprint 3/origpaptable.PNG> <C:/Users/lachl/
-Documents/GitHub/CITS3200/Sprint 3/origtemptable.PNG>] [20
-
-]
-No file ExamDatabaseUserManual.lof.
-\tf@lof=\write4
-\openout4 = `ExamDatabaseUserManual.lof'.
-
-[21] (ExamDatabaseUserManual.aux)
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
- )
-(\end occurred inside a group at level 1)
-
-### semi simple group (level 1) entered at line 181 (\begingroup)
-### bottom level 
+l.63 ...dth = 14cm, height = 5cm]{example-dir.PNG}
+                                                  
+? c
+Type <return> to proceed, S to scroll future error messages,
+R to run without stopping, Q to run quietly,
+I to insert something, E to edit your file,
+1 or ... or 9 to ignore the next 1 to 9 tokens of input,
+H for help, X to quit.
+? x
+ 
 Here is how much of TeX's memory you used:
- 4636 strings out of 493323
- 71201 string characters out of 3139066
- 149092 words of memory out of 3000000
- 8109 multiletter control sequences out of 15000+200000
- 11458 words of font info for 41 fonts, out of 3000000 for 9000
+ 4689 strings out of 493323
+ 71981 string characters out of 3139066
+ 147500 words of memory out of 3000000
+ 8167 multiletter control sequences out of 15000+200000
+ 10804 words of font info for 39 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 44i,10n,49p,648b,402s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmb
-x12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><
-C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Progra
-m Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program Files/M
-iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/
-fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
-1/public/amsfonts/cm/cmsl12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public
-/amsfonts/cm/cmti12.pfb>
-Output written on ExamDatabaseUserManual.pdf (21 pages, 610772 bytes).
+ 44i,8n,42p,489b,316s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Prog
+ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files
+/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2
+.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program Files/MiKTeX 2.9/fonts/
+type1/public/amsfonts/cm/cmsl12.pfb>
+Output written on ExamDatabaseUserManual.pdf (6 pages, 72855 bytes).
 PDF statistics:
- 114 PDF objects out of 1000 (max. 8388607)
+ 43 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 31 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
