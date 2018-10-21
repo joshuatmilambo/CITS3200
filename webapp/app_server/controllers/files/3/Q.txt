@@ -1,0 +1,19 @@
+Four moles of an ideal diatomic gas ($C_V=5R/2$) are taken from $A$ to $B$ by the \emph{straight} path shown on the $pV$ diagram in Figure \ref{ht1} below.
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[angle=0,width=0.9\textwidth]{pics/figure2.eps}
+\caption{See questions below}
+\label{ht1}
+\end{center}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Heat and Thermodynamics exam question 3
+
+\question  The change of internal energy $\D U$ of the gas for the process from $A$ to $B$ is closest to: \\
+\mcs{0\,J}{500\,J}{1000\,J}{2500\,J}{5000\,J}
+
+\begin{solution}
+5000\,J
+\end{solution}

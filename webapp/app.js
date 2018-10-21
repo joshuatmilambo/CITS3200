@@ -10,22 +10,18 @@ var usersRouter = require('./app_server/routes/users');
 
 var app = express();
 
-/* define globabl variable storing SQL connection details
+// define globabl variable storing SQL connection details
 connection = mysql.createConnection({
   host : 'localhost',
 	user : 'root',
   password : 'cits3200', //is actually cits3200 (changed it for my local computer)
   database : 'CITS3200'  //is actually CITS3200 (changed it for my local computer)
 });
-*/
-connection=mysql.createConnection({
-host : '127.0.0.1',
-user : 'root',
-password : 'Aa18605323205',
-prot : '3306',
-database: 'cits3200'
-});
 
+//app.use('/public', express.static(path.join(__dirname, 'public')));
+
+var staticResource='~/documents/uni/cits3200/masters/cits3200/webapp';
+app.use('/public2', express.static(path.join(staticResource, 'public2')));
 
 
 // view engine setup

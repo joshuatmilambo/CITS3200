@@ -11,6 +11,7 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
+DROP DATABASE IF EXISTS `CITS3200`;
 CREATE DATABASE `CITS3200`;
 
 
@@ -39,7 +40,6 @@ ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'cits3200
 CREATE TABLE `Paper` (
   `paper_id` int(8) NOT NULL,
   `user_id` int(8) NOT NULL,
-  `status` varchar(20) NOT NULL,
   `institution` varchar(100) NOT NULL,
   `unit` varchar(20) NOT NULL,
   `assessment` varchar(50) NOT NULL,
@@ -48,26 +48,26 @@ CREATE TABLE `Paper` (
 
 
 INSERT INTO `Paper` VALUES
-(1,1,'done','UWA','PHYS1001','Exam','2018-09-01'),
-(2,1,'in process','UWA','PHYS1002','Test','2018-09-02'),
-(3,2,'in process','Curtin','PHYS1002','Test','2018-09-02'),
-(4,1,'done','UWA','PHYS1003','Assignment','2018-09-02'),
-(5,1,'in process','UWA','PHYS1001','Test','2018-09-03'),
-(6,3,'in process','ECU','PHYS1002','Exam','2018-09-04'),
-(7,1,'in process','Murdoch','PHYS1002','Test','2018-09-02'),
-(8,2,'done','ECU','PHYS1004','Exam','2018-09-06'),
-(9,2,'in process','UWA','PHYS1004','Exam','2018-09-07'),
-(10,2,'done','Murdoch','PHYS1004','Exam','2018-09-06'),
-(11,2,'done','Curtin','PHYS1004','Exam','2018-09-06'),
-(12,2,'done','ECU','PHYS1005','Exam','2018-09-10'),
-(13,3,'done','UWA','PHYS1005','Exam','2018-09-10'),
-(14,1,'done','Curtin','PHYS1005','Test','2018-09-10'),
-(15,1,'done','Curtin','PHYS1005','Test','2018-09-10'),
-(16,2,'in process','ECU','PHYS1006','Assignment','2018-09-11'),
-(17,2,'in process','Curtin','PHYS1006','Assignment','2018-09-11'),
-(18,2,'in process','UWA','PHYS1007','Assignment','2018-09-13'),
-(19,1,'in process','Murdoch','PHYS1007','Assignment','2018-09-13'),
-(20,3,'in process','ECU','PHYS1007','Assignment','2018-09-13');
+(1,1,'UWA','PHYS1001','Exam','2018-09-01'),
+(2,1,'UWA','PHYS1002','Test','2018-09-02'),
+(3,2,'Curtin','PHYS1002','Test','2018-09-02'),
+(4,1,'Curtin','PHYS1003','Assignment','2018-09-02'),
+(5,1,'UWA','PHYS1001','Test','2018-09-03'),
+(6,3,'ECU','PHYS1002','Exam','2018-09-04'),
+(7,1,'Murdoch','PHYS1002','Test','2018-09-02'),
+(8,2,'ECU','PHYS1004','Exam','2018-09-06'),
+(9,2,'UWA','PHYS1004','Exam','2018-09-07'),
+(10,2,'Murdoch','PHYS1004','Exam','2018-09-06'),
+(11,2,'Curtin','PHYS1004','Exam','2018-09-06'),
+(12,2,'ECU','PHYS1005','Exam','2018-09-10'),
+(13,3,'UWA','PHYS1005','Exam','2018-09-10'),
+(14,1,'Curtin','PHYS1005','Test','2018-09-10'),
+(15,1,'Curtin','PHYS1005','Test','2018-09-10'),
+(16,2,'ECU','PHYS1006','Assignment','2018-09-11'),
+(17,2,'Curtin','PHYS1006','Assignment','2018-09-11'),
+(18,2,'UWA','PHYS1007','Assignment','2018-09-13'),
+(19,1,'Murdoch','PHYS1007','Assignment','2018-09-13'),
+(20,3,'ECU','PHYS1007','Assignment','2018-09-13');
 
 
 -- --------------------------------------------------------
@@ -81,8 +81,8 @@ CREATE TABLE `Question` (
   `name` varchar(50) NOT NULL,
   `size` int(10) NOT NULL,
   `type` varchar(20) NOT NULL,
-  `zip_path` varchar(100) NOT NULL,
-  `preview_path` varchar(100) NOT NULL,
+  `zip_path` varchar(2000) NOT NULL,
+  `preview_path` varchar(2000) NOT NULL,
   `note` varchar(200) DEFAULT NULL,
   `short_description` varchar(200) DEFAULT NULL,
   `key_words` varchar(100) DEFAULT NULL,
@@ -119,53 +119,52 @@ INSERT INTO `Question` VALUES
 --
 
 CREATE TABLE `Temp_Paper` (
-  `paper_id` int(8) NOT NULL,
   `q_id` int(8) NOT NULL,
   `user_id` int(8) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
 INSERT INTO `Temp_Paper` VALUES
-(2,1,1),
-(2,2,1),
-(2,3,1),
-(2,4,1),
-(2,5,1),
-(2,6,2),
-(2,7,3),
-(2,8,1),
-(2,9,1),
-(2,10,3),
-(2,11,2),
-(2,12,1),
-(2,13,2),
-(2,14,1),
-(2,15,3),
-(2,16,1),
-(2,17,3),
-(2,18,2),
-(2,19,1),
-(2,20,1),
-(6,1,3),
-(6,2,3),
-(6,3,1),
-(6,4,2),
-(6,5,3),
-(6,6,1),
-(6,7,2),
-(6,8,3),
-(6,9,3),
-(6,10,3),
-(6,11,2),
-(6,12,2),
-(6,13,3),
-(6,14,2),
-(6,15,3),
-(6,16,2),
-(6,17,3),
-(6,18,1),
-(6,19,3),
-(6,20,1);
+(1,2),
+(2,2),
+(3,2),
+(4,2),
+(5,2),
+(6,2),
+(7,2),
+(8,2),
+(9,2),
+(10,2),
+(11,2),
+(12,2),
+(13,2),
+(14,1),
+(15,2),
+(16,2),
+(17,2),
+(18,2),
+(19,2),
+(20,2),
+(1,3),
+(2,3),
+(3,3),
+(4,3),
+(5,3),
+(6,3),
+(7,3),
+(8,3),
+(9,3),
+(10,3),
+(11,3),
+(12,3),
+(13,3),
+(14,3),
+(15,3),
+(16,3),
+(17,3),
+(18,3),
+(19,3),
+(20,3);
 
 
 -- --------------------------------------------------------
@@ -234,13 +233,14 @@ INSERT INTO  `Question_History` VALUES
 CREATE TABLE `User` (
   `user_id` int(8) NOT NULL,
   `user_name` varchar(50) NOT NULL,
-  `user_type` varchar(20) DEFAULT NULL
+  `user_type` varchar(20) DEFAULT NULL,
+  `user_password` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 INSERT INTO `User` VALUES
-(1,'Raymond','student'),
-(2,'Sam','student'),
-(3,'Lachlan','student');
+(1,'Raymond','student','cits3200'),
+(2,'Sam','student','cits3200'),
+(3,'Lachlan','student','cits3200');
 --
 -- Indexes for dumped tables
 --
@@ -264,7 +264,6 @@ ALTER TABLE `Question`
 -- Indexes for table `Temp_Paper`
 --
 ALTER TABLE `Temp_Paper`
-  ADD KEY `fk_temp_paper` (`paper_id`),
   ADD KEY `fk_cart_question` (`q_id`),
   ADD KEY `fk_cart_user` (`user_id`);
 
@@ -311,7 +310,6 @@ ALTER TABLE `Paper`
 -- Constraints for table `Temp_Paper`
 --
 ALTER TABLE `Temp_Paper`
-  ADD CONSTRAINT `fk_temp_paper` FOREIGN KEY (`paper_id`) REFERENCES `Paper` (`paper_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_cart_question` FOREIGN KEY (`q_id`) REFERENCES `Question` (`q_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_cart_user` FOREIGN KEY (`user_id`) REFERENCES `User` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
