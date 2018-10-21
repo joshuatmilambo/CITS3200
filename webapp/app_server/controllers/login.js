@@ -4,11 +4,12 @@ var mysql =require('mysql');
 
 /* Login */
 module.exports.login = function(req,res){
-  console.log('here');
   var username=req.body.username;
   var password=req.body.password;
   var i;
-  var master=false;
+  var master;
+  master=false;
+  req.session.master=false;
   var connection=mysql.createConnection({
     host : '127.0.0.1',
     user : 'root',
@@ -23,17 +24,19 @@ module.exports.login = function(req,res){
       for(i=0;i<result.length;i++){
         if(username==result[i].user_name){
           if(password==result[i].user_type){
-            connection.end();
             req.session.user=result[i].user_id;
-            //vaild master
-            if(result[i].user_id='2'){
+            //console.log("userid is "+result[i].user_id);
+            //test if master
+            if(result[i].user_id=='2'){
               req.session.master=true;
               master=true;
+              //console.log("ture test");
             }else{
+              //console.log("false test");
               req.session.master=false;
+              master=false;
             }
             console.log(req.session.master);
-            //
             res.render('index',{ifmaster:master});
             return;
           }else{
