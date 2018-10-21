@@ -37,13 +37,16 @@ module.exports.download = async function(req, res) {
 	//Get number of questions in paper
 	let downloadQuery = await ctrlMain.queryPromise('SELECT q_id FROM temp_paper');
 	console.log(downloadQuery.length);
+	//For every question get zip path and image path
 		for(var i = 0; i < downloadQuery.length; i++) {
 			let fileQuery = await ctrlMain.queryPromise('SELECT zip_path FROM question WHERE q_id = ' + downloadQuery[i]['q_id']);
 			console.log(fileQuery[0]['zip_path']);
+			//Add buffers to universal arrays
 			stringBuilder(fileQuery[0]['zip_path'] + '\\Q.txt');
 			imageBuilder(fileQuery[0]['zip_path']);
 		}
 
+	//Create zip containg appended text files and images
 	var zip = new JSZip();
 	zip.file("Questions.txt", filecontents);
 	var img = zip.folder("images");
@@ -53,4 +56,7 @@ module.exports.download = async function(req, res) {
 	}
 	zip.generateNodeStream({type:"nodebuffer", streamFiles:true})
 		.pipe(res)
+
+	//Reset temp_paper table
+	let reset = connection.query('DELETE FROM temp_paper WHERE q_id = ' + downloadQuery[i]['q_id']);
 };
