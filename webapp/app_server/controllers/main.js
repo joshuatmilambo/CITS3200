@@ -74,11 +74,6 @@ module.exports.test = function(req,res){
 });
 };
 
-/* GET question page */
-module.exports.question = function (req, res) {
-    res.render('question', {});
-}
-
 module.exports.questionadded = async function (req, res) {
     var qid = req.query.q;
     var uid = req.session.user;

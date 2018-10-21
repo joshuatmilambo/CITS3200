@@ -1,0 +1,11 @@
+\question An uncharged hollow \emph{conducting} spherical shell has inner radius $a$ and outer radius $b$. A point charge, $+Q$, is placed at the centre of the shell. Which \textbf{ONE} of the following diagrams best represents the variation of the electric potential, $V$, as a function of distance $r$ from the point charge?
+\begin{figure}[h]
+\begin{center}
+\includegraphics[angle=0,width=0.8\textwidth]{pics/e4.eps}
+%\caption{}
+\end{center}
+\end{figure}
+
+\begin{solution}
+C
+\end{solution}

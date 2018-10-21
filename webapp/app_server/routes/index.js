@@ -31,5 +31,6 @@ router.post('/download', ctrlDownload.download);
 router.post('/login',ctrlLogin.login);
 router.post('/addnewuser',ctrlMain.addnewuser);
 router.post('/updateresult',ctrlMain.update);
+router.post('/insertHistory', ctrlUphistory.insertHistory);
 
 module.exports = router;

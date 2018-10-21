@@ -1,0 +1,11 @@
+\question A red hot iron nail is dropped into a large insulated bucket of cold water.  After some time the nail and water have reached thermal equilibrium.    Let $\D S_w$ be the entropy change of the water during this process and $\D S_n$ be the entropy change of the nail during this process. Assuming that together the water and nail form an isolated system during the process, which of the following statements is true?\\
+
+\textmc{$\D S_w>0\quad$ and $\quad\D S_n>0\quad$ and $\quad\D S_w+\D S_n>0\,\,$}
+{$\D S_w<0\quad$ and $\quad\D S_n<0\quad$ and $\quad\D S_w+\D S_n<0$}
+{$\D S_w<0\quad$ and $\quad\D S_n>0\quad$ and $\quad\D S_w+\D S_n=0$}
+{$\D S_w>0\quad$ and $\quad\D S_n<0\quad$ and $\quad\D S_w+\D S_n>0$}
+{$\D S_w>0\quad$ and $\quad\D S_n<0\quad$ and $\quad\D S_w+\D S_n=0$}
+
+\begin{solution}
+$\D S_w>0\quad$ and $\quad\D S_n<0\quad$ and $\quad\D S_w+\D S_n>0$
+\end{solution}
