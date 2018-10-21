@@ -6,6 +6,7 @@ var ctrlSearch = require('../controllers/search');
 var ctrlDownload = require('../controllers/download');
 var ctrlLogin = require ('../controllers/login');
 var ctrlViewquestion = require('../controllers/viewquestion');
+var ctrlUphistory = require ('../controllers/uploadhistory');
 
 /* GET home page. */
 router.get('/', ctrlMain.login);
@@ -21,6 +22,7 @@ router.get('/index',ctrlMain.index);
 router.get('/updateresults',ctrlMain.updateresults);
 router.get('/delete',ctrlMain.delete);
 router.get('/adduser',ctrlMain.adduser);
+router.get('/uploadhistory',ctrlUphistory.uploadhistory);
 
 
 /* POST File Upload */
