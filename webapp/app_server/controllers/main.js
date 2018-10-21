@@ -13,11 +13,11 @@ module.exports.addnewuser = function(req,res){
   var password=req.body.password;
   var userexist=false;
   var connection=mysql.createConnection({
-  host : '127.0.0.1',
+  host : 'localhost',
   user : 'root',
-  password : 'Aa18605323205',
-  prot : '3306',
-  database: 'cits3200'
+  password : 'cits3200',
+  port : '3306',
+  database: 'CITS3200'
   });
   connection.connect(function(err) {
   	if (err) throw err;

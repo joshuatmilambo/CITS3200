@@ -25,6 +25,8 @@ CREATE DATABASE `CITS3200`;
 
 -- Select CITS3200 database
 USE CITS3200;
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'cits3200';
+
 -- --------------------------------------------------------
 
 
