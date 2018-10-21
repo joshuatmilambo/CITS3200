@@ -1,6 +1,0 @@
-\question Three point charges of equal mass are fixed in a line as shown below. All three charges are then released at the same time. Which ONE of the following statements is TRUE immediately after release?
-\begin{figure}[h]\begin{center}
-\includegraphics[angle=0,width=0.7\textwidth]{pics/e2.pdf}
-\end{center}\end{figure}
-\textmc{The positive charges remain at rest and the negative charge moves towards one of them.}{The positive charges remain at rest and the negative charge oscillates about its initial
-position.}{The negative charge remains at rest and the positive charges move away from it.}{The negative charge remains at rest and the positive charges move in towards it.}{All charges remain at rest.}

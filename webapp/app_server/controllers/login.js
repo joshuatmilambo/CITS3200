@@ -16,7 +16,7 @@ module.exports.login = function(req,res){
         if(password==result[i].user_type){
           req.session.user=result[i].user_id;
           //vaild master
-          if(result[i].user_id='2'){
+          if(result[i].user_id=='1'){
             req.session.master=true;
             master=true;
           }else{

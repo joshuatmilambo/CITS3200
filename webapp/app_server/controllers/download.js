@@ -101,4 +101,6 @@ module.exports.download = async function(req, res) {
 			if(err) throw err;
 		});
 	}
+
+	res.redirect('/index');
 };

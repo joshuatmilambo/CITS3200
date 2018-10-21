@@ -74,7 +74,7 @@ module.exports.questionadded = async function (req, res) {
     var qid = req.query.q;
     var uid = req.session.user;
     let testQuery = await ctrlMain.queryPromise('INSERT INTO Temp_Paper (q_id, user_id) VALUES ('+qid + ',' + uid +')');
-    res.render('questionadded', {results:results});
+    res.redirect('/index');
 }
 
 /* GET history page */
@@ -132,7 +132,7 @@ module.exports.update = function(req,res){
       var data = [];
 
       for(var i = 0; i < fields.length; i++) {
-        if(i%2 == 0) data.push(new Array(2));
+        if(i%3 == 0) data.push(new Array(3));
 
         var num = fields[i][0].split('.')[1]
 
@@ -142,19 +142,24 @@ module.exports.update = function(req,res){
         else if(/^total/.test(fields[i][0])) {
           data[num][1] = fields[i][1];
         }
+        else if(/^qid/.test(fields[i][0])) {
+          data[num][2] = fields[i][1];
+        }
+        else {
+          data[num][3] = fields[i][1];
+        }
       }
 
-      var qid=req.body.qid;
       var pid=req.query.p;
       console.log(data.length);
 
       for(var n=0; n<data.length;n++){
 
-        console.log(qid);
+        console.log(data[n][2]);
         console.log(data[n][0]);
         console.log(data[n][1]);
 
-        connection.query('update question_history set correct="'+data[n][0]+'",total_student="'+data[n][1]+'" where q_id="'+qid+'"'),function(err,result,fields){
+        await ctrlMain.queryPromise('update question_history set correct="'+data[n][0]+'",total_student="'+data[n][1]+'", note="'+data[n][3]+'" where q_id="'+data[n][2]+'"'+' AND paper_id=' +pid),function(err,result,fields){
           if(err) throw err;
         };
       };
