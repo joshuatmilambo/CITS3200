@@ -75,9 +75,12 @@ module.exports.upload = function(req, res) {
         console.log('Qid: ' + qid);
 
         //Sets up dynamic upload directory based on Question ID
-        var dir = __dirname + '/files/' + qid;
-        if(!fs.existsSync(dir))
+        var dir = __dirname + '\\files\\' + qid;
+        console.log(dir);
+        if(!fs.existsSync(dir)) {
             fs.mkdirSync(dir);
+            fs.mkdirSync(dir + "\\..\\..\\..\\..\\public\\files_previews\\" + qid);
+        }
         else {
             console.log('Directory for qid %d already exsits', qid);
         }
@@ -110,7 +113,7 @@ module.exports.upload = function(req, res) {
                     files[0] = file;
                 }
                 else if((file !== null) && (field === 'uploadpdf' && fileExt.ext === 'png')) {
-                    fs.renameSync(file.path, form.uploadDir + '/' + file.name);
+                    fs.renameSync(file.path, form.uploadDir + '\\..\\..\\..\\..\\public\\files_previews\\' + qid + '\\' + file.name);
                     files[1] = file;
                 }
                 //If not, delete file from filesystem
@@ -171,9 +174,9 @@ module.exports.upload = function(req, res) {
                         fs.unlinkSync(form.uploadDir + '/' + files[0].name);
                     });
 
-                    insert_question(qid, (files[0].name).split(".")[0], fields[type][1], files[0].size, dir, form.uploadDir + '/' + files[1].name,
+                    insert_question(qid, (files[0].name).split(".")[0], fields[type][1], files[0].size, dir, 'files_previews\\' + qid + '\\'  + files[1].name,
                         fields[notes][1], fields[description][1], fields[keywords][1], fields[video_link][1]);
-                    res.redirect('/uploadhistory?formno=1');
+                    res.redirect('/uploadhistory?formno=1&qid='+qid);
                 }
                 else {
                     console.log('Error Uploading - Not Enough Correct Files Given');

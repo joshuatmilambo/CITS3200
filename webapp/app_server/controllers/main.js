@@ -12,17 +12,7 @@ module.exports.adduser = function(req,res){
   res.render('adduser',{});
 };
 
-
-//
 module.exports.addnewuser = function(req,res){
-  connection=mysql.createConnection({
-  host : '127.0.0.1',
-  user : 'root',
-  password : 'Aa18605323205',
-  prot : '3306',
-  database: 'cits3200'
-  });
-
   var username=req.body.username;
   var password=req.body.password;
   var userexist=false;
@@ -49,14 +39,6 @@ module.exports.addnewuser = function(req,res){
 
 /* delete question */
 module.exports.delete = function(req,res){
-  connection=mysql.createConnection({
-  host : '127.0.0.1',
-  user : 'root',
-  password : 'Aa18605323205',
-  prot : '3306',
-  database: 'cits3200'
-  });
-
   var user=req.session.user;
   var qid=req.query.q;
   connection.connect(function(err) {
@@ -85,14 +67,6 @@ module.exports.upload = function(req,res){
 
 /* GET test page */
 module.exports.test = function(req,res){
-  connection=mysql.createConnection({
-  host : '127.0.0.1',
-  user : 'root',
-  password : 'Aa18605323205',
-  prot : '3306',
-  database: 'cits3200'
-  });
-
   var user=req.session.user;
     connection.connect(function(err) {
       if (err) throw err;
@@ -104,21 +78,7 @@ module.exports.test = function(req,res){
 });
 };
 
-/* GET question page */
-module.exports.question = function (req, res) {
-    res.render('question', {});
-}
-
-//
 module.exports.questionadded = async function (req, res) {
-    connection=mysql.createConnection({
-    host : '127.0.0.1',
-    user : 'root',
-    password : 'Aa18605323205',
-    prot : '3306',
-    database: 'cits3200'
-    });
-
     var qid = req.query.q;
     var uid = req.session.user;
     let testQuery = await ctrlMain.queryPromise('INSERT INTO Temp_Paper (q_id, user_id) VALUES ('+qid + ',' + uid +')');
@@ -127,13 +87,7 @@ module.exports.questionadded = async function (req, res) {
 
 /* GET history page */
 module.exports.history = async function (req, res) {
-    connection=mysql.createConnection({
-    host : '127.0.0.1',
-    user : 'root',
-    password : 'Aa18605323205',
-    prot : '3306',
-    database: 'cits3200'
-    });
+
     var results = []//['UWA', 'Physics', 'test', '05/09/2016', '100','200','used copper' , 'UWA', 'Physics', 'test', '12/09/2015', '5','10','null'];
     let testQuery = await ctrlMain.queryPromise('SELECT institution, unit, assessment, date, correct, total_student, note FROM question_history q JOIN paper p WHERE q.paper_id = p.paper_id AND q_id = 3');
     for (var i = 0; i < testQuery.length; i++) {
@@ -146,14 +100,6 @@ module.exports.history = async function (req, res) {
 
 /* Get test history page */
 module.exports.testhistory = function(req,res){
-    connection=mysql.createConnection({
-    host : '127.0.0.1',
-    user : 'root',
-    password : 'Aa18605323205',
-    prot : '3306',
-    database: 'cits3200'
-    });
-
   var userid=req.session.user;
   console.log(userid);
   var testhistories;
@@ -173,13 +119,6 @@ module.exports.testhistory = function(req,res){
 module.exports.updateresults = function(req,res){
   var pid=req.query.p;
   var username=req.session.user;
-  connection=mysql.createConnection({
-  host : '127.0.0.1',
-  user : 'root',
-  password : 'Aa18605323205',
-  prot : '3306',
-  database: 'cits3200'
-  });
   console.log(pid);
   console.log(username);
   connection.connect(function(err) {
@@ -196,13 +135,6 @@ module.exports.updateresults = function(req,res){
 
 // Update result
 module.exports.update = function(req,res){
-  connection=mysql.createConnection({
-  host : '127.0.0.1',
-  user : 'root',
-  password : 'Aa18605323205',
-  prot : '3306',
-  database: 'cits3200'
-  });
   var n;
   var correct=req.body.correct;
   var total=req.body.total;
