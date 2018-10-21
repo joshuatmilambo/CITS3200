@@ -10,3 +10,4 @@ else
 fi
 echo "Start Node Server"
 nodemon
+wine start start_website.bat
