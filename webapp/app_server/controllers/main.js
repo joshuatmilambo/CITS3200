@@ -2,12 +2,18 @@ var ctrlMain = require('../controllers/main');
 const express = require('express');
 var mysql = require('mysql');
 
+//index page
+module.exports.login = function(req,res){
+  res.render('login');
+};
 
 //add user
 module.exports.adduser = function(req,res){
   res.render('adduser',{});
 };
 
+
+//
 module.exports.addnewuser = function(req,res){
   connection=mysql.createConnection({
   host : '127.0.0.1',
@@ -79,6 +85,14 @@ module.exports.upload = function(req,res){
 
 /* GET test page */
 module.exports.test = function(req,res){
+  connection=mysql.createConnection({
+  host : '127.0.0.1',
+  user : 'root',
+  password : 'Aa18605323205',
+  prot : '3306',
+  database: 'cits3200'
+  });
+
   var user=req.session.user;
     connection.connect(function(err) {
       if (err) throw err;
@@ -95,6 +109,7 @@ module.exports.question = function (req, res) {
     res.render('question', {});
 }
 
+//
 module.exports.questionadded = async function (req, res) {
     connection=mysql.createConnection({
     host : '127.0.0.1',
@@ -118,9 +133,7 @@ module.exports.history = async function (req, res) {
     password : 'Aa18605323205',
     prot : '3306',
     database: 'cits3200'
-  });
-
-
+    });
     var results = []//['UWA', 'Physics', 'test', '05/09/2016', '100','200','used copper' , 'UWA', 'Physics', 'test', '12/09/2015', '5','10','null'];
     let testQuery = await ctrlMain.queryPromise('SELECT institution, unit, assessment, date, correct, total_student, note FROM question_history q JOIN paper p WHERE q.paper_id = p.paper_id AND q_id = 3');
     for (var i = 0; i < testQuery.length; i++) {
@@ -181,7 +194,8 @@ module.exports.updateresults = function(req,res){
 };
 
 
-module.exports.updateresult = async function(req,res){
+// Update result
+module.exports.update = function(req,res){
   connection=mysql.createConnection({
   host : '127.0.0.1',
   user : 'root',
@@ -189,27 +203,6 @@ module.exports.updateresult = async function(req,res){
   prot : '3306',
   database: 'cits3200'
   });
-
-  // let testQuery = await ctrlMain.queryPromise('SELECT short_description,preview_path FROM Question JOIN Question_History USING (q_id) WHERE paper_id = ?',[paper_id]);
-  var results =[];
-  let testQuery = await ctrlMain.queryPromise('SELECT short_description,preview_path FROM Question JOIN Question_History USING (q_id) WHERE paper_id = 1');
-  for (var i = 0; i < testQuery.length; i++) {
-    var single =[];
-    single.push(testQuery[i]['short_description'],testQuery[i]['preview_path']);
-    results.push(single);
-  }
-  console.log(results);
-  res.render('updateresult',{results:results});
-}
-
-module.exports.login = function(req,res){
-  res.render('login',{});
-}
-
-
-
-// Update result
-module.exports.update = function(req,res){
   var n;
   var correct=req.body.correct;
   var total=req.body.total;
