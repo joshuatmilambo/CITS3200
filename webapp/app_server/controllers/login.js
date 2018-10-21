@@ -9,25 +9,14 @@ module.exports.login = function(req,res){
   var password=req.body.password;
   var i;
   var master=false;
-<<<<<<< HEAD
-
-=======
   var connection=mysql.createConnection({
-  host : 'localhost',
-  user : 'root',
-  password : 'cits3200',
-  port : '3306',
-  database: 'CITS3200'
-  });
->>>>>>> 7a5ff9720a064f19f2e2b0992d5450adb90992fb
-  connection.connect(function(err) {
-    var connection=mysql.createConnection({
     host : '127.0.0.1',
     user : 'root',
     password : 'Aa18605323205',
     prot : '3306',
     database: 'cits3200'
     });
+  connection.connect(function(err) {
   	if (err) throw err;
   	connection.query('select * from user',function(err,result,fields){
       if(err) throw err;

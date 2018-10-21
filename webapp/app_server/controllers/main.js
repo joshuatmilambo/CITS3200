@@ -13,12 +13,12 @@ module.exports.addnewuser = function(req,res){
   var password=req.body.password;
   var userexist=false;
   var connection=mysql.createConnection({
-  host : 'localhost',
-  user : 'root',
-  password : 'cits3200',
-  port : '3306',
-  database: 'CITS3200'
-  });
+    host : '127.0.0.1',
+    user : 'root',
+    password : 'Aa18605323205',
+    prot : '3306',
+    database: 'cits3200'
+    });
   connection.connect(function(err) {
   	if (err) throw err;
   	connection.query('select * from user',function(err,result,fields){
@@ -32,12 +32,36 @@ module.exports.addnewuser = function(req,res){
         res.render('adduser',{warning:'User already exist'});
       }else{
         connection.query("insert into user (user_name,user_type) values ('"+username+"','"+password+"')",function(err,result,fields){
-          console.log('here');
+          //console.log('here');
           if (err) throw err;
           res.render('adduser',{warning:'User sucessfully added'})
         });
       }
     });
+  });
+};
+
+/* delete question */
+module.exports.delete = function(req,res){
+  var user=req.session.user;
+  var qid=req.query.q;
+  var connection=mysql.createConnection({
+    host : '127.0.0.1',
+    user : 'root',
+    password : 'Aa18605323205',
+    prot : '3306',
+    database: 'cits3200'
+    });
+  connection.connect(function(err) {
+    if (err) throw err;
+      connection.query('delete from Temp_Paper where user_id="'+user+'" and q_id="'+qid+'"',function(err,result,fields){
+        if(err) throw err;
+        connection.query('select * from Temp_Paper join question on Temp_Paper.q_id=question.q_id where user_id="'+user+'"',function(err,result,fields){
+          if(err) throw err;
+          console.log(result);
+          res.render('test',{test:result});
+        });
+      });
   });
 };
 
@@ -54,8 +78,23 @@ module.exports.upload = function(req,res){
 
 /* GET test page */
 module.exports.test = function(req,res){
-  res.render('test',{});
-}
+  var user=req.session.user;
+  var connection=mysql.createConnection({
+    host : '127.0.0.1',
+    user : 'root',
+    password : 'Aa18605323205',
+    prot : '3306',
+    database: 'cits3200'
+    });
+    connection.connect(function(err) {
+      if (err) throw err;
+        connection.query('select * from Temp_Paper join question on Temp_Paper.q_id=question.q_id where user_id="'+user+'"',function(err,result,fields){
+          if(err) throw err;
+          console.log(result);
+          res.render('test',{test:result});
+      });
+});
+};
 
 /* GET question page */
 module.exports.question = function (req, res) {
