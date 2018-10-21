@@ -47,15 +47,13 @@ html
             h2 Correct 
           .split
             h2 Total Students
-        - vari = 0;
+        - var i = 0;
         each val in questions
           .result.two
             .split
               p=val.unit
             .split
               p=val.assessment
-            .split
-              p=val.name
             .split
               p=val.date
             .split

@@ -18,6 +18,11 @@ connection = mysql.createConnection({
   database : 'CITS3200'  //is actually CITS3200 (changed it for my local computer)
 });
 
+//app.use('/public', express.static(path.join(__dirname, 'public')));
+
+var staticResource='~/documents/uni/cits3200/masters/cits3200/webapp';
+app.use('/public2', express.static(path.join(staticResource, 'public2')));
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'app_server','views'));

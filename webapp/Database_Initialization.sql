@@ -11,6 +11,7 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
+DROP DATABASE IF EXISTS `CITS3200`;
 CREATE DATABASE `CITS3200`;
 
 
@@ -39,7 +40,6 @@ ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'cits3200
 CREATE TABLE `Paper` (
   `paper_id` int(8) NOT NULL,
   `user_id` int(8) NOT NULL,
-  `status` varchar(20) NOT NULL,
   `institution` varchar(100) NOT NULL,
   `unit` varchar(20) NOT NULL,
   `assessment` varchar(50) NOT NULL,
@@ -57,8 +57,8 @@ CREATE TABLE `Question` (
   `name` varchar(50) NOT NULL,
   `size` int(10) NOT NULL,
   `type` varchar(20) NOT NULL,
-  `zip_path` varchar(200) NOT NULL,
-  `preview_path` varchar(200) NOT NULL,
+  `zip_path` varchar(2000) NOT NULL,
+  `preview_path` varchar(2000) NOT NULL,
   `note` varchar(200) DEFAULT NULL,
   `short_description` varchar(200) DEFAULT NULL,
   `key_words` varchar(100) DEFAULT NULL,
@@ -73,7 +73,6 @@ CREATE TABLE `Question` (
 --
 
 CREATE TABLE `Temp_Paper` (
-  `paper_id` int(8) NOT NULL,
   `q_id` int(8) NOT NULL,
   `user_id` int(8) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -102,8 +101,12 @@ CREATE TABLE `Question_History` (
 CREATE TABLE `User` (
   `user_id` int(8) NOT NULL,
   `user_name` varchar(50) NOT NULL,
-  `user_type` varchar(20) DEFAULT NULL
+  `user_type` varchar(20) DEFAULT NULL,
+  `user_password` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO `User` VALUES
+(1,'John','professor','cits3200');
 
 --
 -- Indexes for dumped tables
@@ -128,7 +131,6 @@ ALTER TABLE `Question`
 -- Indexes for table `Temp_Paper`
 --
 ALTER TABLE `Temp_Paper`
-  ADD KEY `fk_temp_paper` (`paper_id`),
   ADD KEY `fk_cart_question` (`q_id`),
   ADD KEY `fk_cart_user` (`user_id`);
 
@@ -175,7 +177,6 @@ ALTER TABLE `Paper`
 -- Constraints for table `Temp_Paper`
 --
 ALTER TABLE `Temp_Paper`
-  ADD CONSTRAINT `fk_temp_paper` FOREIGN KEY (`paper_id`) REFERENCES `Paper` (`paper_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_cart_question` FOREIGN KEY (`q_id`) REFERENCES `Question` (`q_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_cart_user` FOREIGN KEY (`user_id`) REFERENCES `User` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
