@@ -19,12 +19,12 @@ router.get('/testhistory',ctrlMain.testhistory);
 router.get('/updateresult',ctrlMain.updateresult);
 router.get('/index',ctrlMain.index);
 router.get('/updateresults',ctrlMain.updateresults);
-<<<<<<< HEAD
-router.get('/uploadhistory',ctrlMain.uploadhistory);
+//<<<<<<< HEAD
+//router.get('/uploadhistory',ctrlMain.uploadhistory);
 router.get('/delete',ctrlMain.delete);
-=======
-router.get('/uploadhistory',ctrlUploadhistory.uploadhistory);
->>>>>>> 41f44231a4f2f19d16ff301b5392a4a03e08bbf4
+//=======
+//router.get('/uploadhistory',ctrlUploadhistory.uploadhistory);
+//>>>>>>> 41f44231a4f2f19d16ff301b5392a4a03e08bbf4
 router.get('/adduser',ctrlMain.adduser);
 
 
