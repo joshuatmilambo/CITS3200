@@ -63,7 +63,7 @@ html
         b Question History
         |  → Submitted
       |                 
-      form#history
+      form#history(method='GET', action='/test')
         - var formn = 1;
         while formn <= formno 
           fieldset(id = "paper" + formn, style='border:none', name='paper' + formn)
@@ -72,7 +72,7 @@ html
                 h2 Paper # #{formn}
               .split4
                 h2
-                  select(id='oldnew', onchange="changepaper(this,this.parentNode.parentNode.parentNode.parentNode)",name='oldnew'+formn)
+                  select(id='oldnew'+formn, onchange="changepaper(this,this.parentNode.parentNode.parentNode.parentNode)",name='oldnew'+formn)
                     option(value='oldpaper') Past
                     option(value='newpaper', selected='True') New
             fieldset#oldpapers(style='display:none; border:none',name='oldpapers'+formn)
@@ -110,7 +110,7 @@ html
                   h2
                     input(type='text', id='Date'+ formn, name='date'+formn)
             - formn++;
-                    
+                  
         h2
           a(href='/uploadhistory?formno=' + (nextup))
             button(id = 'add', value=parseInt(formno)+1,name="formno") Add Paper 

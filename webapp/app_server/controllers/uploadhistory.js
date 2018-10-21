@@ -5,6 +5,13 @@ var ctrlMain = require('../controllers/main');
 
 
 module.exports.uploadhistory = async function(req,res){
+  connection=mysql.createConnection({
+  host : '127.0.0.1',
+  user : 'root',
+  password : 'Aa18605323205',
+  prot : '3306',
+  database: 'cits3200'
+  });
   var formno = req.query.formno;
 //  var qid = req.query.qid;
   var userPapers = [];
@@ -15,8 +22,4 @@ module.exports.uploadhistory = async function(req,res){
   }
   res.render('uploadhistory',{formno: formno, papers: userPapers});
 
-}
-
-module.exports.uploadhistorys = function(req,res){
-  res.render('uploadhistory',{});
 }
