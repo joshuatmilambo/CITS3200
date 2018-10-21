@@ -173,7 +173,7 @@ module.exports.upload = function(req, res) {
 
                     insert_question(qid, (files[0].name).split(".")[0], fields[type][1], files[0].size, dir, form.uploadDir + '/' + files[1].name,
                         fields[notes][1], fields[description][1], fields[keywords][1], fields[video_link][1]);
-                    res.redirect('/uploadhistory?formno=1&qid=?',qid);
+                    res.redirect('/uploadhistory?formno=1');
                 }
                 else {
                     console.log('Error Uploading - Not Enough Correct Files Given');
