@@ -1,0 +1,1 @@
+runas /noprofile /user:mymachine\administrator start_db.bat

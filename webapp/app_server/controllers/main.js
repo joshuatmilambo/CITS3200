@@ -65,8 +65,10 @@ module.exports.question = function (req, res) {
 module.exports.questionadded = function (req, res) {
     var qid = req.query.qid;
     var pid = req.query.pid;
-    var results = [];
-    results.push(qid, pid);
+    var uid = 1;
+    var results = [qid,pid,uid];
+/*    let testQuery = await ctrlMain.queryPromise('INSERT INTO Paper VALUES (' + pid + ',' + qid + ',' + uid +')');
+    results.push(testQuery[0]['qid'], testQuery[0]['pid'], testQuery[0]['uid']);*/
     res.render('questionadded', {results:results});
 }
 
