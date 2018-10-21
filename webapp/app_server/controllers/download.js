@@ -63,8 +63,8 @@ module.exports.download = async function(req, res) {
 			}
 		}
 
-		let paperInsert = await ctrlMain.queryPromise("INSERT INTO paper (user_id, status, institution, unit, assessment, date) VALUES (?,?,?,?,?,?)", 
-			[req.session.user, 'in progress', inst, unit, assess, date], function(err, result) {
+		let paperInsert = await ctrlMain.queryPromise("INSERT INTO paper (user_id, institution, unit, assessment, date) VALUES (?,?,?,?,?)", 
+			[req.session.user, inst, unit, assess, date], function(err, result) {
 				if(err) throw err;
 			});
 
@@ -101,6 +101,4 @@ module.exports.download = async function(req, res) {
 			if(err) throw err;
 		});
 	}
-
-	res.redirect('/index');
 };
