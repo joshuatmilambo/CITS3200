@@ -2,7 +2,6 @@ var ctrlMain = require('../controllers/main');
 var JSZip = require('jszip');
 var fs = require('fs');
 var formidable = require('formidable');
-var moment = require('moment');
 var image_data = [];
 var filecontents = '';
 
