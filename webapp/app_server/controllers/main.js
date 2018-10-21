@@ -9,16 +9,17 @@ module.exports.adduser = function(req,res){
 };
 
 module.exports.addnewuser = function(req,res){
+  connection=mysql.createConnection({
+  host : '127.0.0.1',
+  user : 'root',
+  password : 'Aa18605323205',
+  prot : '3306',
+  database: 'cits3200'
+  });
+
   var username=req.body.username;
   var password=req.body.password;
   var userexist=false;
-  var connection=mysql.createConnection({
-    host : '127.0.0.1',
-    user : 'root',
-    password : 'Aa18605323205',
-    prot : '3306',
-    database: 'cits3200'
-    });
   connection.connect(function(err) {
   	if (err) throw err;
   	connection.query('select * from user',function(err,result,fields){
@@ -32,7 +33,6 @@ module.exports.addnewuser = function(req,res){
         res.render('adduser',{warning:'User already exist'});
       }else{
         connection.query("insert into user (user_name,user_type) values ('"+username+"','"+password+"')",function(err,result,fields){
-          //console.log('here');
           if (err) throw err;
           res.render('adduser',{warning:'User sucessfully added'})
         });
@@ -43,15 +43,16 @@ module.exports.addnewuser = function(req,res){
 
 /* delete question */
 module.exports.delete = function(req,res){
+  connection=mysql.createConnection({
+  host : '127.0.0.1',
+  user : 'root',
+  password : 'Aa18605323205',
+  prot : '3306',
+  database: 'cits3200'
+  });
+
   var user=req.session.user;
   var qid=req.query.q;
-  var connection=mysql.createConnection({
-    host : '127.0.0.1',
-    user : 'root',
-    password : 'Aa18605323205',
-    prot : '3306',
-    database: 'cits3200'
-    });
   connection.connect(function(err) {
     if (err) throw err;
       connection.query('delete from Temp_Paper where user_id="'+user+'" and q_id="'+qid+'"',function(err,result,fields){
@@ -79,13 +80,6 @@ module.exports.upload = function(req,res){
 /* GET test page */
 module.exports.test = function(req,res){
   var user=req.session.user;
-  var connection=mysql.createConnection({
-    host : '127.0.0.1',
-    user : 'root',
-    password : 'Aa18605323205',
-    prot : '3306',
-    database: 'cits3200'
-    });
     connection.connect(function(err) {
       if (err) throw err;
         connection.query('select * from Temp_Paper join question on Temp_Paper.q_id=question.q_id where user_id="'+user+'"',function(err,result,fields){
@@ -102,21 +96,30 @@ module.exports.question = function (req, res) {
 }
 
 module.exports.questionadded = async function (req, res) {
-    var qid = req.query.q;
-    var uid = req.session.user;
-    var connection=mysql.createConnection({
+    connection=mysql.createConnection({
     host : '127.0.0.1',
     user : 'root',
     password : 'Aa18605323205',
     prot : '3306',
     database: 'cits3200'
     });
+
+    var qid = req.query.q;
+    var uid = req.session.user;
     let testQuery = await ctrlMain.queryPromise('INSERT INTO Temp_Paper (q_id, user_id) VALUES ('+qid + ',' + uid +')');
     res.render('questionadded', {results:results});
 }
 
 /* GET history page */
 module.exports.history = async function (req, res) {
+    connection=mysql.createConnection({
+    host : '127.0.0.1',
+    user : 'root',
+    password : 'Aa18605323205',
+    prot : '3306',
+    database: 'cits3200'
+  });
+
 
     var results = []//['UWA', 'Physics', 'test', '05/09/2016', '100','200','used copper' , 'UWA', 'Physics', 'test', '12/09/2015', '5','10','null'];
     let testQuery = await ctrlMain.queryPromise('SELECT institution, unit, assessment, date, correct, total_student, note FROM question_history q JOIN paper p WHERE q.paper_id = p.paper_id AND q_id = 3');
@@ -130,16 +133,17 @@ module.exports.history = async function (req, res) {
 
 /* Get test history page */
 module.exports.testhistory = function(req,res){
+    connection=mysql.createConnection({
+    host : '127.0.0.1',
+    user : 'root',
+    password : 'Aa18605323205',
+    prot : '3306',
+    database: 'cits3200'
+    });
+
   var userid=req.session.user;
   console.log(userid);
   var testhistories;
-  var connection=mysql.createConnection({
-  host : '127.0.0.1',
-  user : 'root',
-  password : 'Aa18605323205',
-  prot : '3306',
-  database: 'cits3200'
-  });
   var username=req.session.user
   connection.connect(function(err) {
     if (err) throw err;
@@ -156,15 +160,15 @@ module.exports.testhistory = function(req,res){
 module.exports.updateresults = function(req,res){
   var pid=req.query.p;
   var username=req.session.user;
-  console.log(pid);
-  console.log(username);
-  var connection=mysql.createConnection({
+  connection=mysql.createConnection({
   host : '127.0.0.1',
   user : 'root',
   password : 'Aa18605323205',
   prot : '3306',
   database: 'cits3200'
   });
+  console.log(pid);
+  console.log(username);
   connection.connect(function(err) {
     if (err) throw err;
     connection.query('select * from ((question_history join question on question_history.q_id=question.q_id) join paper on question_history.paper_id=paper.paper_id) where paper.paper_id="'+pid+'"',function(err,result,fields){
@@ -178,6 +182,14 @@ module.exports.updateresults = function(req,res){
 
 
 module.exports.updateresult = async function(req,res){
+  connection=mysql.createConnection({
+  host : '127.0.0.1',
+  user : 'root',
+  password : 'Aa18605323205',
+  prot : '3306',
+  database: 'cits3200'
+  });
+
   // let testQuery = await ctrlMain.queryPromise('SELECT short_description,preview_path FROM Question JOIN Question_History USING (q_id) WHERE paper_id = ?',[paper_id]);
   var results =[];
   let testQuery = await ctrlMain.queryPromise('SELECT short_description,preview_path FROM Question JOIN Question_History USING (q_id) WHERE paper_id = 1');
@@ -204,13 +216,6 @@ module.exports.update = function(req,res){
   var qid=req.body.qid;
   console.log(qid);
   var pid=req.query.p;
-  var connection=mysql.createConnection({
-  host : '127.0.0.1',
-  user : 'root',
-  password : 'Aa18605323205',
-  prot : '3306',
-  database: 'cits3200'
-  });
   connection.connect(function(err) {
     if (err) throw err;
     for (n=0; n<correct.length;n++){

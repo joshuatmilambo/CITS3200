@@ -50,32 +50,32 @@ html
               a(href='/delete?q='+val.q_id)
                 button(type='remove') X
       // Test Detail
-      form(class='formContainer', id='resultslower' action='download' method='post')
+      form(class='formContainer', id='resultslower', action='download', method='post', enctype='multipart/form-data')
         h1 Test Detail
         .result.one.header
           .split4.left
             h2 Institution:
           .split4.right
             h2
-              input(type='text', value='UWA')
+              input(name='inst', type='text', value='UWA')
         .result.one.header
           .split4.left
             h2 Unit Name:
           .split4.right
             h2
-              input(type='text', value='')
+              input(name='unit', type='text', value='')
         .result.one.header
           .split4.left
-            h2 Assement Name:
+            h2 Assessment Name:
           .split4.right
             h2
-              input(type='text', value='')
+              input(name='assessment', type='text', value='')
         .result.one.header
           .split4.left
             h2 Date:
           .split4.right
             h2 
-              input(type='text',value='')
+              input(name='date', type='text', placeholder='DD/MM/YYYY')
         .result.one.header
           button(type='submit', class='download') Download
         

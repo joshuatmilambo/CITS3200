@@ -109,7 +109,7 @@ module.exports.upload = function(req, res) {
                     fs.renameSync(file.path, form.uploadDir + '/' + file.name);
                     files[0] = file;
                 }
-                else if((file !== null) && (field === 'uploadpdf' && fileExt.ext === 'pdf')) {
+                else if((file !== null) && (field === 'uploadpdf' && fileExt.ext === 'png')) {
                     fs.renameSync(file.path, form.uploadDir + '/' + file.name);
                     files[1] = file;
                 }
