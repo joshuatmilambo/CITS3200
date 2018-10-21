@@ -19,7 +19,7 @@ router.get('/testhistory',ctrlMain.testhistory);
 router.get('/updateresult',ctrlMain.updateresult);
 router.get('/index',ctrlMain.index);
 router.get('/updateresults',ctrlMain.updateresults);
-router.get('/uploadhistory',ctrlMain.uploadhistory);
+router.get('/uploadhistory',ctrlUploadhistory.uploadhistory);
 router.get('/adduser',ctrlMain.adduser);
 
 
