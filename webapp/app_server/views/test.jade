@@ -41,12 +41,14 @@ html
             h2 TITLE
           .split
             h2 REMOVE
-        .result.two
-          .split
-            a(href='/question')
-              p Speed of Light in a Material
-          .split
-            button(type='remove', onclick="location.href='/test';") X
+        - each val in test
+          .result.two
+            .split
+              a(href='/question?q='+val.q_id)
+                p=val.name
+            .split
+              a(href='/delete?q='+val.q_id)
+                button(type='remove') X
       // Test Detail
       form(class='formContainer', id='resultslower' action='download' method='post')
         h1 Test Detail

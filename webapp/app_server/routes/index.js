@@ -20,6 +20,7 @@ router.get('/updateresult',ctrlMain.updateresult);
 router.get('/index',ctrlMain.index);
 router.get('/updateresults',ctrlMain.updateresults);
 router.get('/uploadhistory',ctrlMain.uploadhistory);
+router.get('/delete',ctrlMain.delete);
 router.get('/adduser',ctrlMain.adduser);
 
 
