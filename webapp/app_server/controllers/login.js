@@ -4,7 +4,6 @@ var mysql =require('mysql');
 
 /* Login */
 module.exports.login = function(req,res){
-  console.log('here');
   var username=req.body.username;
   var password=req.body.password;
   var i;

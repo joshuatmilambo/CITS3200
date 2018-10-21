@@ -8,7 +8,7 @@ var ctrlLogin = require ('../controllers/login');
 var ctrlViewquestion = require('../controllers/viewquestion');
 var ctrlUphistory = require ('../controllers/uploadhistory');
 
-/* GET home page. */
+
 router.get('/', ctrlMain.login);
 router.get('/result', ctrlSearch.result);
 router.get('/upload', ctrlMain.upload);
@@ -17,7 +17,6 @@ router.get('/question', ctrlViewquestion.viewquestion);
 router.get('/questionadded', ctrlMain.questionadded)
 router.get('/history', ctrlMain.history);
 router.get('/testhistory',ctrlMain.testhistory);
-router.get('/updateresult',ctrlMain.updateresult);
 router.get('/index',ctrlMain.index);
 router.get('/updateresults',ctrlMain.updateresults);
 router.get('/delete',ctrlMain.delete);

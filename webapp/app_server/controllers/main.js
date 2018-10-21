@@ -2,6 +2,10 @@ var ctrlMain = require('../controllers/main');
 const express = require('express');
 var mysql = require('mysql');
 
+//index page
+module.exports.login = function(req,res){
+  res.render('login');
+};
 
 //add user
 module.exports.adduser = function(req,res){
@@ -127,25 +131,6 @@ module.exports.updateresults = function(req,res){
   });
 });
 };
-
-
-module.exports.updateresult = async function(req,res){
-  // let testQuery = await ctrlMain.queryPromise('SELECT short_description,preview_path FROM Question JOIN Question_History USING (q_id) WHERE paper_id = ?',[paper_id]);
-  var results =[];
-  let testQuery = await ctrlMain.queryPromise('SELECT short_description,preview_path FROM Question JOIN Question_History USING (q_id) WHERE paper_id = 1');
-  for (var i = 0; i < testQuery.length; i++) {
-    var single =[];
-    single.push(testQuery[i]['short_description'],testQuery[i]['preview_path']);
-    results.push(single);
-  }
-  console.log(results);
-  res.render('updateresult',{results:results});
-}
-
-module.exports.login = function(req,res){
-  res.render('login',{});
-}
-
 
 
 // Update result
