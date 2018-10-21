@@ -37,10 +37,10 @@
 \tableofcontents
 \frontmatter
 \small
-\chapter{Starting and Terminating the Services}
+\chapter{Booting and Terminating the Service}
 Since this version of the service runs on a local machine, it is likely you will want to not have the database and application servers running the full time the computer is running. Some instructions on how to start the service follow.
 
-The full service can be booted with the batch file provided called examdbstart.bat (you possibly will need to run the batch file as an administrator). This script will start the database and application server, and open a browser to the web-application. When you exit the application you can stop the servers running using the examdbstop.bat file if you don't wish for the service to run in the background. 
+The full service can be booted with the batch file provided called examdbstart.bat (you possibly will need to run the batch file as an administrator). This script will start the database and application server. After this process, minimise all windows and open the start\_website.bat which will open your default browser and the application. When you exit the application, press CTRL+C in the server command line or close the window ,and then run examdbstop.bat (also as administrator) file if you don't wish for the service to run in the background. 
 
 While the service is running you can access the application at any time by entering the url ``localhost:3000'' in your web-browser of choice.
 \\\\\\
