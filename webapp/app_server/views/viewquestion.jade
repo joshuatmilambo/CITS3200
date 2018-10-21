@@ -1,0 +1,63 @@
+doctype html
+html
+  head
+    // Title of Page
+    title Exam Question Database
+    // Meta Tags
+    meta(charset='UTF-8')
+    meta(name='description', content='Find existing exam questions easily')
+    meta(name='author', content='Sam Fairs, Chen Liu, Joshua Milambo, Lachlan Bunney, Michael Bleakley, Raymond Luk')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(name='keywords', content='Physics, Exam, Question, Database, Latex')
+    // Links/References
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(href='https://fonts.googleapis.com/css?family=Poppins:400,400i,700', rel='stylesheet')
+  // Body of Page
+  body
+    // Navbar
+    nav.navbar
+      .navTitle
+        a(href='/index') Exam Question Database
+        form.navSearch(action='/result')
+          input#navSearch(type='text', placeholder="Light, Electricity, Gauss's Law", name='navSearch')
+          button(type='navSubmit')
+            img(width='40px', height='40px', src='images/search_icon.png')
+      ul.navMenu
+        li
+          a(href='/') Logout
+        li
+          a(href='/upload') Upload Question
+        li
+          a(href='/test') View Test
+        li
+          a(href='/testhistory') Update Result
+    .main
+      #question.formContainer
+        h1 #{qName}
+        iframe(src=qImage)
+        .result
+          .split(style='text-align: left')
+            a(href='/questionadded?q='+qId)
+              button#addCart Add to Test
+          .split(style='text-align: right')
+            button#solution(type='noLink') Video Solution
+        .result
+          .split.thirds
+            h2 Topic
+            p #{qTopic}
+          .split.thirds
+            h2 Subtopic
+            p #{qSubtopic}
+          .split.thirds
+            h2 Year Uploaded
+            p #{qYearuploaded}
+            
+        a(href='/history')
+          button View History
+        .result.comment
+          h2 Note
+        .result.two.comment
+          p
+            | #{qComment}
+    footer.footer
+      p Example filler text for the footer of the page.

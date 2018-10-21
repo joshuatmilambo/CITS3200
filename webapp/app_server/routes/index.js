@@ -5,21 +5,24 @@ var ctrlUpload = require('../controllers/upload');
 var ctrlSearch = require('../controllers/search');
 var ctrlDownload = require('../controllers/download');
 var ctrlLogin = require ('../controllers/login');
+var ctrlViewquestion = require('../controllers/viewquestion');
+var ctrlUphistory = require ('../controllers/uploadhistory');
 
 /* GET home page. */
 router.get('/', ctrlMain.login);
 router.get('/result', ctrlSearch.result);
 router.get('/upload', ctrlMain.upload);
 router.get('/test', ctrlMain.test);
-router.get('/question', ctrlMain.question);
+router.get('/question', ctrlViewquestion.viewquestion);
 router.get('/questionadded', ctrlMain.questionadded)
 router.get('/history', ctrlMain.history);
 router.get('/testhistory',ctrlMain.testhistory);
 router.get('/updateresult',ctrlMain.updateresult);
 router.get('/index',ctrlMain.index);
 router.get('/updateresults',ctrlMain.updateresults);
-router.get('/uploadhistory',ctrlMain.uploadhistory);
+router.get('/delete',ctrlMain.delete);
 router.get('/adduser',ctrlMain.adduser);
+router.get('/uploadhistory',ctrlUphistory.uploadhistory);
 
 
 /* POST File Upload */

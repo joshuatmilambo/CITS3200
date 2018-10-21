@@ -54,10 +54,10 @@ html
               .split
                 p #{results[i][2]}
               .split
-                a(href='/question?qid=' + results[i][0])
+                a(href='/question?q=' + results[i][0])
                   p View
               .split
-                a(href='/history?qid=' + results[i][0])
+                a(href='/history?q=' + results[i][0])
                   p History
           else
             .result.one
@@ -66,10 +66,10 @@ html
               .split
                 p #{results[i][2]}
               .split
-                a(href='/question?qid=' + results[i][0])
+                a(href='/question?q=' + results[i][0])
                   p View
               .split
-                a(href='/history?qid=' + results[i][0])
+                a(href='/history?q=' + results[i][0])
                   p History
           -i = i + 1;
     // Footer
