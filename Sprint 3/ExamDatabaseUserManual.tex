@@ -106,26 +106,6 @@ Selecting the ``New Paper" option will provide you with a series of text boxes i
 \caption{Input Form for Adding a New Paper into a Question's History on Upload}
 \end{figure}
 
-\chapter{Creating a Paper}
-To begin working on a new paper you first need to create one. To do this you need to click ``New Test" on the navigation bar. This will take you to the page for creating a new paper 
-\begin{figure}[htp]
-\centering
-\includegraphics[width =10cm, height = 1cm]{example-image}
-\caption{Navigation Bar Paper Creation}
-\end{figure}
-\section{Inputting the Paper Information}
-
-There are four fields which need to be filled in for each paper to uniquely identify it:
-\par -The first field you need to fill in is the \textbf{Institution }at which the paper is being used (e.g. UWA, ANU)
-\par -The second field is the \textbf{Unit} in which you are using the paper (e.g. PHYS1001, CITS3200)
-\par -The third field is the \textbf{Assessment} name (e.g. Test: Optics, Exam, Assignment 3, Test 2)
-\par -Finally you should input the \textbf{Date} that the assessment will run.
-\par When all fields are filled in, click the create button, and you can now begin to fill up this paper.
-\begin{figure}[htp]
-\centering
-\includegraphics[width = 12cm,height = 15cm]{example-image}
-\caption{The Page for the Creation of a Paper}
-\end{figure}
 \chapter{Adding Questions to a Paper} \label{ch:qadd}
 \section{Searching the Database}
 When using the application, once logged in, the homepage for the application is a search page you can use to search for questions by keyword. To search a question, click the grey text box and type any keywords you would like to search for questions relating to. Our system will then search the database for any questions related to these, and you will be redirected to a search results page. Alternatively, you may use the search bar included in the navigation bar of the page on any other page of the application.
@@ -156,21 +136,36 @@ This page is also the page from which you can choose to add a question to your c
 This page displays a row of information for each recorded occasion on which this question has been used for a formal assessment in the past. The columns in order show, for each assessment using the question, the institution which ran the assessment, the unit the assessment was a part of, the name of the assessment, the date of the use, and finally the result for this question in that assessment. The result is displayed as the number of students who correctly answered the question over the total number of students who sat the assessment.
 \begin{figure}[H]
 \centering
-\includegraphics[width = 14cm]{example-image}
+\includegraphics[width = 16cm]{HistoryPage.PNG}
 \caption{The History Page for an Example Question}
 \end{figure}
 \chapter{Viewing Contents and Downloading a Paper}
 \section{Viewing the Contents of a Paper}
 To view the contents of a paper currently being worked on, you need to click ``View Test" in the navigation bar, this will redirect you to a page displaying the current questions within your current paper, and will allow you remove these by clicking the red (X) buttons beside the question you wish to remove. You can find any question you accidentally remove by searching again for the question (as per chapter \ref{ch:qadd}). In this page there is also a link to the preview of each question, as discussed in section \ref{sec:pre}.\par
-\begin{figure}[htp]
+\begin{figure}[H]
 \centering
-\includegraphics[width = 8cm, height = 11cm]{example-image}
+\includegraphics[height = 12cm]{example-image}
 \caption{The View In Progress Test Page}
 \end{figure}
 
 \section{Downloading a Paper}
 To download a paper, simply click the "Download" button at the bottom of the page. \par You will receive a compressed (.ZIP) folder containing a .tex file containing the files for each question appended together, and a sub-directory called 'figs' containing the images from each question.
 \par \textbf{Note: Figure references in the combined test file may not match 1:1 with images in the figs folder, and some file names and paths may need changing in the .tex file or the figs folder manually.}
+\subsection{Paper Information}
+To download a paper you first need to give information about the paper. To do this you need to fill in the information on the contents and download page. 	There are four fields which need to be filled in for each paper to uniquely identify it:
+\small
+\par -The first field you need to fill in is the \textbf{Institution }at which the paper is being used (e.g. UWA, ANU)
+\par -The second field is the \textbf{Unit} in which you are using the paper (e.g. PHYS1001, CITS3200)
+\par -The third field is the \textbf{Assessment} name (e.g. Test: Optics, Exam, Assignment 3, Test 2)
+\par -Finally you should input the \textbf{Date} that the assessment will run.
+\normalsize
+\\ When all fields are filled in, click the create button, and you can now begin to fill up this paper.
+\begin{figure}[htp]
+\centering
+\includegraphics[height = 12cm]{example-image}
+\caption{The Page for the Creation of a Paper}
+\end{figure}
+
 
 
 \chapter{Updating a Paper's Results}\label{ch:upres}
