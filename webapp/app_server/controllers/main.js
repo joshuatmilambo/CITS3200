@@ -12,13 +12,6 @@ module.exports.addnewuser = function(req,res){
   var username=req.body.username;
   var password=req.body.password;
   var userexist=false;
-  var connection=mysql.createConnection({
-  host : 'localhost',
-  user : 'root',
-  password : 'cits3200',
-  port : '3306',
-  database: 'CITS3200'
-  });
   connection.connect(function(err) {
   	if (err) throw err;
   	connection.query('select * from user',function(err,result,fields){
@@ -89,13 +82,6 @@ module.exports.testhistory = function(req,res){
   var userid=req.session.user;
   console.log(userid);
   var testhistories;
-  var connection=mysql.createConnection({
-  host : '127.0.0.1',
-  user : 'root',
-  password : 'Aa18605323205',
-  prot : '3306',
-  database: 'cits3200'
-  });
   var username=req.session.user
   connection.connect(function(err) {
     if (err) throw err;
@@ -114,13 +100,6 @@ module.exports.updateresults = function(req,res){
   var username=req.session.user;
   console.log(pid);
   console.log(username);
-  var connection=mysql.createConnection({
-  host : '127.0.0.1',
-  user : 'root',
-  password : 'Aa18605323205',
-  prot : '3306',
-  database: 'cits3200'
-  });
   connection.connect(function(err) {
     if (err) throw err;
     connection.query('select * from ((question_history join question on question_history.q_id=question.q_id) join paper on question_history.paper_id=paper.paper_id) where paper.paper_id="'+pid+'"',function(err,result,fields){
@@ -170,13 +149,6 @@ module.exports.update = function(req,res){
   var qid=req.body.qid;
   console.log(qid);
   var pid=req.query.p;
-  var connection=mysql.createConnection({
-  host : '127.0.0.1',
-  user : 'root',
-  password : 'Aa18605323205',
-  prot : '3306',
-  database: 'cits3200'
-  });
   connection.connect(function(err) {
     if (err) throw err;
     for (n=0; n<correct.length;n++){

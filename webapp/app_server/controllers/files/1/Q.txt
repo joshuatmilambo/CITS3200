@@ -1,0 +1,18 @@
+Four moles of an ideal diatomic gas ($C_V=5R/2$) are taken from $A$ to $B$ by the \emph{straight} path shown on the $pV$ diagram in Figure 1 below.
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[angle=0,width=0.9\textwidth]{pics/figure2.eps}
+\caption{See questions 3 to 5}
+\label{ht1}
+\end{center}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\question The heat flow $Q$ into the gas during the process from $A$ to $B$ is closest to: \\
+\mcs{0\,kJ}{5\,kJ}{15\,kJ}{25\,kJ}{35\,kJ}
+
+\begin{solution}
+25\,kJ
+\end{solution}

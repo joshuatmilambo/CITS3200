@@ -1,6 +1,8 @@
 var ctrlMain = require('../controllers/main');
 var JSZip = require('jszip');
 var fs = require('fs');
+var formidable = require('formidable');
+var moment = require('moment');
 var image_data = [];
 var filecontents = '';
 
@@ -34,6 +36,43 @@ module.exports.download = async function(req, res) {
 	res.set('Content-disposition', 'attachmemt; filename=test.zip');
 	res.set('Content-Type', 'nodebuffer');
 
+	//Get info submitted from form
+	var form = new formidable.IncomingForm(),
+		fields = [];
+
+	form
+	//All text fields stored in array with field name and value
+	.on('field', function(field, value) {
+		console.log(field, value);
+		fields.push([field, value]);
+	})
+
+	.on('end', async function() {
+		var inst, unit, assess, date;
+		for(var i = 0; i < fields.length; i++) {
+			if(fields[i][0] === 'inst') {
+				inst = fields[i][1];
+			}
+			else if(fields[i][0] === 'unit') {
+				unit = fields[i][1];
+			}
+			else if(fields[i][0] === 'assessment') {
+				assess = fields[i][1];
+			}
+			else{
+				date = fields[i][1];
+			}
+		}
+
+		let paperInsert = await ctrlMain.queryPromise("INSERT INTO paper (user_id, status, institution, unit, assessment, date) VALUES (?,?,?,?,?,?)", 
+			[req.session.user, 'in progress', inst, unit, assess, date], function(err, result) {
+				if(err) throw err;
+			});
+
+	})
+
+	form.parse(req);
+
 	//Get number of questions in paper
 	let downloadQuery = await ctrlMain.queryPromise('SELECT q_id FROM temp_paper');
 	console.log(downloadQuery.length);
@@ -58,5 +97,9 @@ module.exports.download = async function(req, res) {
 		.pipe(res)
 
 	//Reset temp_paper table
-	let reset = connection.query('DELETE FROM temp_paper WHERE q_id = ' + downloadQuery[i]['q_id']);
+	for(var i = 0; i < downloadQuery.length; i++) {
+		connection.query('DELETE FROM temp_paper WHERE q_id = ' + downloadQuery[i]['q_id'], function(err, result) {
+			if(err) throw err;
+		});
+	}
 };
