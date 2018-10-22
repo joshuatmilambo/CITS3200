@@ -101,12 +101,11 @@ CREATE TABLE `Question_History` (
 CREATE TABLE `User` (
   `user_id` int(8) NOT NULL,
   `user_name` varchar(50) NOT NULL,
-  `user_type` varchar(20) DEFAULT NULL,
-  `user_password` varchar(50) NOT NULL
+  `user_type` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 INSERT INTO `User` VALUES
-(1,'John','professor','cits3200');
+(1,'John','cits3200');
 
 --
 -- Indexes for dumped tables

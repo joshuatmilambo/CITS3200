@@ -75,8 +75,8 @@ module.exports.insertHistory = async function(req,res) {
 
       console.log(newpapers);
       for(var i = 0; i < newpapers; i++) {
-        let insertPaper = await ctrlMain.queryPromise("INSERT INTO paper (user_id, status, institution, unit, assessment, date) VALUES (?,?,?,?,?,?)",
-        [req.session.user, "complete", data[i][0], data[i][1], data[i][2], data[i][3]], function(err, results) {
+        let insertPaper = await ctrlMain.queryPromise("INSERT INTO paper (user_id, institution, unit, assessment, date) VALUES (?,?,?,?,?)",
+        [req.session.user, data[i][0], data[i][1], data[i][2], data[i][3]], function(err, results) {
           if(err) throw err;
         });
         
