@@ -115,10 +115,10 @@ html
             - formn++;
                   
         h2
-          a(href='/uploadhistory?formno=' + (parseInt(formno)+1))
+          a(href='/uploadhistory?formno=' + (parseInt(formno)+1)+ '&qid=' + qid)
             button(id = 'add', value=parseInt(formno)+1,name="formno", type="button") Add Paper 
           if(formno > 1) 
-            a(href='/uploadhistory?formno=' + (parseInt(formno)-1))
+            a(href='/uploadhistory?formno=' + (parseInt(formno)-1)+ '&qid=' + qid)
               button(id = 'add', value=parseInt(formno)-1,name="formno", type="button") Remove Last Paper
 
           button(id = 'submit', type="submit", value="Submit") Submit
