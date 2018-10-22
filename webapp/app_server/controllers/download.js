@@ -84,6 +84,14 @@ module.exports.download = async function(req, res) {
 			imageBuilder(fileQuery[0]['zip_path']);
 		}
 
+	let maxpid = await ctrlMain.queryPromise('SELECT max(paper_id) FROM paper');
+	        var newpid=maxpid[0]['max(paper_id)'];
+	        //let q_ids = await ctrlMain.queryPromise('SELECT q_id FROM temp_paper where user_id='+req.session.user+'');
+	        var k=0;
+	        for (var k=0; k<downloadQuery.length; k++){
+	            let historyInsert = await ctrlMain.queryPromise('INSERT INTO question_history (q_id,paper_id) VALUES ('+downloadQuery[k]['q_id']+','+newpid+')');
+	       }
+
 	//Create zip containg appended text files and images
 	var zip = new JSZip();
 	zip.file("Questions.txt", filecontents);
@@ -97,7 +105,7 @@ module.exports.download = async function(req, res) {
 
 	//Reset temp_paper table
 	for(var i = 0; i < downloadQuery.length; i++) {
-		connection.query('DELETE FROM temp_paper WHERE q_id = ' + downloadQuery[i]['q_id'], function(err, result) {
+		connection.query('DELETE FROM temp_paper WHERE q_id = ' + downloadQuery[i]['q_id']+' AND user_id = '+req.session.user, function(err, result) {
 			if(err) throw err;
 		});
 	}
