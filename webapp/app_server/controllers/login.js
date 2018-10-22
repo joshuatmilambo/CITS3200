@@ -13,7 +13,7 @@ module.exports.login = function(req,res){
     if(err) throw err;
     for(i=0;i<result.length;i++){
       if(username==result[i].user_name){
-        if(password==result[i].user_type){
+        if(password==result[i].user_password){
           req.session.user=result[i].user_id;
           //vaild master
           if(result[i].user_id=='1'){
