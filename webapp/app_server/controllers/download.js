@@ -90,7 +90,7 @@ module.exports.download = async function(req, res) {
 	var img = zip.folder("images");
 	for (i = 0; i < image_data.length; i++){
 		var buff = new Buffer(image_data[i], "base64");
-		img.file("fig"+(i++)+".png", buff);
+		img.file("fig"+(i++)+".eps", buff);
 	}
 	zip.generateNodeStream({type:"nodebuffer", streamFiles:true})
 		.pipe(res)
